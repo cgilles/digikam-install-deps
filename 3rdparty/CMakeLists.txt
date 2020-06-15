@@ -1,6 +1,6 @@
 # Rules to build 3rd-party libraries.
 #
-# Copyright (c) 2015-2017, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2015-2020, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -42,5 +42,7 @@ set(GLOBAL_PROFILE ${GLOBAL_PROFILE} -DBUILD_TESTING=false)
 set(PATCH_COMMAND patch)
 
 # this list must be dependency-ordered
+add_subdirectory(ext_openssl)
 add_subdirectory(ext_qt)
 add_subdirectory(ext_qtwebkit)
+add_subdirectory(ext_cmake)

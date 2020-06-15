@@ -1,13 +1,9 @@
-REM ################################################################################
-REM #
-REM # Script to host common methods for Windows.
-REM #
-REM # 2015-2020 - Gilles Caulier <gilles.caulier@cea.fr>
-REM #
-REM # Licensed Material - Program Property of IRFM
-REM # (c) CEA Cadarache - DSM/CAD/IRFM/STEP/GEAC
-REM #
-REM ################################################################################
+REM Script to configure project based on CMake for Windows.
+REM 
+REM Copyright (c) 2013-2020, Gilles Caulier, <caulier dot gilles at gmail dot com>
+REM 
+REM Redistribution and use is allowed according to the terms of the BSD license.
+REM For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
 REM The first argument is the method name.
 goto %1
