@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# Copyright (c) 2013-2017, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Script to configure project based on CMake for Linux.
+#
+# Copyright (c) 2013-2020, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -76,7 +78,7 @@ else
 fi
 
 # if the library path doesn't point to our usr/lib, linking will be broken and we won't find all deps either
-export LD_LIBRARY_PATH=/usr/lib64/:/usr/lib:/digikam.appdir/usr/lib
+export LD_LIBRARY_PATH=/usr/lib64/:/usr/lib
 
 }
 
@@ -97,5 +99,53 @@ for FILE in $FILES ; do
 #        echo "   ==> $FILE"
     fi
 done
+
+}
+
+#################################################################################################
+# Check Linux OS version and name.
+ChecksLinuxVersionAndName()
+{
+
+if [ -f /etc/os-release ]; then
+    # freedesktop.org and systemd
+    . /etc/os-release
+    LINUX_NAME=$NAME
+    LINUX_VERSION=$VERSION_ID
+elif type lsb_release >/dev/null 2>&1; then
+    # linuxbase.org
+    LINUX_NAME=$(lsb_release -si)
+    LINUX_VERSION=$(lsb_release -sr)
+elif [ -f /etc/lsb-release ]; then
+    # For some versions of Debian/Ubuntu without lsb_release command
+    . /etc/lsb-release
+    LINUX_NAME=$DISTRIB_ID
+    LINUX_VERSION=$DISTRIB_RELEASE
+elif [ -f /etc/debian_version ]; then
+    # Older Debian/Ubuntu/etc.
+    LINUX_NAME=Debian
+    LINUX_VERSION=$(cat /etc/debian_version)
+else
+    # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
+    LINUX_NAME=$(uname -s)
+    LINUX_VERSION=$(uname -r)
+fi
+
+echo "System Info: $LINUX_NAME $LINUX_VERSION"
+
+}
+
+#################################################################################################
+# Check GCC version.
+ChecksGccVersion()
+{
+
+GCC_VERSION=$(gcc -dumpversion)
+
+GCC_MAJOR=$(echo $GCC_VERSION | cut -d '.' -f 1)
+GCC_MINOR=$(echo $GCC_VERSION | cut -d '.' -f 2)
+GCC_PATCH=$(echo $GCC_VERSION | cut -d '.' -f 3)
+
+echo "GCC Version: $GCC_MAJOR.$GCC_MINOR.$GCC_PATCH"
 
 }
