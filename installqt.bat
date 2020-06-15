@@ -40,7 +40,7 @@ cmake -DCMAKE_INSTALL_PREFIX:PATH="%INSTALL_DIR%" ^
 
 cmake --build . --config RelWithDebInfo --target ext_openssl
 cmake --build . --config RelWithDebInfo --target ext_qt
-cmake --build . --config RelWithDebInfo --target ext_qtmqtt
+cmake --build . --config RelWithDebInfo --target ext_qtav
 
 REM For elapsed time mesurement
 

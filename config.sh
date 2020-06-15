@@ -11,6 +11,9 @@
 
 ORIG_WD="`pwd`"
 
+# Option to use QtWebEngine instead QtWebkit
+QT_WEBENGINE=1
+
 # Directory where code will be compiled.
 #BUILDING_DIR="$ORIG_WD/build.qt5"
 BUILDING_DIR="/mnt/data/build.qt5"
