@@ -52,6 +52,12 @@ fi
 #################################################################################################
 # Create the directories
 
+if [[ ! -d $DOWNLOAD_DIR ]] ; then
+
+    mkdir $DOWNLOAD_DIR
+
+fi
+
 if [[ ! -d $BUILDING_DIR ]] ; then
 
     mkdir $BUILDING_DIR
@@ -73,6 +79,7 @@ rm -rf $BUILDING_DIR/* || true
 cmake $ORIG_WD/3rdparty \
       -DCMAKE_INSTALL_PREFIX:PATH=/$INSTALL_DIR \
       -DQT_VERSION=$QT_VERSION \
+      -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
       -DINSTALL_ROOT=$INSTALL_DIR
 
 cmake --build . --config RelWithDebInfo --target ext_qt       -- -j$CPU_CORES
