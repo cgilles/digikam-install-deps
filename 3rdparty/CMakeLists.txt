@@ -6,36 +6,83 @@
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 #
 
-cmake_minimum_required(VERSION 2.8.6)
+cmake_minimum_required(VERSION 2.8.12)
 
 function(JoinListAsString VALUES GLUE OUTPUT)
+
     string(REPLACE ";" "${GLUE}" _TMP_STR "${VALUES}")
     set(${OUTPUT} "${_TMP_STR}" PARENT_SCOPE)
+
 endfunction()
 
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
+
     message(FATAL_ERROR "Compiling in the source directory is not supported. Use for example 'mkdir build; cd build; cmake ..'.")
+
+endif()
+
+# Check Compile requirements
+
+find_package(Perl         REQUIRED)
+find_package(PythonInterp REQUIRED)
+
+if(NOT WIN32)
+
+    find_package(X11        REQUIRED)
+    find_package(XCB        REQUIRED)
+    find_package(Cups       REQUIRED)
+    find_package(EGL        REQUIRED)
+    find_package(XKBCommon  REQUIRED)
+    find_package(FontConfig REQUIRED)
+    find_package(SLang      REQUIRED)
+
+endif()
+
+# Check if Jom is present if necessary under Windows
+
+if(MSVC)
+
+    find_program(JOMEXEC jom.exe)
+
+    if(JOMEXEC)
+
+        # Parallel compilation with automatic detection of core to use.
+        set(BUILD_CLI jom)
+        message(STATUS "Jom is detected on this system and will be used to parallelize compilation...")
+
+    else()
+
+        # Single core compilation with M$ tools...
+        set(BUILD_CLI nmake)
+        message(STATUS "Jom is not detected on this system. Compilation will not be parallelized...")
+
+    endif()
+
 endif()
 
 # Tools must be obtained to work with:
-include (ExternalProject)
+include(ExternalProject)
 
 # allow specification of a directory with pre-downloaded
 # requirements
 if(NOT IS_DIRECTORY ${EXTERNALS_DOWNLOAD_DIR})
+
     message(FATAL_ERROR "No externals download dir set. Use -DEXTERNALS_DOWNLOAD_DIR")
+
 endif()
 
 if(NOT IS_DIRECTORY ${INSTALL_ROOT})
+
     message(FATAL_ERROR "No install dir set. Use -DINSTALL_ROOT")
+
 endif()
 
 set(TOP_INST_DIR ${INSTALL_ROOT})
 set(EXTPREFIX "${TOP_INST_DIR}")
 set(CMAKE_PREFIX_PATH "${EXTPREFIX}")
 
-message( STATUS "CMAKE_GENERATOR: ${CMAKE_GENERATOR}")
-message( STATUS "CMAKE_CL_64: ${CMAKE_CL_64}")
+message(STATUS "CMAKE_GENERATOR: ${CMAKE_GENERATOR}")
+message(STATUS "CMAKE_CL_64: ${CMAKE_CL_64}")
 
 set(GLOBAL_BUILD_TYPE RelWithDebInfo)
 set(GLOBAL_PROFILE ${GLOBAL_PROFILE} -DBUILD_TESTING=false)
