@@ -1,4 +1,4 @@
-# Script to build OpenCV for digiKam bundle.
+# Script to build OpenCV.
 #
 # Copyright (c) 2015-2020 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #

@@ -1,4 +1,4 @@
-# Script to build libksane for digiKam bundle.
+# Script to build libksane.
 #
 # Copyright (c) 2015-2020 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
