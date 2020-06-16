@@ -1,0 +1,94 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 23e3f8c..432a549 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -44,13 +44,13 @@ find_package(KF5I18n ${KF5_VERSION} REQUIRED)
+ 
+ if (NOT WIN32)
+     find_package(KF5WidgetsAddons ${KF5_VERSION} REQUIRED)
+-    find_package(KF5TextWidgets ${KF5_VERSION} REQUIRED)
++#    find_package(KF5TextWidgets ${KF5_VERSION} REQUIRED)
+ 
+     # Optional KF5 frameworks
+-    find_package(KF5Wallet ${KF5_VERSION})
+-    set_package_properties(KF5Wallet PROPERTIES DESCRIPTION "Safe desktop-wide storage for passwords" TYPE OPTIONAL
+-        PURPOSE "Required to have permanent storage of passwords for scanners"
+-    )
++#    find_package(KF5Wallet ${KF5_VERSION})
++#    set_package_properties(KF5Wallet PROPERTIES DESCRIPTION "Safe desktop-wide storage for passwords" TYPE OPTIONAL
++#        PURPOSE "Required to have permanent storage of passwords for scanners"
++#    )
+ 
+     # Check if sane API is available.
+     find_package(Sane REQUIRED)
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index ce116aa..29aa535 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -56,7 +56,7 @@ target_link_libraries(KF5Sane
+ 
+         KF5::I18n
+         KF5::WidgetsAddons
+-        KF5::TextWidgets
++#        KF5::TextWidgets
+         ${WALLET_LIB}
+ )
+ 
+diff --git a/src/widgets/labeledslider.cpp b/src/widgets/labeledslider.cpp
+index 78abcbf..369a57c 100644
+--- a/src/widgets/labeledslider.cpp
++++ b/src/widgets/labeledslider.cpp
+@@ -32,10 +32,11 @@
+ 
+ #include <QLabel>
+ #include <QSlider>
++#include <QSpinBox>
+ 
+ // KDE includes
+ 
+-#include <kpluralhandlingspinbox.h>
++#include <klocalizedstring.h>
+ 
+ namespace KSaneIface
+ {
+@@ -55,7 +56,7 @@ LabeledSlider::LabeledSlider(QWidget *parent, const QString &ltext,
+     m_slider->setMaximum(max);
+     m_slider->setSingleStep(m_step);
+ 
+-    m_spinb = new KPluralHandlingSpinBox(this);
++    m_spinb = new QSpinBox(this);
+     m_spinb->setMinimum(min);
+     m_spinb->setMaximum(max);
+     m_slider->setSingleStep(m_step);
+@@ -84,7 +85,7 @@ LabeledSlider::~LabeledSlider()
+ 
+ void LabeledSlider::setSuffix(const KLocalizedString &text)
+ {
+-    m_spinb->setSuffix(text);
++    m_spinb->setSuffix(text.toString());
+ }
+ 
+ void LabeledSlider::setValue(int value)
+diff --git a/src/widgets/labeledslider.h b/src/widgets/labeledslider.h
+index 4d7cd8c..282971f 100644
+--- a/src/widgets/labeledslider.h
++++ b/src/widgets/labeledslider.h
+@@ -31,7 +31,8 @@
+ 
+ #include "ksaneoptionwidget.h"
+ 
+-class QSlider;
++#include <QSlider>
++#include <QSpinBox>
+ 
+ /**
+   *@author Kåre Särs
+@@ -94,7 +95,7 @@ Q_SIGNALS:
+ 
+ private:
+     QSlider   *m_slider;
+-    KPluralHandlingSpinBox  *m_spinb;
++    QSpinBox  *m_spinb;
+     int        m_step;
+ };
+ 

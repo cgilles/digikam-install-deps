@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 494b146..9e557f8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -61,7 +61,7 @@ ENDIF()
+ 
+ # overwrite some folders before GNUInstallDirs is loaded
+ IF (WIN32 AND NOT DEFINED CMAKE_INSTALL_DATAROOTDIR)
+-    SET(CMAKE_INSTALL_DATAROOTDIR "$ENV{ALLUSERSPROFILE}" CACHE PATH "read-only architecture-independent data root (share)")
++#    SET(CMAKE_INSTALL_DATAROOTDIR "$ENV{ALLUSERSPROFILE}" CACHE PATH "read-only architecture-independent data root (share)")
+ ENDIF()
+ 
+ # get standard GNU install directories for the current platform
