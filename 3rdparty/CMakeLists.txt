@@ -8,6 +8,17 @@
 
 cmake_minimum_required(VERSION 2.8.12)
 
+IF(WIN32)
+
+    SET(CMAKE_SYSTEM_VERSION ${WINDOWS_TARGET_VERSION} CACHE TYPE INTERNAL FORCE)
+    MESSAGE(STATUS "Windows version for backward compatibility: ${WINDOWS_TARGET_VERSION}")
+
+ENDIF()
+
+PROJECT(installdeps)
+
+SET(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../cmake/modules ${CMAKE_MODULE_PATH})
+
 function(JoinListAsString VALUES GLUE OUTPUT)
 
     string(REPLACE ";" "${GLUE}" _TMP_STR "${VALUES}")
@@ -34,7 +45,7 @@ if(NOT WIN32)
     find_package(EGL        REQUIRED)
     find_package(XKBCommon  REQUIRED)
     find_package(FontConfig REQUIRED)
-    find_package(SLang      REQUIRED)
+    find_package(OpenSSL    REQUIRED)
 
 endif()
 
