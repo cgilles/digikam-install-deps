@@ -47,6 +47,8 @@ if(NOT WIN32)
     find_package(FontConfig REQUIRED)
     find_package(OpenSSL    REQUIRED)
 
+    # Check libstd++ for QWebEngine
+
 endif()
 
 # Check if Jom is present if necessary under Windows
