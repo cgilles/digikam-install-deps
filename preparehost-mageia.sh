@@ -65,6 +65,7 @@ urpmi --auto \
       freetype-devel \
       patchelf \
       dpkg \
+      ninja \
       python \
       ruby \
       ruby-devel \
