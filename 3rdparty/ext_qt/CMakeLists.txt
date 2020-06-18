@@ -32,7 +32,6 @@ ExternalProject_Add(ext_qt
                   -iconv                            # International string conversion
                   -fontconfig
                   -system-freetype                  # Use system font rendering lib https://doc.qt.io/qt-5/qtgui-attribution-freetype.html
-#                  -openssl-linked                   # hard link ssl libraries
                   -nomake tests                     # Do not build test codes
                   -nomake examples                  # Do not build basis example codes
                   -no-compile-examples              # Do not build extra example codes

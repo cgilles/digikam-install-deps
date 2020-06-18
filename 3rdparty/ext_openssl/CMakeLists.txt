@@ -8,24 +8,21 @@
 
 SET(EXTPREFIX_openssl "${EXTPREFIX}")
 
-IF (MSVC)
+ExternalProject_Add(ext_openssl
 
-    ExternalProject_Add(ext_openssl
+    GIT_REPOSITORY https://github.com/viaduck/openssl-cmake.git
 
-        GIT_REPOSITORY https://github.com/janbar/openssl-cmake.git
-        GIT_TAG 1.1.1g-20200510
+    INSTALL_DIR ${EXTPREFIX_openssl}
 
-        INSTALL_DIR ${EXTPREFIX_openssl}
+    CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTPREFIX_openssl}
+               -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
+               -DBUILD_OPENSSL=ON
+               -DOPENSSL_BUILD_VERSION=1.1.1g
+               ${GLOBAL_PROFILE}
 
-        CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTPREFIX_openssl}
-                   -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
-                   ${GLOBAL_PROFILE}
+    BUILD_COMMAND ${BUILD_CLI}
 
-        BUILD_COMMAND ${BUILD_CLI}
-
-        UPDATE_COMMAND ""
-        BUILD_IN_SOURCE 1
-        ALWAYS 0
-    )
-
-ENDIF()
+    UPDATE_COMMAND ""
+    BUILD_IN_SOURCE 1
+    ALWAYS 0
+)
