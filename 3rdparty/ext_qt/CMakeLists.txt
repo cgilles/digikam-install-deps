@@ -21,8 +21,12 @@ ExternalProject_Add(ext_qt
     URL https://download.qt.io/official_releases/qt/5.15/5.15.0/single/qt-everywhere-src-5.15.0.tar.xz
     URL_MD5 610a228dba6ef469d14d145b71ab3b88
 
+    CMAKE_ARGS -DOPENSSL_LIBS='-L${EXTPREFIX_qt}/lib -lssl -lcrypto'
+
     CONFIGURE_COMMAND <SOURCE_DIR>/configure
                   -prefix ${EXTPREFIX_qt}
+                  -I ${EXTPREFIX_qt}/include
+                  -L ${EXTPREFIX_qt}/lib
                   -verbose
                   -release
                   -opensource
@@ -30,6 +34,7 @@ ExternalProject_Add(ext_qt
                   -sql-sqlite                       # Compile Sqlite SQL plugin
                   -sql-mysql                        # Compile Mysql SQL plugin
                   -iconv                            # International string conversion
+                  -openssl-linked
                   -fontconfig
                   -system-freetype                  # Use system font rendering lib https://doc.qt.io/qt-5/qtgui-attribution-freetype.html
                   -nomake tests                     # Do not build test codes
@@ -48,7 +53,6 @@ ExternalProject_Add(ext_qt
                   -qt-zlib
                   -qt-pcre
                   -qt-harfbuzz
-#                  -qt-xcb
                   -skip qt3d                        # 3D core
                   -skip qtactiveqt                  # No need ActiveX support
                   -skip qtandroidextras             # For embeded devices only
