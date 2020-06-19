@@ -82,9 +82,10 @@ cmake $ORIG_WD/3rdparty \
       -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
       -DINSTALL_ROOT=$INSTALL_DIR
 
-cmake --build . --config RelWithDebInfo --target ext_opencv   -- -j$CPU_CORES
-cmake --build . --config RelWithDebInfo --target ext_exiv2    -- -j$CPU_CORES
-cmake --build . --config RelWithDebInfo --target ext_lensfun  -- -j$CPU_CORES
+#cmake --build . --config RelWithDebInfo --target ext_openssl  -- -j$CPU_CORES
+#cmake --build . --config RelWithDebInfo --target ext_opencv   -- -j$CPU_CORES
+#cmake --build . --config RelWithDebInfo --target ext_exiv2    -- -j$CPU_CORES
+#cmake --build . --config RelWithDebInfo --target ext_lensfun  -- -j$CPU_CORES
 
 cmake --build . --config RelWithDebInfo --target ext_qt       -- -j$CPU_CORES
 
@@ -92,8 +93,8 @@ if [[ $QT_WEBENGINE = 0 ]] ; then
     cmake --build . --config RelWithDebInfo --target ext_qtwebkit  -- -j$CPU_CORES
 fi
 
-cmake --build . --config RelWithDebInfo --target ext_qtav     -- -j$CPU_CORES
-cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
+#cmake --build . --config RelWithDebInfo --target ext_qtav     -- -j$CPU_CORES
+#cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
 
 #################################################################################################
 

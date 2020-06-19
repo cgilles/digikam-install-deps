@@ -9,12 +9,6 @@
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 #
 
-if [[ "$(arch)" = "x86_64" ]] ; then
-    LIBSUFFIX=lib64
-else
-    LIBSUFFIX=lib
-fi
-
 # Packages for base dependencies and Qt5.
 
 urpmi --auto \
@@ -108,4 +102,4 @@ urpmi --auto \
 # Remove system based devel package to prevent conflict with new one.
 
 urpme --auto --force lib64qt5core5-devel \
-                     openssl-devel
+                     lib64openssl-devel
