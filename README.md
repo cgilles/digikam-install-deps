@@ -8,7 +8,7 @@ Included dependencies are:
 - CMake         > 3.17
 - Openssl       > 1.1.1
 - OpenCV        > 4.3
-- Exiv2         > 0.17
+- Exiv2         > 0.27
 - Lensfun       > master
 - Qt5           > 5.15
 - QtAV          > master
@@ -27,11 +27,11 @@ Target OS with low level dependencies install script are
 - Windows
     * MSVC2019  todo
 
-To setup computer you need:
+To setup computer you need to:
 
-- to run as root the "preparehost" script for your operating system.
-- to configure paths to use in config file.
-- to run the installdeps script and wait a take a coffee.
+- run as root the "preparehost" script for your operating system.
+- configure paths to use in config file.
+- run the installdeps script and take a coffee.
 
 All dependencies are installed at the same place (aka /opt/qt5).
 
