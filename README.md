@@ -16,13 +16,15 @@ Included dependencies are:
 
 Target OS with low level dependencies install script are:
 
-| Linux Mageia   | done | preparehost-mageia.sh |
-| Linux Raspbian | todo |                       |
-| Linux Centos   | todo |                       |
-| Suse           | todo |                       |
-| Ubuntu         | todo |                       |
-| Raspbian       | todo |                       |
-| Windows        | todo |                       |
+| Operating system | Status | Script                |
+|------------------|--------|-----------------------|
+| Linux Mageia     | done   | preparehost-mageia.sh |
+| Linux Raspbian   | todo   |                       |
+| Linux Centos     | todo   |                       |
+| Suse             | todo   |                       |
+| Ubuntu           | todo   |                       |
+| Raspbian         | todo   |                       |
+| Windows          | todo   |                       |
 
 To setup computer you need to:
 
@@ -34,9 +36,9 @@ All dependencies are installed at the same place (aka /opt/qt5).
 
 To configure digiKam for Linux compilation with the customized dependencies:
 
- # export Qt5_DIR=/opt/qt5
- # export CMAKE_BINARY=/opt/qt5/bin/cmake
- # ./bootstrap.sh
+- export Qt5_DIR=/opt/qt5
+- export CMAKE_BINARY=/opt/qt5/bin/cmake
+- ./bootstrap.sh
 
 ------------------------------------------------------------
 Gilles Caulier
