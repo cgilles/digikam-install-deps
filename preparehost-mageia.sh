@@ -47,7 +47,6 @@ urpmi --auto \
       glibc-devel \
       mysql-devel \
       eigen3-devel \
-      openssl-devel \
       cppunit-devel \
       libstdc++-devel \
       libstdc++-static-devel \
@@ -105,3 +104,8 @@ urpmi --auto \
       lib64curl-devel \
       lib64magick-devel \
       lib64wayland-devel
+
+# Remove system based devel package to prevent conflict with new one.
+
+urpme --auto --force lib64qt5core5-devel \
+                     openssl-devel
