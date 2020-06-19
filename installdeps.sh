@@ -21,6 +21,7 @@ exec > >(tee ./logs/installqt.full.log) 2>&1
 
 . ./common.sh
 . ./config.sh
+ChecksRunAsRoot
 StartScript
 ChecksCPUCores
 ChecksLinuxVersionAndName
@@ -92,6 +93,8 @@ cd $BUILDING_DIR
 
 rm -rf $BUILDING_DIR/* || true
 
+export OPENSSL_LIBS="-lssl -lcrypto -lpthread -ldl"
+
 $INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
       -DCMAKE_INSTALL_PREFIX:PATH=/$INSTALL_DIR \
       -DENABLE_QTWEBENGINE=$QT_WEBENGINE \
@@ -99,10 +102,9 @@ $INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
       -DINSTALL_ROOT=$INSTALL_DIR
 
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl   -- -j$CPU_CORES
-#$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_opencv   -- -j$CPU_CORES
-#$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_exiv2    -- -j$CPU_CORES
-#$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_lensfun  -- -j$CPU_CORES
-
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_opencv   -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_exiv2    -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_lensfun  -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt       -- -j$CPU_CORES
 
 # --- In third, install Qt5 based frameworks

@@ -15,12 +15,14 @@ ORIG_WD="`pwd`"
 QT_WEBENGINE=1
 
 # Absolute path where are downloaded all tarballs to compile.
-DOWNLOAD_DIR="$ORIG_WD/dwnld.qt5"
+#DOWNLOAD_DIR="$ORIG_WD/dwnld.qt5"
+DOWNLOAD_DIR="/mnt/devel/dwnld.qt5"
 
 # Directory where code will be compiled.
 #BUILDING_DIR="$ORIG_WD/build.qt5"
-BUILDING_DIR="$ORIG_WD/build.qt5"
+BUILDING_DIR="/mnt/devel/build.qt5"
 
 # Directory where Qt5 will be installed.
-INSTALL_DIR="/opt/qt5"
+INSTALL_DIR="/mnt/devel/qt5"
+#INSTALL_DIR="/opt/qt5"
 #INSTALL_DIR="$ORIG_WD/qt5"
