@@ -72,6 +72,8 @@ fi
 
 #################################################################################################
 
+# --- In first install most recent cmake version
+
 cd $BUILDING_DIR
 
 rm -rf $BUILDING_DIR/* || true
@@ -82,19 +84,89 @@ cmake $ORIG_WD/3rdparty \
       -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
       -DINSTALL_ROOT=$INSTALL_DIR
 
-#cmake --build . --config RelWithDebInfo --target ext_openssl  -- -j$CPU_CORES
-#cmake --build . --config RelWithDebInfo --target ext_opencv   -- -j$CPU_CORES
-#cmake --build . --config RelWithDebInfo --target ext_exiv2    -- -j$CPU_CORES
-#cmake --build . --config RelWithDebInfo --target ext_lensfun  -- -j$CPU_CORES
+#cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
 
-cmake --build . --config RelWithDebInfo --target ext_qt       -- -j$CPU_CORES
+# --- In second install most recent version of low level libs and Qt
+
+cd $BUILDING_DIR
+
+rm -rf $BUILDING_DIR/* || true
+
+$INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
+      -DCMAKE_INSTALL_PREFIX:PATH=/$INSTALL_DIR \
+      -DENABLE_QTWEBENGINE=$QT_WEBENGINE \
+      -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
+      -DINSTALL_ROOT=$INSTALL_DIR
+
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl   -- -j$CPU_CORES
+#$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_opencv   -- -j$CPU_CORES
+#$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_exiv2    -- -j$CPU_CORES
+#$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_lensfun  -- -j$CPU_CORES
+
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt       -- -j$CPU_CORES
+
+# --- In third, install Qt5 based frameworks
+
+cd $BUILDING_DIR
+
+rm -rf $BUILDING_DIR/* || true
+
+export Qt5_DIR=$INSTALL_DIR
+
+$INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
+      -DCMAKE_INSTALL_PREFIX:PATH=/$INSTALL_DIR \
+      -DENABLE_QTWEBENGINE=$QT_WEBENGINE \
+      -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
+      -DINSTALL_ROOT=$INSTALL_DIR
 
 if [[ $QT_WEBENGINE = 0 ]] ; then
-    cmake --build . --config RelWithDebInfo --target ext_qtwebkit  -- -j$CPU_CORES
+    $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qtwebkit  -- -j$CPU_CORES
 fi
 
-#cmake --build . --config RelWithDebInfo --target ext_qtav     -- -j$CPU_CORES
-#cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qtav     -- -j$CPU_CORES
+
+# core KF5 frameworks dependencies
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_extra-cmake-modules -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kconfig             -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_breeze-icons        -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kcoreaddons         -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kwindowsystem       -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_solid               -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_threadweaver        -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_karchive            -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kdbusaddons         -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_ki18n               -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kcrash              -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kcodecs             -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kauth               -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kguiaddons          -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kwidgetsaddons      -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kitemviews          -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kcompletion         -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kconfigwidgets      -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kiconthemes         -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kservice            -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kglobalaccel        -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kxmlgui             -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kbookmarks          -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kimageformats       -- -j$CPU_CORES
+
+# Extra support for digiKam
+
+# libksane support
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libksane            -- -j$CPU_CORES
+
+# Desktop integration support
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kjobwidgets         -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kio                 -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_knotifyconfig       -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_knotifications      -- -j$CPU_CORES
+
+# Geolocation support
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_marble              -- -j$CPU_CORES
+
+# Calendar support
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_kcalendarcore       -- -j$CPU_CORES
 
 #################################################################################################
 
