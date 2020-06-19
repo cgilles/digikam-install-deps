@@ -58,7 +58,6 @@ urpmi --auto \
       xz-devel \
       lz4-devel \
       inotify-tools-devel \
-      openssl-devel \
       cups-devel \
       openal-soft-devel \
       fontconfig-devel \
