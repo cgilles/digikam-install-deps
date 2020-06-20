@@ -85,7 +85,7 @@ cmake $ORIG_WD/3rdparty \
       -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
       -DINSTALL_ROOT=$INSTALL_DIR
 
-#cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
+cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
 
 # --- In second install most recent version of low level libs and Qt
 
