@@ -102,4 +102,12 @@ urpmi --auto \
 # Remove system based devel package to prevent conflict with new one.
 
 urpme --auto --force lib64qt5core5-devel \
-                     lib64openssl-devel
+                     lib64openssl-devel \
+                     lib64exiv2-devel \
+                     opencv-devel \
+                     lensfun-devel \
+                     lib64qtav-devel \
+                     marble-devel \
+                     lib64kf5sane-devel \
+                     lib64kf5xmlgui-devel
+
