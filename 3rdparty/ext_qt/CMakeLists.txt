@@ -33,7 +33,6 @@ ExternalProject_Add(ext_qt
                   -confirm-license
                   -sql-sqlite                       # Compile Sqlite SQL plugin
                   -sql-mysql                        # Compile Mysql SQL plugin
-                  -iconv                            # International string conversion
                   -openssl-linked
                   -fontconfig
                   -system-freetype                  # Use system font rendering lib https://doc.qt.io/qt-5/qtgui-attribution-freetype.html
