@@ -47,7 +47,6 @@ ExternalProject_Add(ext_qt
                   -no-tslib
                   -no-directfb
                   -no-linuxfb
-                  -no-libproxy
                   -no-pch
                   -qt-zlib
                   -qt-pcre

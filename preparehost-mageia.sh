@@ -71,6 +71,7 @@ urpmi --auto \
       lib64xslt-devel \
       lib64drm-devel \
       lib64icu-devel \
+      lib64proxy-devel \
       lib64ical-devel \
       lib64cap-devel \
       lib64xml2-devel \
