@@ -11,6 +11,9 @@
 
 # Packages for base dependencies and Qt5.
 
+. ./common.sh
+ChecksRunAsRoot
+
 urpmi --auto \
       wget \                        # For GMicQt.
       tar \                         # AppImage legacy ?
