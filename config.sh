@@ -11,8 +11,12 @@
 
 ORIG_WD="`pwd`"
 
-# Option to use QtWebEngine instead QtWebkit
-QT_WEBENGINE=1
+if  [[ $arch == arm* ]]; then
+    # Option to use QtWebEngine instead QtWebkit, as Chromium do not support yet this architecture.
+    QT_WEBENGINE=0
+else
+    QT_WEBENGINE=1
+fi
 
 # Absolute path where are downloaded all tarballs to compile.
 #DOWNLOAD_DIR="$ORIG_WD/dwnld.qt5"
