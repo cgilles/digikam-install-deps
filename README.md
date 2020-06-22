@@ -16,14 +16,14 @@ Included dependencies are:
 
 Target OS with low level dependencies install script are:
 
-| Operating system | Status | Script                |
-|------------------|--------|-----------------------|
-| Linux Mageia     | done   | preparehost-mageia.sh |
-| Raspbian OS      | TODO   |                       |
-| Linux Centos     | TODO   |                       |
-| Linux Suse       | TODO   |                       |
-| Linux Ubuntu     | TODO   |                       |
-| Windows          | TODO   |                       |
+| Operating system | Status | Script                     |
+|------------------|--------|----------------------------|
+| Linux Mageia     | done   | preparehost-mageia.sh      |
+| Raspbian OS      | ****   | preparehost-raspberryos.sh |
+| Linux Centos     | TODO   |                            |
+| Linux Suse       | TODO   |                            |
+| Linux Ubuntu     | TODO   |                            |
+| Windows          | TODO   |                            |
 
 To setup computer you need to:
 

@@ -70,51 +70,44 @@ apt-get install -y \
       libgphoto2-dev               `#  DK deps.` \
       libsane-dev                  `#  DK deps.` \
       libjasper-dev                `#  DK deps.` \
-
-exit
-
-      lib64exif-devel              `#  AppImage legacy ?` \
-      lib64xslt-devel              `#  DK deps.` \
-      lib64drm-devel               `#  To compile Qt.` \
-      lib64icu-devel               `#  To compile Qt.` \
-      lib64proxy-devel             `#  To compile Qt.` \
-      lib64ical-devel              `#  DK deps.` \
-      lib64cap-devel               `#  To compile Qt.` \
-      lib64xml2-devel              `#  DK deps.` \
-      lib64nss-devel               `#  To compile Qt.` \
-      lib64xkbcommon-devel         `#  To compile Qt.` \
-      lib64sane1-devel             `#  KF5 deps.` \
-      lib64xcb-util1               `#  For QtWebEngine` \
-      lib64xi-devel                `#  For QtWebEngine` \
-      lib64xtst-devel              `#  For QtWebEngine` \
-      lib64xrandr-devel            `#  For QtWebEngine` \
-      lib64xcursor-devel           `#  For QtWebEngine` \
-      lib64xcomposite-devel        `#  For QtWebEngine` \
-      lib64xrender-devel           `#  For QtWebEngine` \
-      lib64mesagl1-devel           `#  For QtWebEngine` \
-      lib64mesaglu1-devel          `#  For QtWebEngine` \
-      lib64mesaegl1-devel          `#  For QtWebEngine` \
-      lib64mesaegl1                `#  For QtWebEngine` \
-      lib64ltdl-devel              `#  For QtWebEngine` \
-      lib64glib2.0-devel           `#  For QtWebEngine` \
-      lib64usb1.0-devel            `#  For Gphoto2 support` \
-      lib64jpeg-devel              `#  DK deps.` \
-      lib64png-devel               `#  DK deps.` \
-      lib64tiff-devel              `#  DK deps.` \
-      lib64lqr-devel               `#  DK deps.` \
-      lib64fftw-devel              `#  QMicQt.` \
-      lib64curl-devel              `#  QMicQt.` \
-      lib64magick-devel            `#  DK deps.` \
-      lib64wayland-devel           `#  To Compile Qt.`
+      libexif-dev                  `#  AppImage legacy ?` \
+      libxslt1-dev                 `#  DK deps.` \
+      libdrm-dev                   `#  To compile Qt.` \
+      libicu-dev                   `#  To compile Qt.` \
+      libproxy-dev                 `#  To compile Qt.` \
+      libical-dev                  `#  DK deps.` \
+      libcap-dev                   `#  To compile Qt.` \
+      libxml2-dev                  `#  DK deps.` \
+      libnss3-dev                  `#  To compile Qt.` \
+      libxkbcommon-dev             `#  To compile Qt.` \
+      libxi-dev                    `#  For QtWebEngine` \
+      libxtst-dev                  `#  For QtWebEngine` \
+      libxrandr-dev                `#  For QtWebEngine` \
+      libxcursor-dev               `#  For QtWebEngine` \
+      libxcomposite-dev            `#  For QtWebEngine` \
+      libxrender-dev               `#  For QtWebEngine` \
+      libglu1-mesa-dev             `#  For QtWebEngine` \
+      libegl1-mesa-dev             `#  For QtWebEngine` \
+      libltdl-dev                  `#  For QtWebEngine` \
+      libglib2.0-dev               `#  For QtWebEngine` \
+      libusb-1.0-0-dev             `#  For Gphoto2 support` \
+      libjpeg-dev                  `#  DK deps.` \
+      libpng-dev                   `#  DK deps.` \
+      libtiff-dev                  `#  DK deps.` \
+      liblqr-1-0-dev               `#  DK deps.` \
+      libfftw3-dev                 `#  QMicQt.` \
+      libcurl4-nss-dev             `#  QMicQt.` \
+      libmagick++-dev              `#  DK deps.` \
+      libwayland-dev               `#  To Compile Qt.`
 
 # Remove system based devel package to prevent conflict with new one.
 
-urpme --auto --force lib64qt5core5-devel \
-                     lib64openssl-devel \
-                     lib64exiv2-devel \
-                     lensfun-devel \
-                     lib64qtav-devel \
-                     marble-devel \
-                     lib64kf5sane-devel \
-                     lib64kf5xmlgui-devel
+apt-get remove -y qtbase5-dev \
+                  libssl-dev \
+                  libexiv2-dev \
+                  liblensfun-dev \
+                  libqtav-dev \
+                  libmarble-dev \
+                  libkf5sane-dev \
+                  libkf5xmlgui-dev
 
