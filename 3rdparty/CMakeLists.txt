@@ -46,8 +46,6 @@ if(NOT WIN32)
     find_package(OpenGL                                                              REQUIRED)
     find_package(XKBCommon                                                           REQUIRED)
     find_package(FontConfig                                                          REQUIRED)
-    find_package(OpenSSL                                                             REQUIRED)
-    find_package(Mysql                                                               REQUIRED)   # Qt Sql backend
     find_package(ICU    COMPONENTS uc i18n                                           REQUIRED)
     find_package(JPEG                                                                REQUIRED)
     find_package(TIFF                                                                REQUIRED)
