@@ -99,7 +99,8 @@ urpmi --auto \
       lib64fftw-devel              `#  QMicQt.` \
       lib64curl-devel              `#  QMicQt.` \
       lib64magick-devel            `#  DK deps.` \
-      lib64wayland-devel           `#  To Compile Qt.`
+      lib64wayland-devel           `#  To Compile Qt.` \
+      lib64compat-openssl10-devel  `#  To compile Cups with libopenssl`
 
 # Remove system based devel package to prevent conflict with new one.
 
