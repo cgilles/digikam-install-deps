@@ -10,12 +10,13 @@ SET(EXTPREFIX_openssl "${EXTPREFIX}")
 
 ExternalProject_Add(ext_openssl
 
-    GIT_REPOSITORY https://github.com/cgilles/openssl-cmake
+    GIT_REPOSITORY https://github.com/flagarde/openssl-cmake.git
 
     INSTALL_DIR ${EXTPREFIX_openssl}
 
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTPREFIX_openssl}
                -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
+               -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE
                -DWITH_APPS=OFF
                -DWITH_DOCS=OFF
                ${GLOBAL_PROFILE}
