@@ -85,6 +85,7 @@ cmake $ORIG_WD/3rdparty \
       -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
       -DINSTALL_ROOT=$INSTALL_DIR
 
+cmake --build . --config RelWithDebInfo --target ext_openssl  -- -j$CPU_CORES
 cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
 
 # --- In second install most recent version of low level libs and Qt
@@ -101,7 +102,6 @@ $INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
       -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
       -DINSTALL_ROOT=$INSTALL_DIR
 
-$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl   -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_opencv   -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_exiv2    -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_lensfun  -- -j$CPU_CORES
