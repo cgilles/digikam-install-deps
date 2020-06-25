@@ -103,6 +103,7 @@ apt-get install -y \
 # Remove system based devel package to prevent conflict with new one.
 
 apt-get remove -y qtbase5-dev \
+                  libssl-dev \
                   libexiv2-dev \
                   liblensfun-dev \
                   libqtav-dev \
