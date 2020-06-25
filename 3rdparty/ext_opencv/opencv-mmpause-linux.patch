@@ -1,12 +1,15 @@
 diff --git a/modules/core/src/parallel_impl.cpp b/modules/core/src/parallel_impl.cpp
-index bc64fce7a..e80ebc3d1 100644
+index 09579a3b14..547cb52c13 100644
 --- a/modules/core/src/parallel_impl.cpp
 +++ b/modules/core/src/parallel_impl.cpp
-@@ -44,6 +44,7 @@ DECLARE_CV_YIELD
- # endif
+@@ -34,6 +34,10 @@ DECLARE_CV_YIELD
+ # define CV_YIELD() std::this_thread::yield()
  #endif // CV_YIELD
  
-+#include <xmmintrin.h>
++#if (defined __i386__ || defined __x86_64__)
++# include <xmmintrin.h>
++#endif
++
  // Spin lock's CPU-level yield (required for Hyper-Threading)
  #ifdef DECLARE_CV_PAUSE
  DECLARE_CV_PAUSE
