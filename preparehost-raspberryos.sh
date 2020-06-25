@@ -98,8 +98,7 @@ apt-get install -y \
       libfftw3-dev                 `#  QMicQt.` \
       libcurl4-nss-dev             `#  QMicQt.` \
       libmagick++-dev              `#  DK deps.` \
-      libwayland-dev               `#  To Compile Qt.` \
-      libssl-dev                   `#  To Compile Cmake.`
+      libwayland-dev               `#  To Compile Qt.`
 
 # Remove system based devel package to prevent conflict with new one.
 
