@@ -71,30 +71,29 @@ LIST(APPEND QT_CONFIG
             -skip qtlottie
             -skip qtopcua
             -skip qtmqtt
+            -skip qtmultimedia                # No need multimedia support (replaced by QtAV+ffmpeg)
             -skip qtpim
             -skip qtpositioning
             -skip qtqa
             -skip qtpurchasing
             -skip qtquick3d
             -skip qtquick3dphysics
-            -skip qtquickcontrols             # QtQuick support      ==> QWebEngine dependency
             -skip qtquickcontrols2            # QtQuick support for QML
             -skip qtquickeffectmaker
             -skip qtscript                    # No need scripting (deprecated)
             -skip qtquicktimeline
             -skip qtremoteobjects
             -skip qtrepotools
+            -skip qtsensors                   # For embeded devices only
+            -skip qtserialbus                 # No need serial bus support
+            -skip qtserialport                # No need serial port support
             -skip qtspeech
-            -skip qtscxml
             -skip qtvirtualkeyboard
-            -skip qtnetworkauth               # No need network authentification support.
             -skip qtwinextras                 # For Windows devices only
             -skip qtandroidextras             # For embeded devices only
             -skip qtmacextras                 # For MacOS devices only
-            -skip qtwebglplugin
-            -skip qtwebview
-            -skip qtwebengine                 # No need Chromium browser support.
-            -skip qtwebchannel                # QtWebChannel support ==> QWebEngine dependency
+            -skip qtwebglplugin               # No need browser OpenGL extention support
+            -skip qtwebsockets                # No need websocket support
 )
 
 MESSAGE(STATUS "Use Linux configuration:")

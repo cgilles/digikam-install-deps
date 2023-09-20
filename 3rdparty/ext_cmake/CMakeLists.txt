@@ -8,11 +8,13 @@
 
 SET(EXTPREFIX_cmake "${EXTPREFIX}")
 
+SET(CMAKE_RELEASE 3.27.5)
+
 ExternalProject_Add(ext_cmake
     DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
-    GIT_REPOSITORY https://github.com/Kitware/CMake.git
-    GIT_TAG v3.27.4
+    URL https://github.com/Kitware/CMake/releases/tag/v${CMAKE_RELEASE}/cmake-${CMAKE_RELEASE}-linux-x86_64.tar.gz
+    URL_MD5 9991156a5d385485dbe31b59991dda51
 
     INSTALL_DIR ${EXTPREFIX_cmake}
 
