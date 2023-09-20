@@ -1,52 +1,78 @@
-digiKam dependencies installer for local compilation purpose
-------------------------------------------------------------
+Scripts to install Qt Framework to Linux or Windows
+===================================================
 
-This script prepare a host computer to install the most recent digiKam dependencies for developement compilations.
+Authors : Gilles Caulier <caulier dot gilles at gamil dot com>
 
-Included dependencies are:
+* Requirements:
+---------------
 
-- CMake         > 3.17
-- Openssl       > 1.1.1
-- OpenCV        > 4.3
-- Exiv2         > 0.27
-- Lensfun       > master
-- Qt5           > 5.15
-- QtAV          > master
-- KF5           > 5.71
+- Ubuntu : >= 22.04
 
-Target OS with low level dependencies install script are:
+- Raspbian:
+    * GCC > 4.9.x
+    * Perl
+    * Python 2.x
+    * Cmake >= 2.8.12
+    * libfontconfig1-dev
+    * libxcb1-dev
+    * libxcb-image0-dev
+    * libxcb-keysyms1-dev
+    * libxcb-xkb-dev
+    * x11-xkb-utils
+    * libegl1-mesa-dev
+    * libcups2-dev
+    * libslang2-dev
+    * libxkbcommon-dev
 
-| Operating system | Status | Script                     |
-|------------------|--------|----------------------------|
-| Linux Mageia     | done   | preparehost-mageia.sh      |
-| Raspbian OS      | ****   | preparehost-raspberryos.sh |
-| Linux Centos     | TODO   |                            |
-| Linux Suse       | TODO   |                            |
-| Linux Ubuntu     | TODO   |                            |
-| Windows          | TODO   |                            |
+- Windows:
+    * Microsoft Visual C++ >= 2019 Community (https://visualstudio.microsoft.com/downloads/)
+        * C++ Desktop development set.
+        * Base C++ features
+        * Update redistributable C++ 2019
+        * MSBuild
+        * Windows XP C++ support       (optional to generate backward compatible Qt version)
+        * VS 2015 C++ build tools      (optional to generate backward compatible Qt version)
+        * VS 2017 C++ build tools      (optional to generate backward compatible Qt version)
+        * VS 2019 C++ build tools
+        * C++ CMake tool for Windows
+        * ATL SDK support
+        * Python 2                     (check path to interpreter after install)
+        * Jom to compile in parallel             (optional, see http://wiki.qt.io/Jom)
+            * check path to CLI tool after install
+        * Perl                                   (https://strawberryperl.com/releases.html)
+            * check path to interpreter after install
+        * Python 2.x                             (https://www.python.org/downloads/)
 
-To setup computer you need to:
+- Notes: for Windows, the script have been tested under Windows 7 and 10, with MSVC 2017 and 2019,
+ and for a 32 or 64 bits Intel targets.
 
-- run as root the "preparehost" script for your operating system.
-- configure paths to use in config file.
-- run the installdeps script and take a coffee.
+* Configurations:
+-----------------
 
-All dependencies are installed at the same place (aka /opt/qt5).
+Before to start Qt compilation, please take a look in configuration:
 
-To configure and install digiKam for Linux with the customized dependencies:
+- Linux   : config.sh
 
-- export Qt5_DIR=/opt/qt5
-- export CMAKE_BINARY=/opt/qt5/bin/cmake
-- ./bootstrap.sh
-- cd build && make -j4
-- sudo make install/fast
+- Windows : config.bat
 
+See in files for a description of the options available.
 
-To run digiKam with these customized dependencies:
+* Build:
+--------
 
-- export QT_PLUGIN_PATH=/opt/qt5/plugins
-- export DK_PLUGIN_PATH=/opt/qt5/lib/plugins/digikam
-- /opt/qt5/bin/digikam
+To start Qt compilation use these scripts:
 
-------------------------------------------------------------
-Gilles Caulier
+- Linux (require to be root):
+
+    1) ./01-linux-preparehost-ubuntu.sh && ./02-linux-installqt.sh
+
+    2) ./03-linux-installextratools.sh
+
+- Windows : installqt.bat
+
+Under Windows, the script must be launch into a MSVC development console for the desired compiler version and 32|64 bits native support. We don't use the MSVC GUI.
+
+* Install:
+----------
+
+File are automatically installed in path defined in config file.

@@ -1,0 +1,16 @@
+ qt_internal_extend_target(Network CONDITION QT_FEATURE_openssl AND QT_FEATURE_ssl AND NOT QT_FEATURE_openssl_linked
+diff --git a/src/plugins/tls/openssl/CMakeLists.txt b/src/plugins/tls/openssl/CMakeLists.txt
+index 78c1089823..1cc1707151 100644
+--- a/qtbase/src/plugins/tls/openssl/CMakeLists.txt
++++ b/qtbase/src/plugins/tls/openssl/CMakeLists.txt
+@@ -17,6 +17,10 @@ qt_internal_add_plugin(QTlsBackendOpenSSLPlugin
+     LIBRARIES
+         Qt::NetworkPrivate
+         Qt::CorePrivate
++        /usr/local/lib/libssl.a
++        /usr/local/lib/libcrypto.a
++        dl
++        pthread
+     DEFINES
+         OPENSSL_API_COMPAT=0x10100000L
+ )

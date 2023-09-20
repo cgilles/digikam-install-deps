@@ -6,7 +6,7 @@
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 #
 
-cmake_minimum_required(VERSION 2.8.12)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12)
 
 IF(WIN32)
 
@@ -15,207 +15,92 @@ IF(WIN32)
 
 ENDIF()
 
-PROJECT(installdeps)
+PROJECT(installqt)
 
 SET(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../cmake/modules ${CMAKE_MODULE_PATH})
 
-function(JoinListAsString VALUES GLUE OUTPUT)
+FUNCTION(JoinListAsString VALUES GLUE OUTPUT)
 
-    string(REPLACE ";" "${GLUE}" _TMP_STR "${VALUES}")
-    set(${OUTPUT} "${_TMP_STR}" PARENT_SCOPE)
+    STRING(REPLACE ";" "${GLUE}" _TMP_STR "${VALUES}")
+    SET(${OUTPUT} "${_TMP_STR}" PARENT_SCOPE)
 
-endfunction()
-
-if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
-
-    message(FATAL_ERROR "Compiling in the source directory is not supported. Use for example 'mkdir build; cd build; cmake ..'.")
-
-endif()
+ENDFUNCTION()
 
 # Check Compile requirements
 
-find_package(Perl         REQUIRED)
-find_package(PythonInterp REQUIRED)
+FIND_PACKAGE(Perl         REQUIRED)
+FIND_PACKAGE(PythonInterp REQUIRED)
 
-if(NOT WIN32)
+IF(NOT WIN32)
 
-    find_package(X11                                                                 REQUIRED)
-    find_package(XCB                                                                 REQUIRED)
-    find_package(Cups                                                                REQUIRED)
-    find_package(EGL                                                                 REQUIRED)
-    find_package(OpenGL                                                              REQUIRED)
-    find_package(XKBCommon                                                           REQUIRED)
-    find_package(FontConfig                                                          REQUIRED)
-    find_package(ICU    COMPONENTS uc i18n                                           REQUIRED)
-    find_package(JPEG                                                                REQUIRED)
-    find_package(TIFF                                                                REQUIRED)
-    find_package(PNG                                                                 REQUIRED)
-    find_package(Boost                                                               REQUIRED)
-    find_package(LCMS2                                                               REQUIRED)
-    find_package(EXPAT                                                               REQUIRED)
-    find_package(Threads                                                             REQUIRED)
-    find_package(FFmpeg COMPONENTS AVCODEC AVDEVICE AVFILTER AVFORMAT AVUTIL SWSCALE REQUIRED)
-    find_package(FLEX                                                                REQUIRED)
-    find_package(BISON                                                               REQUIRED)
-    find_package(LibXslt                                                             REQUIRED)
-    find_package(LibXml2                                                             REQUIRED)
-    find_package(PkgConfig                                                           REQUIRED)
-    find_package(Jasper                                                              REQUIRED)
-    find_package(Eigen3                                                              REQUIRED)
-    find_package(ImageMagick COMPONENTS Magick++ MagickCore                          REQUIRED)
-    find_library(MATH_LIBRARY m                                                      REQUIRED)
-    find_package(Lqr-1                                                               REQUIRED)
-    find_package(Gphoto2                                                             REQUIRED)
+    FIND_PACKAGE(X11        REQUIRED)
+    FIND_PACKAGE(XCB        REQUIRED)
+    FIND_PACKAGE(Cups       REQUIRED)
+    FIND_PACKAGE(EGL        REQUIRED)
+    FIND_PACKAGE(XKBCommon  REQUIRED)
+    FIND_PACKAGE(FontConfig REQUIRED)
 
-
-    # Check libstd++ for QWebEngine
-
-endif()
+ENDIF()
 
 # Check if Jom is present if necessary under Windows
 
-if(MSVC)
+IF(MSVC)
 
-    find_program(JOMEXEC jom.exe)
+    FIND_PROGRAM(JOMEXEC jom.exe)
 
-    if(JOMEXEC)
+    IF(JOMEXEC)
 
         # Parallel compilation with automatic detection of core to use.
-        set(BUILD_CLI jom)
-        message(STATUS "Jom is detected on this system and will be used to parallelize compilation...")
+        SET(BUILD_CLI jom)
+        MESSAGE(STATUS "Jom is detected on this system and will be used to parallelize compilation...")
 
-    else()
+    ELSE()
 
         # Single core compilation with M$ tools...
-        set(BUILD_CLI nmake)
-        message(STATUS "Jom is not detected on this system. Compilation will not be parallelized...")
+        SET(BUILD_CLI nmake)
+        MESSAGE(STATUS "Jom is not detected on this system. Compilation will not be parallelized...")
 
-    endif()
+    ENDIF()
 
-endif()
+ENDIF()
 
-# Tools must be obtained to work with:
-include(ExternalProject)
+IF(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
 
-# allow specification of a directory with pre-downloaded
-# requirements
+    MESSAGE(FATAL_ERROR "Compiling in the source directory is not supported. Use for example 'mkdir build; cd build; cmake ..'.")
+
+ENDIF()
+
+# Tools must be obtained to work with
+INCLUDE(ExternalProject)
+
+# allow specification of a directory with pre-downloaded requirements
 if(NOT IS_DIRECTORY ${EXTERNALS_DOWNLOAD_DIR})
 
     message(FATAL_ERROR "No externals download dir set. Use -DEXTERNALS_DOWNLOAD_DIR")
 
 endif()
 
-if(NOT IS_DIRECTORY ${INSTALL_ROOT})
+IF(NOT IS_DIRECTORY ${INSTALL_ROOT})
 
-    message(FATAL_ERROR "No install dir set. Use -DINSTALL_ROOT")
+    MESSAGE(FATAL_ERROR "No install dir set. Use -DINSTALL_ROOT")
 
-endif()
+ENDIF()
 
-set(TOP_INST_DIR ${INSTALL_ROOT})
-set(EXTPREFIX "${TOP_INST_DIR}")
-set(CMAKE_PREFIX_PATH "${EXTPREFIX}")
+SET(TOP_INST_DIR ${INSTALL_ROOT})
+SET(EXTPREFIX "${TOP_INST_DIR}")
+SET(CMAKE_PREFIX_PATH "${EXTPREFIX}")
 
-message(STATUS "CMAKE_GENERATOR: ${CMAKE_GENERATOR}")
-message(STATUS "CMAKE_CL_64: ${CMAKE_CL_64}")
+MESSAGE(STATUS "CMAKE_GENERATOR: ${CMAKE_GENERATOR}")
+MESSAGE(STATUS "CMAKE_CL_64: ${CMAKE_CL_64}")
 
-set(GLOBAL_BUILD_TYPE RelWithDebInfo)
-set(GLOBAL_PROFILE ${GLOBAL_PROFILE} -DBUILD_TESTING=false)
-set(PATCH_COMMAND patch)
+SET(GLOBAL_BUILD_TYPE RelWithDebInfo)
+SET(GLOBAL_PROFILE ${GLOBAL_PROFILE} -DBUILD_TESTING=false)
+SET(PATCH_COMMAND patch)
 
-# Function to get MD5 sums from download area for a KF5 application
-# The sum is available in ${KF5_APPLICATION_MD5SUM}
-function(GetKF5ApplicationMd5Sums
-         name
-         version)
+# NOTE: this list must be dependency-ordered
 
-    if(MINGW)
+ADD_SUBDIRECTORY(ext_openssl)
+ADD_SUBDIRECTORY(ext_cmake)
+ADD_SUBDIRECTORY(ext_qt6)
 
-        # Extract MD5 sums of KF5 application directly from server.
-        execute_process(COMMAND
-                        wget -q -O - -o /dev/null http://download.kde.org/stable/release-service/${version}/src/${name}-${version}.tar.xz.mirrorlist
-                        COMMAND
-                        grep "MD5 Hash"
-                        COMMAND
-                        grep -o -P "(?<=<tt>).*(?=</tt>)"
-                        RESULT_VARIABLE
-                        wgetresult
-                        OUTPUT_VARIABLE
-                        md5sm
-                        OUTPUT_STRIP_TRAILING_WHITESPACE
-        )
 
-        if(NOT ${wgetresult} MATCHES 0)
-            message(WARNING "Cannot download MD5 sum for ${name}!")
-        endif()
-
-    elseif(APPLE)
-
-        # Extract MD5 sums of KF5 application directly from server.
-        execute_process(COMMAND
-                            wget -q -O - -o /dev/null http://download.kde.org/stable/release-service/${version}/src/${name}-${version}.tar.xz.mirrorlist
-                        COMMAND
-                            grep "MD5 Hash"
-                        COMMAND
-                            grep -o "<tt>.*</tt>"
-                        COMMAND
-                            cut -c 5-
-                        COMMAND
-                            rev
-                        COMMAND
-                            cut -c 6-
-                        COMMAND
-                            rev
-                        RESULT_VARIABLE
-                            wgetresult
-                        OUTPUT_VARIABLE
-                            md5sm
-                        OUTPUT_STRIP_TRAILING_WHITESPACE
-        )
-
-        if(NOT ${wgetresult} MATCHES 0)
-            message(WARNING "Cannot download MD5 sum for ${name}!")
-        endif()
-
-    else() # Linux
-
-        # Extract MD5 sums of KF5 application directly from server.
-        execute_process(COMMAND
-                        wget -q -O - -o /dev/null http://download.kde.org/stable/release-service/${version}/src/${name}-${version}.tar.xz.mirrorlist
-                        COMMAND
-                        grep "MD5 Hash"
-                        COMMAND
-                        grep -o -P "(?<=<tt>).*(?=</tt>)"
-                        RESULT_VARIABLE
-                        wgetresult
-                        OUTPUT_VARIABLE
-                        md5sm
-                        OUTPUT_STRIP_TRAILING_WHITESPACE
-        )
-
-        if(NOT ${wgetresult} MATCHES 0)
-            message(WARNING "Cannot download MD5 sum for ${name}!")
-        endif()
-
-    endif()
-
-    message(STATUS "--------------------------------")
-    message(STATUS "KF5 application    : ${name}")
-    message(STATUS "application version: ${version}")
-    message(STATUS "application MD5    : ${md5sm}")
-
-    set(${KF5_APPLICATION_MD5SUM} ${md5sm} PARENT_SCOPE)
-
-endfunction()
-
-# this list must be dependency-ordered
-add_subdirectory(ext_openssl)
-add_subdirectory(ext_opencv)
-add_subdirectory(ext_exiv2)
-add_subdirectory(ext_lensfun)
-add_subdirectory(ext_qt)
-add_subdirectory(ext_qtwebkit)
-add_subdirectory(ext_qtav)
-add_subdirectory(ext_kf5_frameworks)
-add_subdirectory(ext_libksane)
-add_subdirectory(ext_marble)
-add_subdirectory(ext_cmake)
