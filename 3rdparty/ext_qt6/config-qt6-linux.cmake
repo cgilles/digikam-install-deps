@@ -57,23 +57,17 @@ LIST(APPEND QT_CONFIG
             -skip qt3d
             -skip qtactiveqt
             -skip qtcanvas3d
-            -skip qtcharts
             -skip qtcoap
             -skip qtconnectivity
             -skip qtdatavis3d
-            -skip qtdeclarative
             -skip qtdoc
             -skip qtfeedback
             -skip qtgamepad
             -skip qtgraphicaleffects
             -skip qtlanguageserver
-            -skip qtlocation
             -skip qtlottie
             -skip qtopcua
-            -skip qtmqtt
-            -skip qtmultimedia                # No need multimedia support (replaced by QtAV+ffmpeg)
             -skip qtpim
-            -skip qtpositioning
             -skip qtqa
             -skip qtpurchasing
             -skip qtquick3d
@@ -84,16 +78,12 @@ LIST(APPEND QT_CONFIG
             -skip qtquicktimeline
             -skip qtremoteobjects
             -skip qtrepotools
-            -skip qtsensors                   # For embeded devices only
-            -skip qtserialbus                 # No need serial bus support
-            -skip qtserialport                # No need serial port support
             -skip qtspeech
             -skip qtvirtualkeyboard
             -skip qtwinextras                 # For Windows devices only
             -skip qtandroidextras             # For embeded devices only
             -skip qtmacextras                 # For MacOS devices only
             -skip qtwebglplugin               # No need browser OpenGL extention support
-            -skip qtwebsockets                # No need websocket support
 )
 
 MESSAGE(STATUS "Use Linux configuration:")

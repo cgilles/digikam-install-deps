@@ -163,9 +163,11 @@ optional_packages=("ccache"                             # For compiling
                    "libxcb-render-util0-dev"
                    "libxcb-res0-dev"
                    "libxcb-record0-dev"
+                   "libxcb-screensaver0-dev"
                    "libxcb-shape0-dev"
                    "libxcb-shm0-dev"
                    "libxcb-sync-dev"
+                   "libxcb-xtest0-dev"
                    "libxcb-util-dev"
                    "libxcb-util0-dev"
                    "libxcb-xfixes0-dev"
@@ -173,6 +175,7 @@ optional_packages=("ccache"                             # For compiling
                    "libxcb-xinerama0-dev"
                    "libxcb-xkb-dev"
                    "libxcb-xrm-dev"
+                   "libxshmfence-dev"
                    "libdbus-1-dev"
                    "libmount-dev"
                    "libfreetype6-dev"
@@ -183,6 +186,8 @@ optional_packages=("ccache"                             # For compiling
                    "libgrpc++-dev"
                    "libpq-dev"
                    "unixodbc-dev"
+                   "nodejs"
+                   "gperf"
 )
 
 for pkg in ${optional_packages[@]}; do

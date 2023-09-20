@@ -13,8 +13,8 @@ SET(CMAKE_RELEASE 3.27.5)
 ExternalProject_Add(ext_cmake
     DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
-    URL https://github.com/Kitware/CMake/releases/tag/v${CMAKE_RELEASE}/cmake-${CMAKE_RELEASE}-linux-x86_64.tar.gz
-    URL_MD5 9991156a5d385485dbe31b59991dda51
+    URL https://github.com/Kitware/CMake/releases/tag/v${CMAKE_RELEASE}/cmake-${CMAKE_RELEASE}.tar.gz
+    URL_MD5 fbda83fa70276f6971cab8cdb1407191
 
     INSTALL_DIR ${EXTPREFIX_cmake}
 
