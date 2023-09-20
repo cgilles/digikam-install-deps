@@ -52,7 +52,7 @@ if [[ ! -d $INSTALL_DIR ]] ; then
     mkdir $INSTALL_DIR
 
 fi
-if [ ] ; then
+
 # Clean up previous openssl install
 
 rm -fr /usr/local/lib/libssl.a    || true
@@ -72,7 +72,7 @@ cmake $ORIG_WD/3rdparty \
       -Wno-dev
 
 cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
-fi
+
 #################################################################################################
 
 cd $BUILDING_DIR
