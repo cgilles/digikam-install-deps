@@ -22,6 +22,8 @@ function(InstallKF6Component
             set(giturl "https://invent.kde.org/libraries/${name}.git")
         elseif(${name} STREQUAL "phonon")
             set(giturl "https://invent.kde.org/libraries/${name}.git")
+        elseif(${name} STREQUAL "marble")
+            set(giturl "https://invent.kde.org/cgilles/${name}.git")
         else()
             set(giturl "https://invent.kde.org/frameworks/${name}.git")
         endif()
@@ -58,6 +60,8 @@ function(InstallKF6Component
 endfunction()
 
 set(BreezeIconsOptions -DBINARY_ICONS_RESOURCE=ON)
+set(MarbleQtOnlyOptions -DWITH_DESIGNER_PLUGIN=OFF -DBUILD_MARBLE_TESTS=OFF -DBUILD_MARBLE_TOOLS=OFF -DBUILD_MARBLE_EXAMPLES=OFF -DBUILD_MARBLE_APPS=OFF -DBUILD_WITH_DBUS=OFF -DQTONLY=ON -DBUILD_TESTING=OFF)
+
 set(Qt6CommonOptions -DQT_MAJOR_VERSION=6 -DBUILD_WITH_QT6=ON)
 
 InstallKF6Component(extra-cmake-modules ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
@@ -97,6 +101,7 @@ InstallKF6Component(kdoctools           ${KDE_VERSION} "${Qt6CommonOptions}"    
 InstallKF6Component(phonon              ${KDE_VERSION} "${Qt6CommonOptions};-DPHONON_BUILD_QT5=OFF"             "")
 InstallKF6Component(ksanecore           ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(libksane            ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
+InstallKF6Component(marble              ${KDE_VERSION} "${Qt6CommonOptions};${MarbleQtOnlyOptions}"             "")
 InstallKF6Component(kfilemetadata       ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(qca                 ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(kwallet             ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")

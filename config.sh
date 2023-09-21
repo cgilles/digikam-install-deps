@@ -79,6 +79,7 @@ ext_kjobwidgets \
 ext_kio \
 ext_knotifyconfig \
 ext_kcalendarcore \
+ext_marble \
 "
 
 #ext_kfilemetadata \
