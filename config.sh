@@ -78,10 +78,10 @@ ext_knotifications \
 ext_kjobwidgets \
 ext_kio \
 ext_knotifyconfig \
-ext_kfilemetadata \
 ext_kcalendarcore \
 "
 
+#ext_kfilemetadata \
 #ext_kdoctools \
 #ext_phonon \
 #ext_qca \
