@@ -30,7 +30,7 @@ echo "+KF6 Snapshot $currentDate" > $KF6_GITREV_LST
 
 for COMPONENT in $FRAMEWORK_COMPONENTS ; do
 
-    SUBDIR=$ORIG_WD/b/$COMPONENT-prefix/src/$COMPONENT
+    SUBDIR=$BUILDING_DIR/ext_kf6/$COMPONENT-prefix/src/$COMPONENT
     cd $SUBDIR
     echo "$(basename "$SUBDIR"):$(git rev-parse HEAD)" >> $KF6_GITREV_LST
     cd $ORIG_WD
