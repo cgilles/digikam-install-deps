@@ -1,0 +1,12 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 16d14a2..cd209d2 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -1,6 +1,6 @@
+ add_subdirectory(core)
+ if (TARGET Qt6::Qml)
+-    add_subdirectory(qml)
++#    add_subdirectory(qml)
+ endif()
+ 
+ ecm_qt_install_logging_categories(

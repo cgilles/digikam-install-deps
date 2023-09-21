@@ -20,39 +20,23 @@ set -e
 # Manage script traces to log file
 
 mkdir -p $INSTALL_DIR/logs
-exec > >(tee $INSTALL_DIR/logs/installextratools.full.log) 2>&1
-
-#################################################################################################
-# Pre-processing checks
+exec > >(tee $INSTALL_DIR/logs/installkf6.full.log) 2>&1
 
 . ./common.sh
-ChecksRunAsRoot
-
 . ./config.sh
+ChecksRunAsRoot
 StartScript
 ChecksCPUCores
-ChecksLinuxVersionAndName
-ChecksGccVersion
 
-#################################################################################################
-# Create the directories
+ORIG_WD="`pwd`"
 
-if [[ ! -d $BUILDING_DIR ]] ; then
-
+# Create the build dir for the 3rdparty deps
+if [ ! -d $BUILDING_DIR ] ; then
     mkdir $BUILDING_DIR
-
 fi
 
 if [ ! -d $DOWNLOAD_DIR ] ; then
-
     mkdir $DOWNLOAD_DIR
-
-fi
-
-if [[ ! -d $INSTALL_DIR ]] ; then
-
-    mkdir $INSTALL_DIR
-
 fi
 
 #################################################################################################
@@ -61,20 +45,27 @@ cd $BUILDING_DIR
 
 rm -rf $BUILDING_DIR/* || true
 
-$INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
-      -DCMAKE_INSTALL_PREFIX:PATH=/$INSTALL_DIR \
-      -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
+cmake $ORIG_WD/3rdparty \
+      -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR \
       -DINSTALL_ROOT=$INSTALL_DIR \
+      -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
+      -DEXTERNALS_BUILD_DIR=$BUILDING_DIR \
+      -DKA_VERSION=$DK_KA_VERSION \
+      -DKP_VERSION=$DK_KP_VERSION \
+      -DKDE_VERSION=$DK_KDE_VERSION \
       -Wno-dev
 
-if [[ $QT_VERSION == "5" ]] ; then
+# Install core KF6 frameworks dependencies
 
-    $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qtmqtt$QT_VERSION   -- -j$CPU_CORES
+for COMPONENT in $FRAMEWORK_COMPONENTS ; do
 
-fi
+    cmake --build . --config RelWithDebInfo --target $COMPONENT -- -j$CPU_CORES
 
-$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_mc                      -- -j$CPU_CORES
+done
 
 #################################################################################################
+
+cd $ORIG_WD
+$ORIG_WD/kf6-create-manifest.sh
 
 TerminateScript

@@ -1,6 +1,6 @@
 # Rules to build 3rd-party libraries.
 #
-# Copyright (c) 2015-2020, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2015-2023, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -15,7 +15,7 @@ IF(WIN32)
 
 ENDIF()
 
-PROJECT(installqt)
+PROJECT(installdeps)
 
 SET(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../cmake/modules ${CMAKE_MODULE_PATH})
 
@@ -102,5 +102,5 @@ SET(PATCH_COMMAND patch)
 ADD_SUBDIRECTORY(ext_openssl)
 ADD_SUBDIRECTORY(ext_cmake)
 ADD_SUBDIRECTORY(ext_qt6)
-
+ADD_SUBDIRECTORY(ext_kf6)
 
