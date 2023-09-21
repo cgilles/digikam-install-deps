@@ -66,7 +66,7 @@ To start Qt compilation use these scripts:
 
     1) ./01-linux-preparehost-ubuntu.sh && ./02-linux-installqt.sh
 
-    2) ./03-linux-installextratools.sh
+    2) ./03-linux-installkde.sh
 
 - Windows : installqt.bat
 
