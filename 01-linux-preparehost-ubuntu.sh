@@ -13,13 +13,20 @@
 ################################################################################
 
 . ./common.sh
-ChecksRunAsRoot
+. ./config.sh
 
 #################################################################################################
 # Manage script traces to log file
 
 mkdir -p $INSTALL_DIR/logs
 exec > >(tee $INSTALL_DIR/logs/preparehost-ubuntu.full.log) 2>&1
+
+#################################################################################################
+# Pre-processing checks
+
+ChecksRunAsRoot
+StartScript
+ChecksLinuxVersionAndName
 
 echo -e "---------- Update Linux Ubuntu Host\n"
 
@@ -194,3 +201,7 @@ for pkg in ${optional_packages[@]}; do
     sudo apt-get install -y ${pkg}
     echo "-------------------------------------------------------------------"
 done
+
+#################################################################################################
+
+TerminateScript

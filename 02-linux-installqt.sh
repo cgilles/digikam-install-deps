@@ -14,6 +14,9 @@
 # Halt on errors
 set -e
 
+. ./common.sh
+. ./config.sh
+
 #################################################################################################
 # Manage script traces to log file
 
@@ -23,10 +26,7 @@ exec > >(tee $INSTALL_DIR/logs/installqt.full.log) 2>&1
 #################################################################################################
 # Pre-processing checks
 
-. ./common.sh
 ChecksRunAsRoot
-
-. ./config.sh
 StartScript
 ChecksCPUCores
 ChecksLinuxVersionAndName

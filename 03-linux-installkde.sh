@@ -16,19 +16,23 @@
 # Halt on errors
 set -e
 
+. ./common.sh
+. ./config.sh
+
 #################################################################################################
 # Manage script traces to log file
 
 mkdir -p $INSTALL_DIR/logs
 exec > >(tee $INSTALL_DIR/logs/installkf6.full.log) 2>&1
 
-. ./common.sh
-. ./config.sh
+#################################################################################################
+# Pre-processing checks
+
 ChecksRunAsRoot
 StartScript
 ChecksCPUCores
-
-ORIG_WD="`pwd`"
+ChecksLinuxVersionAndName
+ChecksGccVersion
 
 # Create the build dir for the 3rdparty deps
 if [ ! -d $BUILDING_DIR ] ; then
