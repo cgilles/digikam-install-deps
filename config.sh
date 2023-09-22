@@ -15,8 +15,6 @@
 
 ORIG_WD="`pwd`"
 
-# Qt version to install
-
 # Absolute path where are downloaded all tarballs to compile.
 
 DOWNLOAD_DIR="/mnt/data/download.qt6"

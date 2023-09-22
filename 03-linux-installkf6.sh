@@ -2,9 +2,7 @@
 
 ################################################################################
 #
-# Script to install extra tools under Ubuntu.
-#
-# Script to configure project based on CMake for Linux.
+# Script to install KDE framework under Ubuntu.
 #
 # Copyright (c) 2013-2020, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #

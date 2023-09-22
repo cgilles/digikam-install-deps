@@ -195,6 +195,8 @@ optional_packages=("ccache"                             # For compiling
                    "unixodbc-dev"
                    "nodejs"
                    "gperf"
+                   "libicu-dev"
+                   "icu-devtools"
 )
 
 for pkg in ${optional_packages[@]}; do

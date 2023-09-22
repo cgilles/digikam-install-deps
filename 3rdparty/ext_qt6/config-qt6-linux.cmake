@@ -12,7 +12,7 @@
 
 LIST(APPEND QT_CONFIG
 
-            -cmake-generator Ninja            #  Qt6 use Ninja build system by default.
+            -cmake-generator Ninja            # Qt6 use Ninja build system by default.
 
             -prefix ${EXTPREFIX_qt}           # Framework install path.
 
@@ -25,8 +25,9 @@ LIST(APPEND QT_CONFIG
             -sql-sqlite                       # Compile Sqlite SQL plugin
             -fontconfig
             -system-freetype                  # Use system font rendering lib https://doc.qt.io/qt-5/qtgui-attribution-freetype.html
-            -openssl-linked                   # Ssl libraries from the system
+            -openssl-linked                   # Use last ssl libraries previously compiled as static.
             -system-zlib                      # Do not share the internal zlib and promote system lib instead to prevent mixed versions in client area.
+            -system-icu
 
             # Compilation rules to disable.
 
@@ -36,7 +37,6 @@ LIST(APPEND QT_CONFIG
 
             # Compilation rules to disable.
 
-            -no-icu                           # Do not support ICU: https://wiki.qt.io/Qt_5_ICU
             -no-mtdev
             -no-journald
             -no-syslog

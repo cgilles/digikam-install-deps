@@ -2,7 +2,7 @@
 
 ################################################################################
 #
-# Script to install Qt on Ubuntu.
+# Script to install Qt framework on Ubuntu.
 #
 # Copyright (c) 2013-2023, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #

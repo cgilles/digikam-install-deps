@@ -6,23 +6,7 @@ Authors : Gilles Caulier <caulier dot gilles at gamil dot com>
 * Requirements:
 ---------------
 
-- Ubuntu : >= 22.04
-
-- Raspbian:
-    * GCC > 4.9.x
-    * Perl
-    * Python 2.x
-    * Cmake >= 2.8.12
-    * libfontconfig1-dev
-    * libxcb1-dev
-    * libxcb-image0-dev
-    * libxcb-keysyms1-dev
-    * libxcb-xkb-dev
-    * x11-xkb-utils
-    * libegl1-mesa-dev
-    * libcups2-dev
-    * libslang2-dev
-    * libxkbcommon-dev
+- Linux Debian (tested with Ubuntu : >= 22.04)
 
 - Windows:
     * Microsoft Visual C++ >= 2019 Community (https://visualstudio.microsoft.com/downloads/)
@@ -43,8 +27,7 @@ Authors : Gilles Caulier <caulier dot gilles at gamil dot com>
             * check path to interpreter after install
         * Python 2.x                             (https://www.python.org/downloads/)
 
-- Notes: for Windows, the script have been tested under Windows 7 and 10, with MSVC 2017 and 2019,
- and for a 32 or 64 bits Intel targets.
+- Notes: for Windows, the script have been tested under Windows 7 and 10, with MSVC 2017 and 2019.
 
 * Configurations:
 -----------------
@@ -64,9 +47,11 @@ To start Qt compilation use these scripts:
 
 - Linux (require to be root):
 
-    1) ./01-linux-preparehost-ubuntu.sh && ./02-linux-installqt.sh
+    1) ./01-linux-preparehost-ubuntu.sh 
 
-    2) ./03-linux-installkde.sh
+    2) ./02-linux-installqt6.sh
+
+    3) ./03-linux-installkf6.sh
 
 - Windows : installqt.bat
 
