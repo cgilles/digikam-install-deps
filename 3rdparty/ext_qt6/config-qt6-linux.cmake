@@ -27,7 +27,7 @@ LIST(APPEND QT_CONFIG
             -system-freetype                  # Use system font rendering lib https://doc.qt.io/qt-5/qtgui-attribution-freetype.html
             -openssl-linked                   # Use last ssl libraries previously compiled as static.
             -system-zlib                      # Do not share the internal zlib and promote system lib instead to prevent mixed versions in client area.
-            -system-icu
+            -icu
 
             # Compilation rules to disable.
 
