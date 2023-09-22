@@ -195,6 +195,7 @@ optional_packages=("ccache"                             # For compiling
                    "unixodbc-dev"
                    "nodejs"
                    "gperf"
+                   "libicu72"
                    "libicu-dev"
                    "icu-devtools"
 )

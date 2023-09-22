@@ -74,7 +74,7 @@ cmake $ORIG_WD/3rdparty \
       -DKDE_VERSION=$DK_KDE_VERSION \
       -Wno-dev
 
-#cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
+cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
 
 #################################################################################################
 
