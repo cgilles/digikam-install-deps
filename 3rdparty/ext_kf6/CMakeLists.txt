@@ -23,7 +23,7 @@ function(InstallKF6Component
         elseif(${name} STREQUAL "phonon")
             set(giturl "https://invent.kde.org/libraries/${name}.git")
         elseif(${name} STREQUAL "marble")
-            set(giturl "https://invent.kde.org/cgilles/${name}.git")
+            set(giturl "https://invent.kde.org/education/${name}.git")
         else()
             set(giturl "https://invent.kde.org/frameworks/${name}.git")
         endif()
@@ -42,6 +42,7 @@ function(InstallKF6Component
         ExternalProject_Add(ext_${name}
                             DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
                             GIT_REPOSITORY ${giturl}
+                            GIT_TAG ${version}
 
                             PATCH_COMMAND ${patch}
 
@@ -101,7 +102,7 @@ InstallKF6Component(kdoctools           ${KDE_VERSION} "${Qt6CommonOptions}"    
 InstallKF6Component(phonon              ${KDE_VERSION} "${Qt6CommonOptions};-DPHONON_BUILD_QT5=OFF"             "")
 InstallKF6Component(ksanecore           ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(libksane            ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
-InstallKF6Component(marble              ${KDE_VERSION} "${Qt6CommonOptions};${MarbleQtOnlyOptions}"             "")
+InstallKF6Component(marble              "marble-qt6"   "${Qt6CommonOptions};${MarbleQtOnlyOptions}"             "")
 InstallKF6Component(kfilemetadata       ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(qca                 ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(kwallet             ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
