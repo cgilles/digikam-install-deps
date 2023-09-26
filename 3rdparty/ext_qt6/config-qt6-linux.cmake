@@ -53,6 +53,7 @@ LIST(APPEND QT_CONFIG
             -xcb
 
             # Qt components to disable
+            # https://doc.qt.io/qt-6/qtmodules.html
 
             -skip qt3d
             -skip qtactiveqt
