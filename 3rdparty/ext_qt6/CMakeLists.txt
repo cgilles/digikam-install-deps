@@ -7,8 +7,8 @@
 #
 
 SET(EXTPREFIX_qt ${EXTPREFIX})
-SET(QT_URL https://download.qt.io/official_releases/qt/6.5/6.5.2/single/qt-everywhere-src-6.5.2.tar.xz)
-SET(QT_HASH 87f56fd8aedd2e429047c40397e9be48)
+SET(QT_URL https://download.qt.io/official_releases/qt/6.5/6.5.3/single/qt-everywhere-src-6.5.3.tar.xz)
+SET(QT_HASH 755db0527410df135609b51defa1a689)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/qt6_cmake_path.patch.cmake.in
                ${CMAKE_CURRENT_BINARY_DIR}/qt6_cmake_path.patch)
