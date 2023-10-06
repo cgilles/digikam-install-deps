@@ -3,10 +3,10 @@
 # Script to build Qt 6 - config for Windows
 # See option details on configure-windows text file
 #
-# 2015-2023 - Gilles Caulier <gilles.caulier@cea.fr>
+# Copyright (c) 2015-2023 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
-# Licensed Material - Program Property of CABRI
-# (c) CEA Cadarache - DER/CAD/SPESI/LP2E
+# Redistribution and use is allowed according to the terms of the BSD license.
+# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 #
 ################################################################################
 
@@ -72,7 +72,6 @@ LIST(APPEND QT_CONFIG
             -skip qtquicktimeline
             -skip qtremoteobjects
             -skip qtrepotools
-            -skip qtspeech
             -skip qtvirtualkeyboard
             -skip qtnetworkauth               # No need network authentification support.
             -skip qtandroidextras             # For embeded devices only

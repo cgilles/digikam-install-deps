@@ -3,10 +3,10 @@
 # Script to build Qt 6 - config for Linux
 # See option details on configure-linux text file
 #
-# 2015-2022 - Gilles Caulier <gilles.caulier@cea.fr>
+# Copyright (c) 2015-2023 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
-# Licensed Material - Program Property of CABRI
-# (c) CEA Cadarache - DER/CAD/SPESI/LP2E
+# Redistribution and use is allowed according to the terms of the BSD license.
+# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 #
 ################################################################################
 
@@ -79,7 +79,6 @@ LIST(APPEND QT_CONFIG
             -skip qtquicktimeline
             -skip qtremoteobjects
             -skip qtrepotools
-            -skip qtspeech
             -skip qtvirtualkeyboard
             -skip qtwinextras                 # For Windows devices only
             -skip qtandroidextras             # For embeded devices only
