@@ -198,6 +198,7 @@ optional_packages=("ccache"                             # For compiling
                    "libicu72"
                    "libicu-dev"
                    "icu-devtools"
+                   "flite1-dev"
 )
 
 for pkg in ${optional_packages[@]}; do
