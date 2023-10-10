@@ -6,7 +6,7 @@ Authors : Gilles Caulier <caulier dot gilles at gamil dot com>
 * Requirements:
 ---------------
 
-- Linux Debian (tested with Ubuntu : >= 22.04)
+- Linux Debian (tested with Ubuntu : Qt5 >= 18.04 / Qt6 >= 22.04)
 
 - Windows:
     * Microsoft Visual C++ >= 2019 Community (https://visualstudio.microsoft.com/downloads/)
