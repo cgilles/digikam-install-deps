@@ -46,7 +46,6 @@ ELSE()
         URL ${QT_URL}
         URL_MD5 ${QT_HASH}
 
-#        PATCH_COMMAND ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_BINARY_DIR}/qt6_cmake_path.patch &&
         PATCH_COMMAND ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/qt6-openssl-linked.patch
 
         CMAKE_ARGS -DOPENSSL_LIBS='-l${EXTPREFIX}/local/lib/libssl.a -l${EXTPREFIX}/local/lib/libcrypto.a -lpthread -ldl'
