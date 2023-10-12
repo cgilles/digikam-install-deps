@@ -96,7 +96,7 @@ InstallKF6Component(kimageformats            ${KDE_VERSION} "${Qt6CommonOptions}
 InstallKF6Component(knotifyconfig            ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(knotifications           ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(kjobwidgets              ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
-InstallKF6Component(plasma-wayland-protocols ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
+InstallKF6Component(plasma-wayland-protocols ${KDE_VERSION} "${Qt6CommonOptions}"                                    "wayland-proto-ecm-version.patch")
 InstallKF6Component(sonnet                   ${KDE_VERSION} "${Qt6CommonOptions};-DSONNET_USE_QML=OFF"               "")
 InstallKF6Component(ktextwidgets             ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(kio                      ${KDE_VERSION} "${Qt6CommonOptions}"                                    "kio-drop-deps.patch")
