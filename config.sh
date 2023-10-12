@@ -69,13 +69,14 @@ ext_kxmlgui \
 ext_kbookmarks \
 ext_kimageformats \
 ext_plasma-wayland-protocols \
-ext_sonnet \
-ext_ktextwidgets \
-ext_libksane \
 ext_knotifications \
 ext_kjobwidgets \
 ext_kio \
 ext_knotifyconfig \
+ext_sonnet \
+ext_ktextwidgets \
+ext_kwallet \
+ext_libksane \
 ext_kcalendarcore \
 ext_marble \
 "
@@ -84,7 +85,6 @@ ext_marble \
 #ext_kdoctools \
 #ext_phonon \
 #ext_qca \
-#ext_kwallet \
 #ext_kpackage \
 #ext_attica \
 #ext_knewstuff \
