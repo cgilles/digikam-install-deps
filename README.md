@@ -1,7 +1,7 @@
 Scripts to install Qt Framework to Linux or Windows
 ===================================================
 
-Authors : Gilles Caulier <caulier dot gilles at gamil dot com>
+Authors : Gilles Caulier <caulier dot gilles at gmail dot com>
 
 * Requirements:
 ---------------

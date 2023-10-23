@@ -21,7 +21,7 @@ set -e
 # Manage script traces to log file
 
 mkdir -p $INSTALL_DIR/logs
-exec > >(tee $INSTALL_DIR/logs/installqt.full.log) 2>&1
+exec > >(tee $INSTALL_DIR/logs/linux-installqt6.full.log) 2>&1
 
 #################################################################################################
 # Pre-processing checks
