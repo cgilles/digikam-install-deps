@@ -60,7 +60,7 @@ rm -fr /usr/local/lib/libcrypto.a || true
 rm -fr /usr/local/include/openssl || true
 
 #################################################################################################
-if [ ] ; then 
+
 cd $BUILDING_DIR
 
 rm -rf $BUILDING_DIR/* || true
@@ -75,7 +75,7 @@ cmake $ORIG_WD/3rdparty \
       -Wno-dev
 
 cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
-fi
+
 #################################################################################################
 
 cd $BUILDING_DIR
