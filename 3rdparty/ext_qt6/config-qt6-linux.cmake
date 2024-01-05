@@ -66,20 +66,29 @@ LIST(APPEND QT_CONFIG
             -skip qtgamepad
             -skip qtgraphicaleffects
             -skip qtgraphs
+            -skip qthttpserver
             -skip qtlanguageserver
+            -skip qtlocation
             -skip qtlottie
+            -skip qtmqtt
             -skip qtopcua
             -skip qtpim
             -skip qtqa
             -skip qtpurchasing
+            -skip qtpositioning
             -skip qtquick3d
             -skip qtquick3dphysics
             -skip qtquickcontrols2            # QtQuick support for QML
             -skip qtquickeffectmaker
+            -skip qtsensors
+            -skip qtserialbus
+            -skip qtserialport
             -skip qtscript                    # No need scripting (deprecated)
+            -skip qtspeech
             -skip qtquicktimeline
             -skip qtremoteobjects
             -skip qtrepotools
+            -skip qttranslations
             -skip qtvirtualkeyboard
             -skip qtwinextras                 # For Windows devices only
             -skip qtandroidextras             # For embeded devices only
