@@ -107,6 +107,7 @@ optional_packages=("ccache"                             # For compiling
                    "gettext"
                    "libtool"
                    "clang-17"
+                   "llvm-17"
                    "python"
                    "python3-lxml"
                    "libnss3-dev"
