@@ -1,6 +1,6 @@
 # Script to build Cmake.
 #
-# Copyright (c) 2015-2023 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# Copyright (c) 2015-2024 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -8,13 +8,13 @@
 
 SET(EXTPREFIX_cmake "${EXTPREFIX}")
 
-SET(CMAKE_RELEASE 3.27.6)
+SET(CMAKE_RELEASE 3.28.1)
 
 ExternalProject_Add(ext_cmake
     DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
     URL https://github.com/Kitware/CMake/archive/refs/tags/v${CMAKE_RELEASE}.tar.gz
-    URL_MD5 d1624510d2dcd57e68a4d5eb1ee99309
+    URL_MD5 db659ed92a8fcc880f95b492bde2eb44
 
     INSTALL_DIR ${EXTPREFIX_cmake}
 
