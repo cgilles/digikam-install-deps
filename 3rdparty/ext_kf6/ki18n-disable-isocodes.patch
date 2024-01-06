@@ -1,0 +1,19 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 06b642f..0ef2b33 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -51,10 +51,10 @@ set_package_properties(LibIntl PROPERTIES TYPE REQUIRED
+     PURPOSE "Needed for building KI18n unless glibc is the system libc implementation"
+ )
+ 
+-find_package(IsoCodes)
+-set_package_properties(IsoCodes PROPERTIES TYPE RUNTIME
+-    PURPOSE "Translation catalogs for countries, country subdivisions, languages and currencies"
+-)
++#find_package(IsoCodes)
++#set_package_properties(IsoCodes PROPERTIES TYPE RUNTIME
++#    PURPOSE "Translation catalogs for countries, country subdivisions, languages and currencies"
++#)
+ 
+ # KF6I18nMacros.cmake only needs to know the python executable path.
+ # Due to CMake caching the variables, and KF6I18nMacros being included by KF6I18nConfig,

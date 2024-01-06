@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 291d8dd6c..898e0fd01 100644
+index 3739ef43a..96cf64286 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -62,7 +62,7 @@ find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
@@ -20,3 +20,14 @@ index 291d8dd6c..898e0fd01 100644
  set_package_properties(KF6KDED PROPERTIES DESCRIPTION "Daemon providing session services"
                         TYPE RUNTIME
                         PURPOSE "KDED is used at runtime for proxy management and cookie storage"
+@@ -167,7 +167,9 @@ if(BUILD_TESTING)
+     endif()
+ endif()
+ 
+-add_subdirectory(templates)
++if(NOT MSVC)
++    add_subdirectory(templates)
++endif()
+ 
+ # create a Config.cmake and a ConfigVersion.cmake file and install them
+ set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6KIO")
