@@ -71,6 +71,7 @@ endif()
 
 set(MarbleQtOnlyOptions -DWITH_DESIGNER_PLUGIN=OFF -DBUILD_MARBLE_TESTS=OFF -DBUILD_MARBLE_TOOLS=OFF -DBUILD_MARBLE_EXAMPLES=OFF -DBUILD_MARBLE_APPS=OFF -DBUILD_WITH_DBUS=OFF -DQTONLY=ON -DBUILD_TESTING=OFF)
 set(BreezeOptions -DBUILD_QT6=ON -DBUILD_QT5=OFF -DWITH_DECORATIONS=OFF -DWITH_WALLPAPERS=OFF)
+set(WindowsSystemOptions -DWITH_LIBZSTD=OFF -DKWINDOWSYSTEM_WAYLAND=OFF)
 
 set(Qt6CommonOptions -DQT_MAJOR_VERSION=6 -DBUILD_WITH_QT6=ON)
 
@@ -82,7 +83,7 @@ InstallKF6Component(solid                    ${KDE_VERSION} "${Qt6CommonOptions}
 InstallKF6Component(kcoreaddons              ${KDE_VERSION} "${Qt6CommonOptions};-DKCOREADDONS_USE_QML=OFF"          "")
 InstallKF6Component(threadweaver             ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(kwindowsystem            ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
-InstallKF6Component(karchive                 ${KDE_VERSION} "${Qt6CommonOptions};-DWITH_LIBZSTD=OFF"                 "")
+InstallKF6Component(karchive                 ${KDE_VERSION} "${Qt6CommonOptions};${WindowsSystemOptions}"            "")
 InstallKF6Component(kdbusaddons              ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(ki18n                    ${KDE_VERSION} "${Qt6CommonOptions}"                                    "${Ki18nIsoCodesPatch}")
 InstallKF6Component(kcrash                   ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
