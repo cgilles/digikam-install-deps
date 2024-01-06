@@ -107,7 +107,7 @@ InstallKF6Component(knotifications           ${KDE_VERSION} "${Qt6CommonOptions}
 InstallKF6Component(kjobwidgets              ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(sonnet                   ${KDE_VERSION} "${Qt6CommonOptions};-DSONNET_USE_QML=OFF"               "sonnet-hunspell-version.patch")
 InstallKF6Component(ktextwidgets             ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
-InstallKF6Component(kio                      ${KDE_VERSION} "${Qt6CommonOptions}"                                    "kio-drop-deps.patch")
+InstallKF6Component(kio                      ${KDE_VERSION} "${Qt6CommonOptions};-DWITH_WAYLAND=OFF"                 "kio-drop-deps.patch")
 InstallKF6Component(kinit                    ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(kdoctools                ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(phonon                   ${KDE_VERSION} "${Qt6CommonOptions};-DPHONON_BUILD_QT5=OFF"             "")
