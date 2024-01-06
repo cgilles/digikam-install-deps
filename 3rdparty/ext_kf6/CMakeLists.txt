@@ -89,7 +89,7 @@ InstallKF6Component(ki18n                    ${KDE_VERSION} "${Qt6CommonOptions}
 InstallKF6Component(kcrash                   ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(kcodecs                  ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(kauth                    ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
-InstallKF6Component(kguiaddons               ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
+InstallKF6Component(kguiaddons               ${KDE_VERSION} "${Qt6CommonOptions};-DWITH_WAYLAND=OFF"                 "")
 InstallKF6Component(kwidgetsaddons           ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(kitemviews               ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
 InstallKF6Component(kcompletion              ${KDE_VERSION} "${Qt6CommonOptions}"                                    "")
