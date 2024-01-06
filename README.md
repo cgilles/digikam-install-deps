@@ -1,36 +1,26 @@
-Scripts to install Qt Framework to Linux
-========================================
+Scripts to install Qt6 Framework to Linux
+=========================================
 
 Authors : Gilles Caulier <caulier dot gilles at gmail dot com>
 
-* Requirements:
----------------
+* Requirements
 
-- Linux Debian (tested with Ubuntu : Qt5 >= 18.04 / Qt6 >= 22.04)
+Linux Debian (tested with Ubuntu >= 22.04).
 
-* Configurations:
------------------
+* Configurations
 
-Before to start Qt compilation, please take a look in configuration:
+Before to start Qt compilation, please take a look in self documented config.sh configuration file.
 
-- Linux   : config.sh
-
-See in files for a description of the options available.
-
-* Build:
---------
+* Build
 
 To start Qt compilation use these scripts:
 
-- Linux (require to be root):
+    1) sudo ./01-linux-preparehost-ubuntu.sh 
 
-    1) ./01-linux-preparehost-ubuntu.sh 
+    2) sudo ./02-linux-installqt6.sh
 
-    2) ./02-linux-installqt6.sh
+    3) sudo ./03-linux-installkf6.sh
 
-    3) ./03-linux-installkf6.sh
+* Install
 
-* Install:
-----------
-
-File are automatically installed in path defined in config file.
+File are automatically installed in path defined in config.sh file.
