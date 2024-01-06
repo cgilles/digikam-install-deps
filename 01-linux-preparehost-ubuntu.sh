@@ -179,6 +179,7 @@ optional_packages=("ccache"                             # For compiling
                    "icu-devtools"
                    "flite1-dev"
                    "libxshmfence-dev"
+                   "libcanberra-dev"
 )
 
 for pkg in ${optional_packages[@]}; do
