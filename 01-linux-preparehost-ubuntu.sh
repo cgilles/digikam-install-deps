@@ -180,7 +180,7 @@ optional_packages=("ccache"                             # For compiling
                    "flite1-dev"
                    "libxshmfence-dev"
                    "libcanberra-dev"
-                   "libgcrypt11-dev"
+                   "libgcrypt-dev"
 )
 
 for pkg in ${optional_packages[@]}; do
