@@ -75,6 +75,7 @@ ext_kio \
 ext_knotifyconfig \
 ext_sonnet \
 ext_ktextwidgets \
+ext_qca \
 ext_kwallet \
 ext_libksane \
 ext_kcalendarcore \
