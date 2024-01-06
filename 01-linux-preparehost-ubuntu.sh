@@ -181,6 +181,7 @@ optional_packages=("ccache"                             # For compiling
                    "libxshmfence-dev"
                    "libcanberra-dev"
                    "libgcrypt-dev"
+                   "libical-dev"
 )
 
 for pkg in ${optional_packages[@]}; do
