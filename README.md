@@ -11,6 +11,8 @@ Linux Debian (tested with Ubuntu >= 22.04).
 
 Before to start Qt compilation, please take a look in self documented config.sh configuration file.
 
+NOTE: Wayland support is disabled in Qt and KDE frameworks.
+
 * Build
 
 To start Qt compilation use these scripts:
