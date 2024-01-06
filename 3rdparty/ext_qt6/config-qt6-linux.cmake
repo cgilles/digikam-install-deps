@@ -94,6 +94,7 @@ LIST(APPEND QT_CONFIG
             -skip qtandroidextras             # For embeded devices only
             -skip qtmacextras                 # For MacOS devices only
             -skip qtwebglplugin               # No need browser OpenGL extention support
+            -skip qtwayland
 )
 
 MESSAGE(STATUS "Use Linux configuration:")
