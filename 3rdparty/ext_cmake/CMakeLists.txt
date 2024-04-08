@@ -14,7 +14,7 @@ ExternalProject_Add(ext_cmake
     DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
     URL https://github.com/Kitware/CMake/archive/refs/tags/v${CMAKE_RELEASE}.tar.gz
-    URL_MD5 03e9a16acb09f15d1b56fb09ef781a79
+    URL_MD5 ac638c4ad96078acda7e990aa2f1ce22
 
     INSTALL_DIR ${EXTPREFIX_cmake}
 
