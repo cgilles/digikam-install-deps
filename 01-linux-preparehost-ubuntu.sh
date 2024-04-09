@@ -62,6 +62,7 @@ required_packages=("cmake"                   # To Compile Source Code
                    "libpng-dev"              # PNG library
                    "libjpeg-dev"             # JPEG library
                    "libssl-dev"
+                   "libjxl-dev"
                     )
 
 
