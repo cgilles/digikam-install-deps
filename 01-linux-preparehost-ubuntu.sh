@@ -181,6 +181,7 @@ optional_packages=("ccache"                             # For compiling
                    "flite1-dev"
                    "libxshmfence-dev"
                    "libcanberra-dev"
+                   "libjasper-dev"
                    "libgcrypt-dev"
                    "libical-dev"
 )
