@@ -16,7 +16,7 @@ ExternalProject_Add(ext_openssl
     DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
     GIT_REPOSITORY https://github.com/janbar/openssl-cmake
-    GIT_TAG 1.1.1t-20230216
+    GIT_TAG 1.1.1w-20231130
 
     INSTALL_DIR ${EXTPREFIX_openssl}
 
