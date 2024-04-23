@@ -102,6 +102,7 @@ done
 optional_packages=("ccache"                             # For compiling
                    "bison"                              # For Qt build (>= 2.5.0)
                    "flex"                               # For compiling (>= 2.5.0)
+                   "mysql-server"                       # Run-time: mysql internal server init
                    "wget"
                    "tar"
                    "bzip2"
@@ -184,6 +185,7 @@ optional_packages=("ccache"                             # For compiling
                    "libjasper-dev"
                    "libgcrypt-dev"
                    "libical-dev"
+                   "default-libmysqlclient-dev"
 )
 
 for pkg in ${optional_packages[@]}; do
