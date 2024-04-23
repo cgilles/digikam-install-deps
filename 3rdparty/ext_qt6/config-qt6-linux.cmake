@@ -23,6 +23,7 @@ LIST(APPEND QT_CONFIG
             -sql-odbc                         # Compile ODBC SQL plugin
             -sql-psql                         # Compile PostgreSql SQL plugin
             -sql-sqlite                       # Compile Sqlite SQL plugin
+            -sql-mysql                        # Compile MySQL SQL plugin
             -fontconfig
             -system-freetype                  # Use system font rendering lib https://doc.qt.io/qt-5/qtgui-attribution-freetype.html
             -openssl-linked                   # Use last ssl libraries previously compiled as static.
