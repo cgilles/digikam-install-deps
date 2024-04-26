@@ -84,6 +84,7 @@ LIST(APPEND QT_CONFIG
             -skip qtquicktimeline
             -skip qtremoteobjects
             -skip qtrepotools
+            -skip qtserialbus
             -skip qtvirtualkeyboard
             -skip qtwinextras                 # For Windows devices only
             -skip qtandroidextras             # For embeded devices only
