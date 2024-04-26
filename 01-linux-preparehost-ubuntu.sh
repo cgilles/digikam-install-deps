@@ -15,6 +15,15 @@
 . ./common.sh
 . ./config.sh
 
+# protection
+
+if [[ -d $INSTALL_DIR ]] ; then
+
+    echo "$INSTALL_DIR already exists on this system. Aborded!"
+    exit -1
+
+fi
+
 #################################################################################################
 # Manage script traces to log file
 
