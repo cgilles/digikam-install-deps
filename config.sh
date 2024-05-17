@@ -38,7 +38,7 @@ DK_KP_VERSION="5.27.7"
 DK_KA_VERSION="23.08.0"
 
 # KDE KF6 frameworks git tag version.
-DK_KDE_VERSION="master"
+DK_KDE_VERSION="v6.2.0"
 
 # NOTE: The order to compile each component here is very important.
 
