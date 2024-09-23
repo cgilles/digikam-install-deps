@@ -194,6 +194,7 @@ optional_packages=("ccache"                             # For compiling
                    "libjasper-dev"
                    "libgcrypt-dev"
                    "libical-dev"
+                   "libsane-dev"
                    "default-libmysqlclient-dev"
 )
 
