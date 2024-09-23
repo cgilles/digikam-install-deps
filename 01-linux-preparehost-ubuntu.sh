@@ -197,6 +197,14 @@ optional_packages=("ccache"                             # For compiling
                    "libsane-dev"
                    "libexiv2-dev"
                    "liblensfun-dev"
+                   "libavcodec-dev"
+                   "libavutil-dev"
+                   "libswresample-dev"
+                   "libavformat-dev"
+                   "libavfilter-dev"
+                   "libavdevice-dev"
+                   "libpostproc-dev"
+                   "libswscale-dev"
                    "default-libmysqlclient-dev"
 )
 
