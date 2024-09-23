@@ -205,6 +205,13 @@ optional_packages=("ccache"                             # For compiling
                    "libavdevice-dev"
                    "libpostproc-dev"
                    "libswscale-dev"
+                   "libopencv-dev"
+                   "libboost-dev"
+                   "libxslt-dev"
+                   "libheif-dev"
+                   "libeigen3-dev"
+                   "libmagick++-dev"
+                   "doxygen"
                    "default-libmysqlclient-dev"
 )
 
