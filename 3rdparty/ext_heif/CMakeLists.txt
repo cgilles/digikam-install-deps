@@ -80,9 +80,7 @@ else() # Linux
 
         PATCH_COMMAND git reset --hard && ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/heif-lib-only.patch
 
-        CONFIGURE_COMMAND cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../scripts/create_manifest.sh <SOURCE_DIR>/. &&
-                          cd <SOURCE_DIR> &&
-                          <SOURCE_DIR>/create_manifest.sh ${EXTERNALS_DOWNLOAD_DIR} heif &&
+        CONFIGURE_COMMAND cd <SOURCE_DIR> &&
                           $(CMAKE_COMMAND) . -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_heif}
                           -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
                           ${GLOBAL_PROFILE}

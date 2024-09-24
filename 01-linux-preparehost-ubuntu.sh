@@ -216,7 +216,7 @@ for pkg in ${optional_packages[@]}; do
     echo "-------------------------------------------------------------------"
 done
 
-sudo apt remove libqt6* qml6* libheif-dev opencv-dev libexiv2-dev
+sudo apt remove libqt6* qml6* libheif-dev libopencv-dev libexiv2-dev
 
 #################################################################################################
 
