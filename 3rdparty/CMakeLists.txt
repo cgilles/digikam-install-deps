@@ -99,9 +99,10 @@ SET(PATCH_COMMAND patch)
 
 # NOTE: this list must be dependency-ordered
 
+ADD_SUBDIRECTORY(ext_cmake)
 ADD_SUBDIRECTORY(ext_openssl)
 ADD_SUBDIRECTORY(ext_jasper)
-ADD_SUBDIRECTORY(ext_cmake)
+ADD_SUBDIRECTORY(ext_heif)
 ADD_SUBDIRECTORY(ext_qt6)
 ADD_SUBDIRECTORY(ext_kf6)
 

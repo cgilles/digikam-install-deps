@@ -100,6 +100,8 @@ rm -fr /usr/local/lib/libssl.a    || true
 rm -fr /usr/local/lib/libcrypto.a || true
 rm -fr /usr/local/include/openssl || true
 
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_heif                  -- -j$CPU_CORES
+
 #################################################################################################
 
 TerminateScript

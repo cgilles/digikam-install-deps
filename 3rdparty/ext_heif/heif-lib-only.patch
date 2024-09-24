@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d996845..bd95fed 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -362,7 +362,7 @@ if (WITH_GDK_PIXBUF)
+   add_subdirectory (gdk-pixbuf)
+ endif()
+ 
+-add_subdirectory (gnome)
++#add_subdirectory (gnome)
+ 
+ 
+ # --- packaging (source code)

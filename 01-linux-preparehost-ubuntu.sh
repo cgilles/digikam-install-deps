@@ -208,7 +208,6 @@ optional_packages=("ccache"                             # For compiling
                    "libopencv-dev"
                    "libboost-dev"
                    "libxslt-dev"
-                   "libheif-dev"
                    "libeigen3-dev"
                    "libmagick++-dev"
                    "doxygen"
@@ -220,7 +219,7 @@ for pkg in ${optional_packages[@]}; do
     echo "-------------------------------------------------------------------"
 done
 
-sudo apt remove libqt6* qml6*
+sudo apt remove libqt6* qml6* libheif-dev
 
 #################################################################################################
 
