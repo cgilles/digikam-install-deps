@@ -102,6 +102,7 @@ rm -fr /usr/local/include/openssl || true
 
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_opencv                -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_heif                  -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_exiv2                 -- -j$CPU_CORES
 
 #################################################################################################
 

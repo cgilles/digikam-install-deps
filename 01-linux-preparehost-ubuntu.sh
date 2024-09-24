@@ -208,7 +208,6 @@ optional_packages=("ccache"                             # For compiling
                    "libmagick++-dev"
                    "doxygen"
                    "default-libmysqlclient-dev"
-                   "libexiv2-dev"
                    "liblensfun-dev"
 )
 
@@ -217,7 +216,7 @@ for pkg in ${optional_packages[@]}; do
     echo "-------------------------------------------------------------------"
 done
 
-sudo apt remove libqt6* qml6* libheif-dev opencv-dev
+sudo apt remove libqt6* qml6* libheif-dev opencv-dev libexiv2-dev
 
 #################################################################################################
 
