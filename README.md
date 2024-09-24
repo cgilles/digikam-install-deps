@@ -5,7 +5,7 @@ Authors : Gilles Caulier <caulier dot gilles at gmail dot com>
 
 * Requirements
 
-Linux Debian (tested with Ubuntu >= 22.04).
+Linux Debian (tested with Ubuntu >= 22.04 and later).
 
 * Configurations
 
