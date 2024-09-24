@@ -191,12 +191,9 @@ optional_packages=("ccache"                             # For compiling
                    "flite1-dev"
                    "libxshmfence-dev"
                    "libcanberra-dev"
-                   "libjasper-dev"
                    "libgcrypt-dev"
                    "libical-dev"
                    "libsane-dev"
-                   "libexiv2-dev"
-                   "liblensfun-dev"
                    "libavcodec-dev"
                    "libavutil-dev"
                    "libswresample-dev"
@@ -211,6 +208,8 @@ optional_packages=("ccache"                             # For compiling
                    "libmagick++-dev"
                    "doxygen"
                    "default-libmysqlclient-dev"
+                   "libexiv2-dev"
+                   "liblensfun-dev"
 )
 
 for pkg in ${optional_packages[@]}; do
