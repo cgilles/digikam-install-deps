@@ -17,7 +17,7 @@ ORIG_WD="`pwd`"
 
 # Absolute path where are downloaded all tarballs to compile.
 
-DOWNLOAD_DIR="/mnt/data/download.qt6"
+DOWNLOAD_DIR="/home/gilles/tmp/download.qt6"
 
 # Absolute path where code will be compiled.
 
