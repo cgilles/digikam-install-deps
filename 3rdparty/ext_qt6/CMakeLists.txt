@@ -6,16 +6,25 @@
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 #
 
-SET(EXTPREFIX_qt ${EXTPREFIX})
+set(EXTPREFIX_qt ${EXTPREFIX})
 
-#SET(QT_URL https://download.qt.io/official_releases/qt/6.7/6.7.2/single/qt-everywhere-src-6.7.2.tar.xz)
-#SET(QT_HASH 06d35b47349c7c0a45710daad359e07b)
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "(x86)|(X86)|(amd64)|(AMD64)")
 
-#SET(QT_URL https://download.qt.io/official_releases/qt/6.6/6.6.3/single/qt-everywhere-src-6.6.3.tar.xz)
-#SET(QT_HASH 0e2c9dd87cbc6768da2bfc7f776c272f)
+    set(QT_URL https://download.qt.io/official_releases/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz)
+    set(QT_HASH 3efadf18f1e16e3271abd09c606d3c9b)
 
-SET(QT_URL https://download.qt.io/development_releases/qt/6.8/6.8.0-rc/src/single/qt-everywhere-src-6.8.0-rc.tar.xz)
-SET(QT_HASH b56d0ff4e1197f90461098c682660fc9)
+else
+
+    # With Arm64 QtWebengine dp not link with more recent Qt versions
+    # https://bugreports.qt.io/browse/QTBUG-129346
+
+    set(QT_URL https://download.qt.io/official_releases/qt/6.6/6.6.3/single/qt-everywhere-src-6.6.3.tar.xz)
+    set(QT_HASH 0e2c9dd87cbc6768da2bfc7f776c272f)
+
+endif()
+
+#SET(QT_URL https://download.qt.io/development_releases/qt/6.8/6.8.0-rc/src/single/qt-everywhere-src-6.8.0-rc.tar.xz)
+#SET(QT_HASH b56d0ff4e1197f90461098c682660fc9)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/qt6_cmake_path.patch.cmake.in
                ${CMAKE_CURRENT_BINARY_DIR}/qt6_cmake_path.patch)
@@ -23,7 +32,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/qt6_cmake_path.patch.cmake.in
 
 # Linux with G++ compiler
 
-INCLUDE("config-qt6-linux.cmake")
+include("config-qt6-linux.cmake")
 
 ExternalProject_Add(ext_qt6
     DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}

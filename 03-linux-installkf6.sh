@@ -29,6 +29,7 @@ exec > >(tee $INSTALL_DIR/logs/linux-installkf6.full.log) 2>&1
 ChecksRunAsRoot
 StartScript
 ChecksCPUCores
+ChecksPhyMemory
 ChecksLinuxVersionAndName
 ChecksGccVersion
 

@@ -29,6 +29,7 @@ exec > >(tee $INSTALL_DIR/logs/linux-installqt6.full.log) 2>&1
 ChecksRunAsRoot
 StartScript
 ChecksCPUCores
+ChecksPhyMemory
 ChecksLinuxVersionAndName
 ChecksGccVersion
 
@@ -94,7 +95,11 @@ $INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_jasper                -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl               -- -j$CPU_CORES
 
-$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt6                   -- -j$CPU_CORES
+# NOTE: QtWebEngine require 4Gb of RAM by CPU cores to compile in parallel.
+
+QT_CORES=$((PHY_MEM / 4))
+
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt6                   -- -j$QT_CORES
 
 rm -fr /usr/local/lib/libssl.a    || true
 rm -fr /usr/local/lib/libcrypto.a || true
