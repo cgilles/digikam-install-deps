@@ -21,7 +21,7 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 else
     echo "Check run as root passed..."
-fin
+fi
 
 }
 
