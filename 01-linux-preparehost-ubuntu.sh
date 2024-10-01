@@ -206,6 +206,7 @@ optional_packages=("ccache"                             # For compiling
                    "libxslt-dev"
                    "libeigen3-dev"
                    "libmagick++-dev"
+                   "libgbm-dev"
                    "doxygen"
                    "default-libmysqlclient-dev"
                    "liblensfun-dev"
