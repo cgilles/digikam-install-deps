@@ -13,7 +13,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "(x86)|(X86)|(amd64)|(AMD64)")
     set(QT_URL https://download.qt.io/official_releases/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz)
     set(QT_HASH 3efadf18f1e16e3271abd09c606d3c9b)
 
-else
+else()
 
     # With Arm64 QtWebengine dp not link with more recent Qt versions
     # https://bugreports.qt.io/browse/QTBUG-129346
