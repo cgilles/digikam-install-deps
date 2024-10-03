@@ -12,7 +12,7 @@ ExternalProject_Add(ext_cmake
     DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
     GIT_REPOSITORY https://gitlab.kitware.com/cmake/cmake.git
-    GIT_TAG v3.30.3
+    GIT_TAG v3.30.4
 
     INSTALL_DIR ${EXTPREFIX_cmake}
 

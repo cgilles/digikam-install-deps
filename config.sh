@@ -17,7 +17,7 @@ ORIG_WD="`pwd`"
 
 # Absolute path where are downloaded all tarballs to compile.
 
-DOWNLOAD_DIR="/home/gilles/tmp/download.qt6"
+DOWNLOAD_DIR="/mnt/data/download.qt6"
 
 # Absolute path where code will be compiled.
 
@@ -35,10 +35,10 @@ INSTALL_DIR="/opt/qt6"
 DK_KP_VERSION="v6.1.5"
 
 # KDE Application git tag version.
-DK_KA_VERSION="v24.08.0"
+DK_KA_VERSION="v24.08.1"
 
 # KDE KF6 frameworks git tag version.
-DK_KDE_VERSION="v6.5.0"
+DK_KDE_VERSION="v6.6.0"
 
 # NOTE: The order to compile each component here is very important.
 
