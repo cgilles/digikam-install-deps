@@ -206,7 +206,7 @@ optional_packages=("ccache"                             # For compiling
                    "libxslt-dev"
                    "libeigen3-dev"
                    "libmagick++-dev"
-                   "libgbm-dev"
+                   "libgbm-dev"                         # For QtWebEngine: https://bugreports.qt.io/browse/QTBUG-129346
                    "doxygen"
                    "default-libmysqlclient-dev"
                    "liblensfun-dev"
