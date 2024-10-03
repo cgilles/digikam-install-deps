@@ -52,8 +52,6 @@ echo "Physical Memory (Gb): $PHY_MEM"
 
 }
 
-
-
 ########################################################################
 # For time execution measurement ; startup
 StartScript()
