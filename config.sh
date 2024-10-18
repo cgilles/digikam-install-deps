@@ -17,12 +17,12 @@ ORIG_WD="`pwd`"
 
 # Absolute path where are downloaded all tarballs to compile.
 
-DOWNLOAD_DIR="/mnt/data/download.qt6"
+DOWNLOAD_DIR="/mnt/data2/download.qt6"
 
 # Absolute path where code will be compiled.
 
 #BUILDING_DIR="$ORIG_WD/build.qt6"
-BUILDING_DIR="/mnt/data/build.qt6"
+BUILDING_DIR="/mnt/data2/build.qt6"
 
 # Absolute path where Qt will be installed.
 
@@ -32,13 +32,13 @@ INSTALL_DIR="/opt/qt6"
 ########################################################################
 
 # KDE Plasma git tag version.
-DK_KP_VERSION="v6.1.5"
+DK_KP_VERSION="v6.2.1"
 
 # KDE Application git tag version.
-DK_KA_VERSION="v24.08.1"
+DK_KA_VERSION="v24.08.2"
 
 # KDE KF6 frameworks git tag version.
-DK_KDE_VERSION="v6.6.0"
+DK_KDE_VERSION="v6.7.0"
 
 # NOTE: The order to compile each component here is very important.
 
