@@ -102,7 +102,7 @@ InstallKF6Component(kcalendarcore            ${KDE_VERSION} "${Qt6CommonOptions}
 InstallKF6Component(kxmlgui                  ${KDE_VERSION} "${Qt6CommonOptions}"                                               "")
 InstallKF6Component(kbookmarks               ${KDE_VERSION} "${Qt6CommonOptions}"                                               "")
 InstallKF6Component(kimageformats            ${KDE_VERSION} "${Qt6CommonOptions}"                                               "")
-InstallKF6Component(knotifyconfig            ${KDE_VERSION} "${Qt6CommonOptions}"                                               "knotifyconfig-disable-phonon.patch")
+InstallKF6Component(knotifyconfig            ${KDE_VERSION} "${Qt6CommonOptions}"                                               "")
 InstallKF6Component(knotifications           ${KDE_VERSION} "${Qt6CommonOptions}"                                               "")
 InstallKF6Component(kjobwidgets              ${KDE_VERSION} "${Qt6CommonOptions}"                                               "")
 InstallKF6Component(sonnet                   ${KDE_VERSION} "${Qt6CommonOptions};-DSONNET_USE_QML=OFF"                          "sonnet-hunspell-version.patch")

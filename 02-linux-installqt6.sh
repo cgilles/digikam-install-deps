@@ -32,7 +32,7 @@ ChecksCPUCores
 ChecksPhyMemory
 ChecksLinuxVersionAndName
 ChecksGccVersion
-
+if [ ] ;then
 #################################################################################################
 # Create the directories
 
@@ -76,7 +76,7 @@ cmake $ORIG_WD/3rdparty \
       -Wno-dev
 
 cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
-
+fi
 #################################################################################################
 
 cd $BUILDING_DIR
@@ -92,12 +92,12 @@ $INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
       -DKDE_VERSION=$DK_KDE_VERSION \
       -Wno-dev
 
-$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_jasper                -- -j$CPU_CORES
-$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl               -- -j$CPU_CORES
+#$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_jasper                -- -j$CPU_CORES
+#$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl               -- -j$CPU_CORES
 
 # NOTE: QtWebEngine require 4Gb of RAM by CPU cores to compile in parallel.
 
-QT_CORES=$((PHY_MEM / 4))
+QT_CORES=$((PHY_MEM / 4 / 2))
 echo "Qt will be compiled with $QT_CORES CPU cores."
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt6                   -- -j$QT_CORES
 

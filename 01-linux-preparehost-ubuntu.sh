@@ -210,6 +210,8 @@ optional_packages=("ccache"                             # For compiling
                    "doxygen"
                    "default-libmysqlclient-dev"
                    "liblensfun-dev"
+                   "hunspell"                           # For check spelling
+                   "libhunspell-dev"                    # For check spelling
 )
 
 for pkg in ${optional_packages[@]}; do
