@@ -72,7 +72,6 @@ set(Opencv_Conf -DBUILD_EXAMPLES=OFF
                 -DWITH_VFW=OFF
                 -DWITH_VIDEOINPUT=OFF
                 -DWITH_XINE=OFF
-                -DWITH_VA_INTEL=OFF
                 -DWITH_GPHOTO2=OFF
                 -DWITH_WEBP=OFF
                 -DWITH_IMGCODEC_HDR=OFF
@@ -92,17 +91,30 @@ set(Opencv_Conf -DBUILD_EXAMPLES=OFF
 )
 
 # See https://github.com/opencv/opencv/issues/23458#issuecomment-1495841155
-# OPenCL SVM support under MacOS is not functional.
+# OpenCL SVM support under MacOS is not functional.
+# OpenCL VA-Intel is only supported on x86_64
 
 if(APPLE)
 
     set(Opencv_Conf ${Opencv_Conf}
                     -DWITH_OPENCL_SVM=OFF
     )
-else()
+
+    if(CMAKE_APPLE_SILICON_PROCESSOR MATCHES "x86_64")
+
+        set(Opencv_Conf ${Opencv_Conf}
+                        -DWITH_VA=ON
+                        -DWITH_VA_INTEL=ON
+        )
+
+    endif()
+
+else()  # Linux
 
     set(Opencv_Conf ${Opencv_Conf}
                     -DWITH_OPENCL_SVM=ON
+                    -DWITH_VA=ON
+                    -DWITH_VA_INTEL=ON
     )
 
 endif()
