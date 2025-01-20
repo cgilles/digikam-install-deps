@@ -202,6 +202,7 @@ optional_packages=("ccache"                             # For compiling
                    "libavdevice-dev"
                    "libpostproc-dev"
                    "libswscale-dev"
+                   "libx265-dev"
                    "libboost-dev"
                    "libxslt-dev"
                    "libeigen3-dev"
