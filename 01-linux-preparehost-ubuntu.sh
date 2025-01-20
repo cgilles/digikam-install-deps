@@ -205,6 +205,7 @@ optional_packages=("ccache"                             # For compiling
                    "libx265-dev"
                    "libboost-dev"
                    "libxslt-dev"
+                   "libgphoto2-dev"
                    "libeigen3-dev"
                    "libmagick++-dev"
                    "libgbm-dev"                         # For QtWebEngine: https://bugreports.qt.io/browse/QTBUG-129346
