@@ -99,7 +99,7 @@ $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl   
 
 QT_CORES=$((PHY_MEM / 4 / 2))
 echo "Qt will be compiled with $QT_CORES CPU cores."
-$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt6                   -- -j$QT_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt6                   -- -j8
 
 rm -fr /usr/local/lib/libssl.a    || true
 rm -fr /usr/local/lib/libcrypto.a || true
