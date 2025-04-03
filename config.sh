@@ -31,14 +31,15 @@ INSTALL_DIR="/opt/qt6"
 
 ########################################################################
 
+# KDE KF6 frameworks git tag version.
+DK_KDE_VERSION="v6.12.0"
+
 # KDE Plasma git tag version.
-DK_KP_VERSION="v6.2.5"
+DK_KP_VERSION="v6.3.4"
 
 # KDE Application git tag version.
-DK_KA_VERSION="v24.12.1"
+DK_KA_VERSION="v24.12.3"
 
-# KDE KF6 frameworks git tag version.
-DK_KDE_VERSION="v6.10.0"
 
 # NOTE: The order to compile each component here is very important.
 
