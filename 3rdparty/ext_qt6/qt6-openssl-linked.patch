@@ -7,8 +7,8 @@ index 78c1089823..1cc1707151 100644
      LIBRARIES
          Qt::NetworkPrivate
          Qt::CorePrivate
-+        /usr/local/lib/libssl.a
-+        /usr/local/lib/libcrypto.a
++        /usr/local/lib64/libssl.a
++        /usr/local/lib64/libcrypto.a
 +        dl
 +        pthread
      DEFINES
