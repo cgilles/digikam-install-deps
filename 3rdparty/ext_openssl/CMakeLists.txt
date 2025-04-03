@@ -1,35 +1,36 @@
-# Script to build OpenSSL.
+# Script to build static version of OpenSSL
 #
-# Copyright (c) 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
-# Redistribution and use is allowed according to the terms of the BSD license.
-# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+# SPDX-License-Identifier: BSD-3-Clause
 #
 
-IF(MSVC)
-    SET(EXTPREFIX_openssl ${EXTPREFIX})
-ELSE()
-    SET(EXTPREFIX_openssl "/usr/local")
-ENDIF()
+if (NOT APPLE)
 
-ExternalProject_Add(ext_openssl
-    DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
+    SET(EXTPREFIX_openssl "${EXTPREFIX}/local/")
 
-    GIT_REPOSITORY https://github.com/janbar/openssl-cmake
-    GIT_TAG 1.1.1w-20231130
+    ExternalProject_Add(ext_openssl
 
-    INSTALL_DIR ${EXTPREFIX_openssl}
+        GIT_REPOSITORY https://github.com/jimmy-park/openssl-cmake.git
+        GIT_TAG 3.4.1
 
-    CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTPREFIX_openssl}
-               -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
-               -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE
-               -DWITH_APPS=OFF
-               -DWITH_DOCS=OFF
-               -DWITH_TESTS=OFF
-               ${GLOBAL_PROFILE}
+        INSTALL_DIR ${EXTPREFIX_openssl}
 
-    BUILD_COMMAND ${BUILD_CLI}
+        CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTPREFIX_openssl}
+                   -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
+                   -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE
+                   -DOPENSSL_BUILD_VERBOSE=ON
+                   -DOPENSSL_ENABLE_PARALLEL=ON
+                   -DOPENSSL_INSTALL=ON
+                   -DOPENSSL_INSTALL_CERT=OFF
+                   -DOPENSSL_TEST=OFF
+                   -DOPENSSL_USE_CCACHE=OFF
+                   ${GLOBAL_PROFILE}
 
-    UPDATE_COMMAND ""
-    ALWAYS 0
-)
+        BUILD_COMMAND ${BUILD_CLI}
+
+        UPDATE_COMMAND ""
+        ALWAYS 0
+    )
+
+endif()
