@@ -75,7 +75,7 @@ set(WindowsSystemOptions -DWITH_LIBZSTD=OFF -DKWINDOWSYSTEM_WAYLAND=OFF)
 
 set(Qt6CommonOptions -DQT_MAJOR_VERSION=6 -DBUILD_WITH_QT6=ON)
 
-InstallKF6Component(extra-cmake-modules      ${KDE_VERSION} "${Qt6CommonOptions};-DBUILD_HTML_DOCS=OFF;-DBUILD_MAN_DOCS=OFF"    "")
+InstallKF6Component(extra-cmake-modules      ${KDE_VERSION} "${Qt6CommonOptions};-DBUILD_DOC=OFF"                               "")
 InstallKF6Component(plasma-wayland-protocols master         "${Qt6CommonOptions}"                                               "wayland-proto-ecm-version.patch")
 InstallKF6Component(kconfig                  ${KDE_VERSION} "${Qt6CommonOptions};-DKCONFIG_USE_QML=OFF"                         "")
 InstallKF6Component(breeze-icons             ${KDE_VERSION} "${Qt6CommonOptions};${BreezeIconsOptions}"                         "breeze-icons-dropsvg.patch")
