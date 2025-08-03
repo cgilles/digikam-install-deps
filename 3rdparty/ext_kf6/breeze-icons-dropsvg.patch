@@ -1,8 +1,8 @@
 diff --git a/icons/apps/48/digikam.svg b/icons/apps/48/digikam.svg
-index 63796ad9..3e770fd9 100644
+index 63796ad9..efd6f202 100644
 --- a/icons/apps/48/digikam.svg
 +++ b/icons/apps/48/digikam.svg
-@@ -1,42 +1,744 @@
+@@ -1,42 +1,742 @@
 -<svg width="48" xmlns="http://www.w3.org/2000/svg" height="48" xmlns:xlink="http://www.w3.org/1999/xlink">
 - <defs>
 -  <linearGradient spreadMethod="reflect" id="a" x1="428.57" x2="408.57" gradientUnits="userSpaceOnUse">
@@ -43,7 +43,7 @@ index 63796ad9..3e770fd9 100644
 +   width="128"
 +   height="128"
 +   id="svg2"
-+   sodipodi:docname="digikam.svg"
++   sodipodi:docname="logo-digikam.svg"
 +   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
 +   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
 +   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -64,7 +64,7 @@ index 63796ad9..3e770fd9 100644
 +     inkscape:deskcolor="#d1d1d1"
 +     showgrid="false"
 +     inkscape:zoom="1.84375"
-+     inkscape:cx="64"
++     inkscape:cx="47.728814"
 +     inkscape:cy="64"
 +     inkscape:window-width="1444"
 +     inkscape:window-height="898"
@@ -504,7 +504,6 @@ index 63796ad9..3e770fd9 100644
 +     id="g4127"
 +     style="display:none">
 +    <image
-+       xlink:href="/media/250gb/valokuvat/Syksy 02-09-05 Kuusamo, inkavaaralla luonnonpuistossa suomen komeimman kosken kuvaamista/img_5766_4.jpg"
 +       x="-211.14287"
 +       y="-208"
 +       width="1677.7142"
@@ -541,7 +540,6 @@ index 63796ad9..3e770fd9 100644
 +     id="g3101"
 +     style="display:none">
 +    <image
-+       xlink:href="/media/250gb/valokuvat/Syksy 02-09-05 Kuusamo, inkavaaralla luonnonpuistossa suomen komeimman kosken kuvaamista/img_5766_4.jpg"
 +       x="-211.14287"
 +       y="-208"
 +       width="1677.7142"
@@ -787,10 +785,10 @@ index 63796ad9..3e770fd9 100644
 - </g>
  </svg>
 diff --git a/icons/apps/48/showfoto.svg b/icons/apps/48/showfoto.svg
-index 81645795..41d38e82 100644
+index 81645795..38f903cc 100644
 --- a/icons/apps/48/showfoto.svg
 +++ b/icons/apps/48/showfoto.svg
-@@ -1,42 +1,740 @@
+@@ -1,42 +1,738 @@
 -<svg width="48" xmlns="http://www.w3.org/2000/svg" height="48" xmlns:xlink="http://www.w3.org/1999/xlink">
 - <defs>
 -  <linearGradient spreadMethod="reflect" id="a" x1="428.57" x2="408.57" gradientUnits="userSpaceOnUse">
@@ -831,7 +829,7 @@ index 81645795..41d38e82 100644
 +   width="128"
 +   height="128"
 +   id="svg2"
-+   sodipodi:docname="showfoto.svg"
++   sodipodi:docname="logo-showfoto.svg"
 +   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
 +   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
 +   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -842,7 +840,7 @@ index 81645795..41d38e82 100644
 +   xmlns:cc="http://creativecommons.org/ns#"
 +   xmlns:dc="http://purl.org/dc/elements/1.1/">
 +  <sodipodi:namedview
-+     id="namedview482"
++     id="namedview143"
 +     pagecolor="#ffffff"
 +     bordercolor="#000000"
 +     borderopacity="0.25"
@@ -852,7 +850,7 @@ index 81645795..41d38e82 100644
 +     inkscape:deskcolor="#d1d1d1"
 +     showgrid="false"
 +     inkscape:zoom="1.84375"
-+     inkscape:cx="64"
++     inkscape:cx="47.728814"
 +     inkscape:cy="64"
 +     inkscape:window-width="1444"
 +     inkscape:window-height="898"
@@ -1308,7 +1306,6 @@ index 81645795..41d38e82 100644
 +     id="g4127"
 +     style="display:none">
 +    <image
-+       xlink:href="/media/250gb/valokuvat/Syksy 02-09-05 Kuusamo, inkavaaralla luonnonpuistossa suomen komeimman kosken kuvaamista/img_5766_4.jpg"
 +       x="-211.14287"
 +       y="-208"
 +       width="1677.7142"
@@ -1377,7 +1374,6 @@ index 81645795..41d38e82 100644
 +     id="g3101"
 +     style="display:none">
 +    <image
-+       xlink:href="/media/250gb/valokuvat/Syksy 02-09-05 Kuusamo, inkavaaralla luonnonpuistossa suomen komeimman kosken kuvaamista/img_5766_4.jpg"
 +       x="-211.14287"
 +       y="-208"
 +       width="1677.7142"
