@@ -9,7 +9,7 @@ Linux Debian (tested with Ubuntu >= 22.04 and later).
 
 * Configurations
 
-Before to start Qt compilation, please take a look in self documented config.sh configuration file.
+Before to start Qt compilation, please take a look in self documented **config.sh** configuration file.
 
 NOTE: Wayland support is disabled in Qt and KDE frameworks.
 
@@ -17,7 +17,7 @@ NOTE: Wayland support is disabled in Qt and KDE frameworks.
 
 To start Qt compilation use these scripts:
 
-    1) sudo ./01-linux-preparehost-ubuntu.sh 
+    1) sudo ./01-linux-preparehost-ubuntu.sh
 
     2) sudo ./02-linux-installqt6.sh
 
@@ -25,4 +25,4 @@ To start Qt compilation use these scripts:
 
 * Install
 
-File are automatically installed in path defined in config.sh file.
+File are automatically installed in target path defined in config.sh file.
