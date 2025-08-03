@@ -64,7 +64,6 @@ endfunction()
 
 if(MSVC)
     set(BreezeIconsOptions -DBINARY_ICONS_RESOURCE=OFF -DSKIP_INSTALL_ICONS=OFF -DWITH_ICON_GENERATION=OFF)
-    set(Ki18nIsoCodesPatch ki18n-disable-isocodes.patch)
 else()
     set(BreezeIconsOptions -DBINARY_ICONS_RESOURCE=ON)
 endif()
@@ -73,7 +72,7 @@ set(MarbleQtOnlyOptions -DWITH_DESIGNER_PLUGIN=OFF -DBUILD_MARBLE_TESTS=OFF -DBU
 set(BreezeOptions -DBUILD_QT6=ON -DBUILD_QT5=OFF -DWITH_DECORATIONS=OFF -DWITH_WALLPAPERS=OFF)
 set(WindowsSystemOptions -DWITH_LIBZSTD=OFF -DKWINDOWSYSTEM_WAYLAND=OFF)
 
-set(Qt6CommonOptions -DQT_MAJOR_VERSION=6 -DBUILD_WITH_QT6=ON)
+set(Qt6CommonOptions -DQT_MAJOR_VERSION=6 -DBUILD_WITH_QT6=ON -DBUILD_PYTHON_BINDINGS=OFF)
 
 InstallKF6Component(extra-cmake-modules      ${KDE_VERSION} "${Qt6CommonOptions};-DBUILD_DOC=OFF"                               "")
 InstallKF6Component(plasma-wayland-protocols master         "${Qt6CommonOptions}"                                               "wayland-proto-ecm-version.patch")
@@ -85,7 +84,7 @@ InstallKF6Component(threadweaver             ${KDE_VERSION} "${Qt6CommonOptions}
 InstallKF6Component(kwindowsystem            ${KDE_VERSION} "${Qt6CommonOptions};${WindowsSystemOptions}"                       "")
 InstallKF6Component(karchive                 ${KDE_VERSION} "${Qt6CommonOptions}"                                               "")
 InstallKF6Component(kdbusaddons              ${KDE_VERSION} "${Qt6CommonOptions}"                                               "")
-InstallKF6Component(ki18n                    ${KDE_VERSION} "${Qt6CommonOptions}"                                               "${Ki18nIsoCodesPatch}")
+InstallKF6Component(ki18n                    ${KDE_VERSION} "${Qt6CommonOptions}"                                               "ki18n-disable-isocodes.patch")
 InstallKF6Component(kcrash                   ${KDE_VERSION} "${Qt6CommonOptions}"                                               "")
 InstallKF6Component(kcodecs                  ${KDE_VERSION} "${Qt6CommonOptions}"                                               "")
 InstallKF6Component(kauth                    ${KDE_VERSION} "${Qt6CommonOptions}"                                               "")
