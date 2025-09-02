@@ -27,16 +27,21 @@ set(Heif_Conf -DBUILD_SHARED_LIBS=ON
               -DWITH_RAV1E_PLUGIN=OFF
               -DWITH_JPEG_ENCODER=OFF
               -DWITH_JPEG_DECODER=OFF
+              -DWITH_OpenJPEG_ENCODER=OFF
+              -DWITH_OpenJPEG_DECODER=OFF
               -DWITH_FFMPEG_DECODER=OFF
               -DWITH_UNCOMPRESSED_CODEC=OFF
               -DWITH_SvtEnc=OFF
               -DWITH_SvtEnc_PLUGIN=OFF
+              -DWITH_LIBSHARPYUV=ON
               -DWITH_EXAMPLES=OFF
+              -DWITH_EXAMPLE_HEIF_VIEW=OFF
               -DWITH_GDK_PIXBUF=OFF
               -DWITH_REDUCED_VISIBILITY=ON
               -DWITH_HEADER_COMPRESSION=OFF
               -DENABLE_MULTITHREADING_SUPPORT=ON
               -DENABLE_PARALLEL_TILE_DECODING=ON
+              -DENABLE_EXPERIMENTAL_MINI_FORMAT=OFF
               -DENABLE_COVERAGE=OFF
               -DBUILD_TESTING=OFF
               -DWITH_FUZZERS=OFF
@@ -50,7 +55,7 @@ if(APPLE)
 
         DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
         GIT_REPOSITORY https://github.com/strukturag/libheif.git
-        GIT_TAG v1.20.1
+        GIT_TAG v1.20.2
 
         PATCH_COMMAND ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/heif-lib-only.patch
 
@@ -76,7 +81,7 @@ else() # Linux
 
         DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
         GIT_REPOSITORY https://github.com/strukturag/libheif.git
-        GIT_TAG v1.20.1
+        GIT_TAG v1.20.2
 
         PATCH_COMMAND git reset --hard && ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/heif-lib-only.patch
 

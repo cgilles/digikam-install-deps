@@ -12,7 +12,7 @@ ExternalProject_Add(ext_jasper
     DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
     GIT_REPOSITORY https://github.com/jasper-software/jasper.git
-    GIT_TAG version-4.2.5
+    GIT_TAG version-4.2.8
 
     INSTALL_DIR ${PREFIX_ext_jasper}
 
@@ -24,10 +24,17 @@ ExternalProject_Add(ext_jasper
                -DJAS_ENABLE_LIBJPEG=ON
                -DJAS_ENABLE_LIBHEIF=OFF
                -DJAS_ENABLE_OPENGL=ON
-               -DJAS_LOCAL=OFF
                -DJAS_ENABLE_DOC=OFF
                -DJAS_ENABLE_LATEX=OFF
                -DJAS_ENABLE_PROGRAMS=OFF
+               -DJAS_ENABLE_MULTITHREADING_SUPPORT=ON
+               -DJAS_ENABLE_CMAKE_PACKAGE_CONFIG=OFF
+               -DJAS_ENABLE_PIC=ON
+               -DJAS_ENABLE_HIDDEN=ON
+               -DJAS_ENABLE_32BIT=OFF
+               -DJAS_LOCAL=OFF
+               -DJAS_PACKAGING=OFF
+               -DJAS_STRICT=OFF
                -Wno-dev
 
     UPDATE_COMMAND ""
