@@ -20,7 +20,7 @@ if (NOT APPLE)
                    -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
                    -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE
                    -DOPENSSL_BUILD_VERBOSE=ON
-                   -DOPENSSL_ENABLE_PARALLEL=ON
+                   -DOPENSSL_ENABLE_PARALLEL=OFF
                    -DOPENSSL_INSTALL=ON
                    -DOPENSSL_INSTALL_CERT=OFF
                    -DOPENSSL_TEST=OFF
