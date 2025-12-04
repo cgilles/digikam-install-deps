@@ -1,0 +1,41 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b42eee08..4599b0c8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -104,6 +104,13 @@ ecm_install_po_files_as_qm(poqm)
+ 
+ include(SolidBackendsMacros)
+ 
++remove_definitions(
++    -DQT_NO_CAST_FROM_ASCII
++    -DQT_NO_CAST_TO_ASCII
++    -DQT_NO_URL_CAST_FROM_STRING
++    -DQT_NO_CAST_FROM_BYTEARRAY
++)
++
+ add_device_backends_begin()
+ add_device_backend(fakehw)
+ if (CMAKE_SYSTEM_NAME MATCHES Linux)
+@@ -143,6 +150,7 @@ endif()
+ 
+ add_device_backends_cmake()
+ 
++
+ add_subdirectory(src)
+ if (BUILD_TESTING)
+     add_subdirectory(autotests)
+diff --git a/src/solid/devices/backends/iokit/iokitdevice.cpp b/src/solid/devices/backends/iokit/iokitdevice.cpp
+index fd14478b..681616f0 100644
+--- a/src/solid/devices/backends/iokit/iokitdevice.cpp
++++ b/src/solid/devices/backends/iokit/iokitdevice.cpp
+@@ -113,7 +113,9 @@ static QString getParentDeviceUdi(const io_registry_entry_t &entry)
+ 
+     CFStringRef path = IORegistryEntryCopyPath(parent, kIOServicePlane);
+     QString result = QString::fromCFString(path);
+-    CFRelease(path);
++    if (path) {
++        CFRelease(path);
++    }
+ 
+     // now we can release the parent
+     IOObjectRelease(parent);

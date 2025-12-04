@@ -17,13 +17,13 @@ ORIG_WD="`pwd`"
 
 # Absolute path where are downloaded all tarballs to compile.
 
-#DOWNLOAD_DIR="$ORIG_WD/download.qt6"
-DOWNLOAD_DIR="/mnt/data2/download.qt6"
+DOWNLOAD_DIR="$ORIG_WD/download.qt6"
+#DOWNLOAD_DIR="/mnt/data2/download.qt6"
 
 # Absolute path where code will be compiled.
 
-#BUILDING_DIR="$ORIG_WD/build.qt6"
-BUILDING_DIR="/mnt/data2/build.qt6"
+BUILDING_DIR="$ORIG_WD/build.qt6"
+#BUILDING_DIR="/mnt/data2/build.qt6"
 
 # Absolute path where Qt will be installed.
 
