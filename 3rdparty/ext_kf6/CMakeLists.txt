@@ -74,7 +74,7 @@ set(BreezeOptions -DBUILD_QT6=ON -DBUILD_QT5=OFF -DWITH_DECORATIONS=OFF -DWITH_W
 set(Qt6CommonOptions -DQT_MAJOR_VERSION=6 -DBUILD_WITH_QT6=ON -DBUILD_PYTHON_BINDINGS=OFF)
 
 InstallKF6Component(extra-cmake-modules      ${KDE_VERSION}     "${Qt6CommonOptions};-DBUILD_DOC=OFF"                                                       "")
-InstallKF6Component(plasma-wayland-protocols ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "wayland-proto-ecm-version.patch")
+InstallKF6Component(plasma-wayland-protocols v1.19.0            "${Qt6CommonOptions}"                                                                       "wayland-proto-ecm-version.patch")
 InstallKF6Component(kconfig                  ${KDE_VERSION}     "${Qt6CommonOptions};-DKCONFIG_USE_QML=OFF"                                                 "")
 InstallKF6Component(breeze-icons             ${KDE_VERSION}     "${Qt6CommonOptions};${BreezeIconsOptions}"                                                 "breeze-icons-dropsvg.patch")
 InstallKF6Component(solid                    ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "solid-iokit-fixes.patch")
