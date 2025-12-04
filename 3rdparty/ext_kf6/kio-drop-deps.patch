@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 3739ef43a..96cf64286 100644
+index c04e4d50e..a194de284 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -62,7 +62,7 @@ find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
+@@ -59,7 +59,7 @@ find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
  find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
  find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
  find_package(KF6Service ${KF_DEP_VERSION} REQUIRED)
@@ -11,16 +11,7 @@ index 3739ef43a..96cf64286 100644
  find_package(KF6Solid ${KF_DEP_VERSION} REQUIRED) # for kio_trash
  if (NOT ANDROID)
      find_package(KF6Crash ${KF_DEP_VERSION} REQUIRED)
-@@ -81,7 +81,7 @@ find_package(KF6JobWidgets ${KF_DEP_VERSION} REQUIRED)
- find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
- find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
- 
--find_package(KF6KDED ${KF_DEP_VERSION})
-+#find_package(KF6KDED ${KF_DEP_VERSION})
- set_package_properties(KF6KDED PROPERTIES DESCRIPTION "Daemon providing session services"
-                        TYPE RUNTIME
-                        PURPOSE "KDED is used at runtime for proxy management and cookie storage"
-@@ -167,7 +167,9 @@ if(BUILD_TESTING)
+@@ -170,7 +170,9 @@ if(BUILD_TESTING)
      endif()
  endif()
  
