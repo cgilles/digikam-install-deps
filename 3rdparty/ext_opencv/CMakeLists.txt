@@ -1,6 +1,6 @@
 # Script to build OpenCV.
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -147,7 +147,7 @@ else() # Linux
         DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
         GIT_REPOSITORY https://github.com/opencv/opencv.git
-        GIT_TAG 4.12.0
+        GIT_TAG 4.13.0
 
         INSTALL_DIR ${EXTPREFIX_opencv}
 

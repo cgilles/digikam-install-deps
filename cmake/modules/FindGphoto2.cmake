@@ -10,7 +10,7 @@
 #  GPHOTO2_VERSION_PATCH  - e.g. "14"
 #
 # Copyright (c) 2006-2007 by Laurent Montel <montel@kde.org>
-# Copyright (c) 2011-2020 by Gilles Caulier <caulier.gilles@gmail.com>
+# Copyright (c) 2011-2026 by Gilles Caulier <caulier.gilles@gmail.com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.

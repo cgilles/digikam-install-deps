@@ -1,6 +1,6 @@
 # Script to build Qt6.
 #
-# Copyright (c) 2015-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+# Copyright (c) 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -8,8 +8,8 @@
 
 set(EXTPREFIX_qt ${EXTPREFIX})
 
-SET(QT_URL https://download.qt.io/official_releases/qt/6.10/6.10.1/single/qt-everywhere-src-6.10.1.tar.xz)
-SET(QT_HASH cb2c438c33e3f9e6a430d63c7ba0920a)
+SET(QT_URL https://download.qt.io/official_releases/qt/6.10/6.10.2/single/qt-everywhere-src-6.10.2.tar.xz)
+SET(QT_HASH c888eeca204d8ee144d9c57c2df9f8f4)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/qt6_cmake_path.patch.cmake.in
                ${CMAKE_CURRENT_BINARY_DIR}/qt6_cmake_path.patch)

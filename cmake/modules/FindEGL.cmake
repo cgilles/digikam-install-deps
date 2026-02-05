@@ -8,7 +8,7 @@
 # EGL_gldispatch_LIBRARY   for full OpenGL support through EGL
 # EGL_LIBRARIES    - all EGL related libraries: EGL, OpenGL, GLdispatch
 #
-# Copyright (c) 2015-2020, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2015-2026, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
