@@ -44,7 +44,7 @@ if(APPLE)
         DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
         GIT_REPOSITORY https://github.com/Exiv2/exiv2.git
-        GIT_TAG v0.28.7
+        GIT_TAG v0.28.8
 
         CONFIGURE_COMMAND cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../scripts/create_manifest.sh <SOURCE_DIR>/. &&
                           cd <SOURCE_DIR> &&
@@ -68,7 +68,7 @@ elseif(MSVC)
         DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
         GIT_REPOSITORY https://github.com/Exiv2/exiv2.git
-        GIT_TAG v0.28.7
+        GIT_TAG v0.28.8
 
         PATCH_COMMAND ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/exiv2-brotli-vcpkg.patch &&
                       cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../scripts/create_manifest.sh <SOURCE_DIR>/. &&
@@ -90,7 +90,7 @@ else() # Linux
         DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
         GIT_REPOSITORY https://github.com/Exiv2/exiv2.git
-        GIT_TAG v0.28.7
+        GIT_TAG v0.28.8
 
         CONFIGURE_COMMAND cd <SOURCE_DIR> &&
                           $(CMAKE_COMMAND) . -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_exiv2}

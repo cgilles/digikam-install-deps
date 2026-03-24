@@ -12,7 +12,7 @@ if (NOT APPLE)
     ExternalProject_Add(ext_openssl
 
         GIT_REPOSITORY https://github.com/jimmy-park/openssl-cmake.git
-        GIT_TAG 3.6.0
+        GIT_TAG 3.6.1
 
         INSTALL_DIR ${EXTPREFIX_openssl}
 

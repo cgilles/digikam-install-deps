@@ -1,4 +1,4 @@
-# Script to build KF5 Frameworks.
+# Script to build KF6 Frameworks.
 #
 # Copyright (c) 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
