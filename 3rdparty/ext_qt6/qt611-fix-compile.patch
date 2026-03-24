@@ -1,0 +1,12 @@
+diff --git a/qtquick3d/src/runtimerender/rendererimpl/qssglightmapbaker_p.h b/qtquick3d/src/runtimerender/rendererimpl/qssglightmapbaker_p.h
+index 7d0b13c9d..f664437d1 100644
+--- a/qtquick3d/src/runtimerender/rendererimpl/qssglightmapbaker_p.h
++++ b/qtquick3d/src/runtimerender/rendererimpl/qssglightmapbaker_p.h
+@@ -21,6 +21,7 @@
+ #include <QtQuick3DRuntimeRender/private/qssglightmapper_p.h>
+ 
+ #include <QString>
++#include <QApplication>
+ 
+ QT_BEGIN_NAMESPACE
+ 
