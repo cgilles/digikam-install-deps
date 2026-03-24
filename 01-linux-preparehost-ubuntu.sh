@@ -183,7 +183,6 @@ optional_packages=("ccache"                             # For compiling
                    "libgrpc++-dev"
                    "libpq-dev"
                    "unixodbc-dev"
-                   "nodejs"
                    "gperf"
                    "libicu72"
                    "libicu-dev"
@@ -221,7 +220,13 @@ for pkg in ${optional_packages[@]}; do
     echo "-------------------------------------------------------------------"
 done
 
-sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev
+sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev nodejs
+
+# Install new Nodejs >= 20 for QtWebEngine
+
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
+node --version
 
 #################################################################################################
 
