@@ -97,9 +97,21 @@ $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl   
 
 # NOTE: QtWebEngine require 4Gb of RAM by CPU cores to compile in parallel.
 
-QT_CORES=$((PHY_MEM / 4 / 2))
-echo "Qt will be compiled with $QT_CORES CPU cores."
-taskset -c 0-$QT_CORES $INSTALL_DIR/bin/cmake --build . --parallel $QT_CORES --config RelWithDebInfo --target ext_qt6
+if [[ "$(arch)" = "x86_64" ]] ; then
+
+    # Intel
+
+    QT_CORES=$((PHY_MEM / 4 / 2))
+    echo "Qt will be compiled with $QT_CORES CPU cores."
+    taskset -c 0-$QT_CORES $INSTALL_DIR/bin/cmake --build . --parallel $QT_CORES --config RelWithDebInfo --target ext_qt6
+
+else
+
+    # arm64
+
+    $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt6 -- -j1
+
+fi
 
 rm -fr /usr/local/lib/libssl.a    || true
 rm -fr /usr/local/lib/libcrypto.a || true
