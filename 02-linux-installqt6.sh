@@ -108,6 +108,35 @@ if [[ "$(arch)" = "x86_64" ]] ; then
 else
 
     # arm64
+    # According to Qt documentation (https://doc.qt.io/qt-6/linux.html),
+    # arm64 is only supported on specific Linux distributions:
+    # - Ubuntu 24.04 (GCC 13.x)
+    # - Debian 11.6 (GCC 10)
+    # - Debian 12 (GCC 12)
+    
+    ARM64_SUPPORTED=false
+    
+    if [[ "$LINUX_NAME" == *"Ubuntu"* ]]; then
+        if [[ "$LINUX_VERSION" == "24.04" ]]; then
+            ARM64_SUPPORTED=true
+            echo "arm64: Ubuntu 24.04 is supported for Qt6 arm64 build."
+        fi
+    elif [[ "$LINUX_NAME" == *"Debian"* ]]; then
+        if [[ "$LINUX_VERSION" == "11.6" || "$LINUX_VERSION" == "11" || "$LINUX_VERSION" == "12" ]]; then
+            ARM64_SUPPORTED=true
+            echo "arm64: Debian $LINUX_VERSION is supported for Qt6 arm64 build."
+        fi
+    fi
+    
+    if [[ "$ARM64_SUPPORTED" == false ]]; then
+        echo "ERROR: arm64 architecture is not supported on $LINUX_NAME $LINUX_VERSION"
+        echo "According to Qt documentation, arm64 is only supported on:"
+        echo "  - Ubuntu 24.04 (GCC 13.x)"
+        echo "  - Debian 11.6 (GCC 10)"
+        echo "  - Debian 12 (GCC 12)"
+        echo "Please use a supported distribution or x86_64 architecture."
+        exit 1
+    fi
 
     $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt6 -- -j1
 
