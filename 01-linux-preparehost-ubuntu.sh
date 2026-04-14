@@ -209,6 +209,7 @@ optional_packages=("ccache"                             # For compiling
                    "libfdk-aac-dev"
                    "libmp3lame-dev"
                    "libopencore-amrnb-dev"
+                   "libopencore-amrwb-dev"
 )
 
 for pkg in ${optional_packages[@]}; do
