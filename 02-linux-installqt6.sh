@@ -100,6 +100,9 @@ $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libavif   
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_ffmpeg                -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl               -- -j$CPU_CORES
 
+ln -s /usr/local/lib64/libssl.a    /usr/local/lib/libssl.a    || true
+ln -s /usr/local/lib64/libcrypto.a /usr/local/lib/libcrypto.a || true
+
 # NOTE: QtWebEngine require 4Gb of RAM by CPU cores to compile in parallel.
 
 if [[ "$(arch)" = "x86_64" ]] ; then
@@ -155,9 +158,11 @@ else
 
 fi
 
-rm -fr /usr/local/lib/libssl.a    || true
-rm -fr /usr/local/lib/libcrypto.a || true
-rm -fr /usr/local/include/openssl || true
+rm -fr /usr/local/lib64/libssl.a    || true
+rm -fr /usr/local/lib64/libcrypto.a || true
+rm -fr /usr/local/lib/libssl.a      || true
+rm -fr /usr/local/lib/libcrypto.a   || true
+rm -fr /usr/local/include/openssl   || true
 
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_opencv                -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_heif                  -- -j$CPU_CORES
