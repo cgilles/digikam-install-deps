@@ -210,6 +210,7 @@ optional_packages=("ccache"                             # For compiling
                    "libmp3lame-dev"
                    "libopencore-amrnb-dev"
                    "libopencore-amrwb-dev"
+                   "libopus-dev"
 )
 
 for pkg in ${optional_packages[@]}; do
