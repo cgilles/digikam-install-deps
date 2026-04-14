@@ -99,6 +99,7 @@ SET(PATCH_COMMAND patch)
 
 # NOTE: this list must be dependency-ordered
 
+ADD_SUBDIRECTORY(ext_boost)
 ADD_SUBDIRECTORY(ext_cmake)
 ADD_SUBDIRECTORY(ext_openssl)
 ADD_SUBDIRECTORY(ext_jasper)
@@ -107,4 +108,9 @@ ADD_SUBDIRECTORY(ext_kf6)
 ADD_SUBDIRECTORY(ext_heif)
 ADD_SUBDIRECTORY(ext_opencv)
 ADD_SUBDIRECTORY(ext_exiv2)
+ADD_SUBDIRECTORY(ext_ffmpeg)
+ADD_SUBDIRECTORY(ext_libde265)
+ADD_SUBDIRECTORY(ext_libavif)
+ADD_SUBDIRECTORY(ext_libaom)
+ADD_SUBDIRECTORY(ext_libjxl)
 

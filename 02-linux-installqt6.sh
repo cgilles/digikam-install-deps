@@ -93,6 +93,11 @@ $INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
       -Wno-dev
 
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_jasper                -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libde265              -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libjxl                -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libaom                -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libavif               -- -j$CPU_CORES
+$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_ffmpeg                -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl               -- -j$CPU_CORES
 
 # NOTE: QtWebEngine require 4Gb of RAM by CPU cores to compile in parallel.
@@ -113,22 +118,29 @@ else
     # - Ubuntu 24.04 (GCC 13.x)
     # - Debian 11.6 (GCC 10)
     # - Debian 12 (GCC 12)
-    
+
     ARM64_SUPPORTED=false
-    
-    if [[ "$LINUX_NAME" == *"Ubuntu"* ]]; then
-        if [[ "$LINUX_VERSION" == "24.04" ]]; then
+
+    if [[ "$LINUX_NAME" == *"Ubuntu"* ]] ; then
+
+        if [[ "$LINUX_VERSION" == "24.04" ]] ; then
             ARM64_SUPPORTED=true
             echo "arm64: Ubuntu 24.04 is supported for Qt6 arm64 build."
         fi
-    elif [[ "$LINUX_NAME" == *"Debian"* ]]; then
-        if [[ "$LINUX_VERSION" == "11.6" || "$LINUX_VERSION" == "11" || "$LINUX_VERSION" == "12" ]]; then
+
+    elif [[ "$LINUX_NAME" == *"Debian"* ]] ; then
+
+        if [[ "$LINUX_VERSION" == "11.6" || "$LINUX_VERSION" == "11" || "$LINUX_VERSION" == "12" ]] ; then
+
             ARM64_SUPPORTED=true
             echo "arm64: Debian $LINUX_VERSION is supported for Qt6 arm64 build."
+
         fi
+
     fi
-    
-    if [[ "$ARM64_SUPPORTED" == false ]]; then
+
+    if [[ "$ARM64_SUPPORTED" == false ]] ; then
+
         echo "ERROR: arm64 architecture is not supported on $LINUX_NAME $LINUX_VERSION"
         echo "According to Qt documentation, arm64 is only supported on:"
         echo "  - Ubuntu 24.04 (GCC 13.x)"
@@ -136,6 +148,7 @@ else
         echo "  - Debian 12 (GCC 12)"
         echo "Please use a supported distribution or x86_64 architecture."
         exit 1
+
     fi
 
     $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt6 -- -j1

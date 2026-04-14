@@ -71,7 +71,6 @@ required_packages=("cmake"                   # To Compile Source Code
                    "libpng-dev"              # PNG library
                    "libjpeg-dev"             # JPEG library
                    "libssl-dev"
-                   "libjxl-dev"
                     )
 
 
@@ -193,16 +192,6 @@ optional_packages=("ccache"                             # For compiling
                    "libgcrypt-dev"
                    "libical-dev"
                    "libsane-dev"
-                   "libavcodec-dev"
-                   "libavutil-dev"
-                   "libswresample-dev"
-                   "libavformat-dev"
-                   "libavfilter-dev"
-                   "libavdevice-dev"
-                   "libpostproc-dev"
-                   "libswscale-dev"
-                   "libx265-dev"
-                   "libboost-dev"
                    "libxslt-dev"
                    "libgphoto2-dev"
                    "libeigen3-dev"
@@ -220,7 +209,8 @@ for pkg in ${optional_packages[@]}; do
     echo "-------------------------------------------------------------------"
 done
 
-sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev nodejs
+sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev nodejs libboost-dev libavcodec-dev libavutil-dev libswresample-dev libavformat-dev libavfilter-dev libavdevice-dev libpostproc-dev libswscale-dev libx265-dev libjxl-dev
+
 
 # Install new Nodejs >= 20 for QtWebEngine
 

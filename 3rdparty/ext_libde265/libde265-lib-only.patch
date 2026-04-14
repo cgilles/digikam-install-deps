@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5a337481..c4be887c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -63,8 +63,8 @@ option(ENABLE_ENCODER "Enable Encoder" OFF)
+ 
+ add_subdirectory (libde265)
+ if (ENABLE_DECODER)
+-  add_subdirectory (dec265)
++#  add_subdirectory (dec265)
+ endif()
+ if (ENABLE_ENCODER)
+-  add_subdirectory (enc265)
++#  add_subdirectory (enc265)
+ endif()
