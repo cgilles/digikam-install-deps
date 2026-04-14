@@ -202,6 +202,7 @@ optional_packages=("ccache"                             # For compiling
                    "liblensfun-dev"
                    "hunspell"                           # For check spelling
                    "libhunspell-dev"                    # For check spelling
+                   "nasm"
 )
 
 for pkg in ${optional_packages[@]}; do
