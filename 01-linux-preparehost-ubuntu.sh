@@ -212,6 +212,11 @@ optional_packages=("ccache"                             # For compiling
                    "libopencore-amrwb-dev"
                    "libopus-dev"
                    "libspeex-dev"
+                   "libtheora-dev"
+                   "libvorbis-dev"
+                   "libvpx-dev"
+                   "libx264-dev"
+                   "libxvidcore-dev"
 )
 
 for pkg in ${optional_packages[@]}; do
