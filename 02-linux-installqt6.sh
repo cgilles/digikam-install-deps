@@ -94,9 +94,9 @@ $INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
 
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_jasper                -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libde265              -- -j$CPU_CORES
-$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libjxl                -- -j$CPU_CORES
-$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libaom                -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libavif               -- -j$CPU_CORES
+#$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libjxl                -- -j$CPU_CORES
+#$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libaom                -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_ffmpeg                -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl               -- -j$CPU_CORES
 

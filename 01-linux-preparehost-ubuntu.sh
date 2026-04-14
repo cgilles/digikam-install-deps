@@ -203,6 +203,9 @@ optional_packages=("ccache"                             # For compiling
                    "hunspell"                           # For check spelling
                    "libhunspell-dev"                    # For check spelling
                    "nasm"
+                   "libaom-dev"
+                   "libx265-dev"
+                   "libjxl-dev"
 )
 
 for pkg in ${optional_packages[@]}; do
@@ -210,7 +213,7 @@ for pkg in ${optional_packages[@]}; do
     echo "-------------------------------------------------------------------"
 done
 
-sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev nodejs libboost-dev libavcodec-dev libavutil-dev libswresample-dev libavformat-dev libavfilter-dev libavdevice-dev libpostproc-dev libswscale-dev libx265-dev libjxl-dev
+sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev nodejs libboost-dev libavcodec-dev libavutil-dev libswresample-dev libavformat-dev libavfilter-dev libavdevice-dev libpostproc-dev libswscale-dev libavif-dev
 
 
 # Install new Nodejs >= 20 for QtWebEngine
