@@ -207,6 +207,7 @@ optional_packages=("ccache"                             # For compiling
                    "libx265-dev"
                    "libjxl-dev"
                    "libfdk-aac-dev"
+                   "libmp3lame-dev"
 )
 
 for pkg in ${optional_packages[@]}; do
