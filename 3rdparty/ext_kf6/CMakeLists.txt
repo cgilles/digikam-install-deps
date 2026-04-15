@@ -112,7 +112,7 @@ InstallKF6Component(phonon                   ${KDE_VERSION}     "${Qt6CommonOpti
 InstallKF6Component(ksanecore                ${KA_VERSION}      "${Qt6CommonOptions};-DQT_MAJOR_VERSION=6"                                                  "")
 InstallKF6Component(libksane                 ${KA_VERSION}      "${Qt6CommonOptions};-DQT_MAJOR_VERSION=6"                                                  "")
 InstallKF6Component(kfilemetadata            ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "")
-InstallKF6Component(qca                      v2.3.10            "${Qt6CommonOptions}"                                                                       "")
+InstallKF6Component(qca                      v2.3.10            "${Qt6CommonOptions};-DQt6_DIR=${EXTPREFIX}/lib/cmake/Qt6"                                  "")
 InstallKF6Component(kwallet                  ${KDE_VERSION}     "${Qt6CommonOptions};-DBUILD_KSECRETD=OFF;-DBUILD_KWALLETD=OFF;-DBUILD_KWALLET_QUERY=OFF"   "")
 InstallKF6Component(kpackage                 ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "")
 InstallKF6Component(attica                   ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "")
