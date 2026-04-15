@@ -92,7 +92,6 @@ $INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
       -DKDE_VERSION=$DK_KDE_VERSION \
       -Wno-dev
 
-$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_boost                 -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_jasper                -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libde265              -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libavif               -- -j$CPU_CORES
