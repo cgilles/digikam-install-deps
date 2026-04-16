@@ -61,6 +61,7 @@ rm -fr /usr/local/lib/libcrypto.a || true
 rm -fr /usr/local/include/openssl || true
 
 #################################################################################################
+if [ ] ; then
 
 cd $BUILDING_DIR
 
@@ -76,7 +77,7 @@ cmake $ORIG_WD/3rdparty \
       -Wno-dev
 
 cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
-
+fi
 #################################################################################################
 
 cd $BUILDING_DIR
@@ -91,7 +92,7 @@ $INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
       -DKP_VERSION=$DK_KP_VERSION \
       -DKDE_VERSION=$DK_KDE_VERSION \
       -Wno-dev
-
+if [ ] ; then
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_jasper                -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libde265              -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_libavif               -- -j$CPU_CORES
@@ -163,7 +164,7 @@ rm -fr /usr/local/lib64/libcrypto.a || true
 rm -fr /usr/local/lib/libssl.a      || true
 rm -fr /usr/local/lib/libcrypto.a   || true
 rm -fr /usr/local/include/openssl   || true
-
+fi
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_opencv                -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_heif                  -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_exiv2                 -- -j$CPU_CORES

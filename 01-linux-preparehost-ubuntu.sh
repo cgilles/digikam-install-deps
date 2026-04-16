@@ -225,8 +225,7 @@ for pkg in ${optional_packages[@]}; do
     echo "-------------------------------------------------------------------"
 done
 
-sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev nodejs libavcodec-dev libavutil-dev libswresample-dev libavformat-dev libavfilter-dev libavdevice-dev libpostproc-dev libswscale-dev libavif-dev
-
+sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev nodejs libavcodec-dev libavutil-dev libswresample-dev libavformat-dev libavfilter-dev libavdevice-dev libswscale-dev libavif-dev
 
 # Install new Nodejs >= 20 for QtWebEngine
 
