@@ -47,7 +47,7 @@ sudo apt-get upgrade
 # benefit from a higher version of certain software, update the key
 
 sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com
-sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
+sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu $LINUX_CODENAME-security main"
 
 # To fix GPP key error with some repositories
 # See: https://www.skyminds.net/linux-resoudre-les-erreurs-communes-de-cle-gpg-dans-apt/

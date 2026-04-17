@@ -127,27 +127,22 @@ if [ -f /etc/os-release ]; then
     # freedesktop.org and systemd
     . /etc/os-release
     LINUX_NAME=$NAME
+    LINUX_CODENAME=$VERSION_CODENAME
     LINUX_VERSION=$VERSION_ID
 elif type lsb_release >/dev/null 2>&1; then
     # linuxbase.org
     LINUX_NAME=$(lsb_release -si)
+    LINUX_CODENAME=$(lsb_release -sc)
     LINUX_VERSION=$(lsb_release -sr)
 elif [ -f /etc/lsb-release ]; then
     # For some versions of Debian/Ubuntu without lsb_release command
     . /etc/lsb-release
     LINUX_NAME=$DISTRIB_ID
+    LINUX_CODENAME=$DISTRIB_CODENAME
     LINUX_VERSION=$DISTRIB_RELEASE
-elif [ -f /etc/debian_version ]; then
-    # Older Debian/Ubuntu/etc.
-    LINUX_NAME=Debian
-    LINUX_VERSION=$(cat /etc/debian_version)
-else
-    # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
-    LINUX_NAME=$(uname -s)
-    LINUX_VERSION=$(uname -r)
 fi
 
-echo "System Info: $LINUX_NAME $LINUX_VERSION"
+echo "System Info: $LINUX_NAME $LINUX_VERSION $LINUX_CODENAME"
 
 }
 
