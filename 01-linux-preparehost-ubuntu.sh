@@ -37,12 +37,16 @@ ChecksRunAsRoot
 StartScript
 ChecksLinuxVersionAndName
 
-# Import the official Ubuntu key
+# Import the official Ubuntu key for Ubuntu <= 24.*
 
-if [ ! -f /usr/share/keyrings/ubuntu-archive-keyring.gpg ]; then
+if [ "${LINUX_VERSION%.*}" -le 24 ]; then
 
-    sudo curl -fsSL http://archive.ubuntu.com/ubuntu/project/ubuntu-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/ubuntu-archive-keyring.gpg
-    sudo chmod 644 /usr/share/keyrings/ubuntu-archive-keyring.gpg
+    if [ ! -f /usr/share/keyrings/ubuntu-archive-keyring.gpg ]; then
+
+        sudo curl -fsSL http://archive.ubuntu.com/ubuntu/project/ubuntu-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/ubuntu-archive-keyring.gpg
+        sudo chmod 644 /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+    fi
 
 fi
 
@@ -55,23 +59,27 @@ sudo apt-get upgrade -y || true
 
 # benefit from a higher version of certain software, update the key
 
-# Import the missing GPG keys automatically
+if [ "${LINUX_VERSION%.*}" -le 24 ]; then
 
-sudo apt-get update 2>&1 | grep -oE "NO_PUBKEY [0-9A-Fa-f]+" | awk '{print $2}' | xargs -r -- sudo sh -c 'for key in "$@"; do
-    sudo gpg --no-default-keyring --keyring /usr/share/keyrings/"${key}-archive-keyring.gpg" --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys "$key"
-    echo "deb [signed-by=/usr/share/keyrings/${key}-archive-keyring.gpg] http://archive.ubuntu.com/ubuntu $LINUX_CODENAME main restricted universe multiverse" | sudo tee /etc/apt/sources.list.d/"${key}.list"
-done' --
+    # Import the missing GPG keys automatically
 
-# Add the security repository with the official key
+    sudo apt-get update 2>&1 | grep -oE "NO_PUBKEY [0-9A-Fa-f]+" | awk '{print $2}' | xargs -r -- sudo sh -c 'for key in "$@"; do
+        sudo gpg --no-default-keyring --keyring /usr/share/keyrings/"${key}-archive-keyring.gpg" --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys "$key"
+        echo "deb [signed-by=/usr/share/keyrings/${key}-archive-keyring.gpg] http://archive.ubuntu.com/ubuntu $LINUX_CODENAME main restricted universe multiverse" | sudo tee /etc/apt/sources.list.d/"${key}.list"
+    done' --
 
-echo "deb [signed-by=/usr/share/keyrings/ubuntu-archive-keyring.gpg] http://security.ubuntu.com/ubuntu $LINUX_CODENAME-security main" | sudo tee /etc/apt/sources.list.d/security.list
+    # Add the security repository with the official key
 
-# To fix GPP key error with some repositories
-# See: https://www.skyminds.net/linux-resoudre-les-erreurs-communes-de-cle-gpg-dans-apt/
+    echo "deb [signed-by=/usr/share/keyrings/ubuntu-archive-keyring.gpg] http://security.ubuntu.com/ubuntu $LINUX_CODENAME-security main" | sudo tee /etc/apt/sources.list.d/security.list
 
-sudo apt-get update 2>&1 | \
-    sed -ne 's?^.*NO_PUBKEY ??p' | \
-    xargs -r -- sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys
+    # To fix GPP key error with some repositories
+    # See: https://www.skyminds.net/linux-resoudre-les-erreurs-communes-de-cle-gpg-dans-apt/
+
+    sudo apt-get update 2>&1 | \
+        sed -ne 's?^.*NO_PUBKEY ??p' | \
+        xargs -r -- sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys
+
+fi
 
 echo -e "---------- Install New Development Packages\n"
 
