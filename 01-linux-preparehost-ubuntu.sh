@@ -146,6 +146,7 @@ optional_packages=("ccache"                             # For compiling
                    "libclang-19-dev"
                    "python"
                    "python3-lxml"
+                   "python3-spdx-tools"
                    "libnss3-dev"
                    "fuse3"
                    "automake"
