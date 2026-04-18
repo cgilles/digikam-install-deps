@@ -260,11 +260,15 @@ done
 
 sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev nodejs
 
-# Install new Nodejs >= 20 for QtWebEngine
+if [ "${LINUX_VERSION%.*}" -le 24 ]; then
 
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt-get install -y nodejs
-node --version
+    # Install new Nodejs >= 20 for QtWebEngine
+
+    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    node --version
+
+fi
 
 #################################################################################################
 
