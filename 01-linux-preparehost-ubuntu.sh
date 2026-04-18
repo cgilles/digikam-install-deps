@@ -252,6 +252,7 @@ optional_packages=("ccache"                             # For compiling
                    "libavdevice-dev"
                    "libswscale-dev"
                    "libavif-dev"
+                   "nodejs"
 )
 
 for pkg in ${optional_packages[@]}; do
@@ -259,9 +260,11 @@ for pkg in ${optional_packages[@]}; do
     echo "-------------------------------------------------------------------"
 done
 
-sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev nodejs
+sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev
 
 if [ "${LINUX_VERSION%.*}" -le 24 ]; then
+
+    sudo apt remove nodejs
 
     # Install new Nodejs >= 20 for QtWebEngine
 
