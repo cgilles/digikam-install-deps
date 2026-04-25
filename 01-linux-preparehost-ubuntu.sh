@@ -230,6 +230,7 @@ optional_packages=("ccache"                             # For compiling
                    "libhunspell-dev"                    # For check spelling
                    "nasm"
                    "libaom-dev"
+                   "libde265-dev"
                    "libx265-dev"
                    "libjxl-dev"
                    "libfdk-aac-dev"
