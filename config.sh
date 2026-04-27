@@ -24,7 +24,7 @@ DK_QTVERSION="6"
 
 # Absolute path where are downloaded all tarballs to compile.
 
-DOWNLOAD_DIR="$ORIG_WD/download.qt$DK_QTVERSION"
+DOWNLOAD_DIR="$ORIG_WD/download"
 #DOWNLOAD_DIR="/mnt/data2/download.qt$DK_QTVERSION"
 
 # Absolute path where code will be compiled.
@@ -69,57 +69,3 @@ else
 
 fi
 
-# NOTE: The order to compile each component here is very important.
-
-FRAMEWORK_COMPONENTS="\
-ext_extra-cmake-modules \
-ext_kconfig \
-ext_breeze-icons \
-ext_kcoreaddons \
-ext_kwindowsystem \
-ext_solid \
-ext_threadweaver \
-ext_karchive \
-ext_kdbusaddons \
-ext_ki18n \
-ext_kcrash \
-ext_kcodecs \
-ext_kauth \
-ext_kguiaddons \
-ext_kwidgetsaddons \
-ext_kitemviews \
-ext_kcompletion \
-ext_kcolorscheme \
-ext_kconfigwidgets \
-ext_kiconthemes \
-ext_kservice \
-ext_kglobalaccel \
-ext_kxmlgui \
-ext_kbookmarks \
-ext_kimageformats \
-ext_plasma-wayland-protocols \
-ext_knotifications \
-ext_kjobwidgets \
-ext_kio \
-ext_knotifyconfig \
-ext_sonnet \
-ext_ktextwidgets \
-ext_qca \
-ext_kwallet \
-ext_ksanecore \
-ext_libksane \
-ext_kcalendarcore \
-"
-
-
-
-#ext_kfilemetadata \
-#ext_kdoctools \
-#ext_phonon \
-#ext_qca \
-#ext_kpackage \
-#ext_attica \
-#ext_knewstuff \
-#ext_kitemmodels \
-#ext_kparts \
-#ext_krunner \
