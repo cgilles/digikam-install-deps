@@ -10,3 +10,16 @@ index 4ce66fd..99b9971 100644
  
  #include "perfetto/base/logging.h"
  
+diff --git a/qtwebengine/src/3rdparty/chromium/third_party/perfetto/src/trace_processor/importers/gzip/gzip_utils.cc b/qtwebengine/src/3rdparty/chromium/third_party/perfetto/src/trace_processor/importers/gzip/gzip_utils.cc
+index 8a30c7f..a5ffb6f 100644
+--- a/qtwebengine/src/3rdparty/chromium/third_party/perfetto/src/trace_processor/importers/gzip/gzip_utils.cc
++++ b/qtwebengine/src/3rdparty/chromium/third_party/perfetto/src/trace_processor/importers/gzip/gzip_utils.cc
+@@ -26,6 +26,8 @@
+ struct z_stream_s {};
+ #endif
+ 
++#include <cstdint>
++
+ namespace perfetto {
+ namespace trace_processor {
+ namespace gzip {
