@@ -110,7 +110,7 @@ if [[ "$(arch)" = "x86_64" ]] ; then
 
     QT_CORES=$((PHY_MEM / 4 / 2))
     echo "Qt will be compiled with $QT_CORES CPU cores."
-    taskset -c 0-$QT_CORES $INSTALL_DIR/bin/cmake --build . --parallel $QT_CORES --config RelWithDebInfo --target ext_qt6
+    taskset -c 0-$QT_CORES $INSTALL_DIR/bin/cmake --build . --parallel $QT_CORES --config RelWithDebInfo --target ext_qt$DK_QTVERSION
 
 else
 
@@ -158,7 +158,7 @@ else
 
     fi
 
-    $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt6 -- -j1
+    $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt$DK_QTVERSION -- -j1
 
 fi
 
