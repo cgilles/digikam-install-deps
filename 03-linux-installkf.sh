@@ -56,7 +56,7 @@ $INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
       -DKA_VERSION=$DK_KA_VERSION \
       -DKP_VERSION=$DK_KP_VERSION \
       -DKDE_VERSION=$DK_KDE_VERSION \
-      -DENABLE_QTVERSION=$DK_QTVERSION
+      -DENABLE_QTVERSION=$DK_QTVERSION \
       -Wno-dev
 
 # NOTE: The order to compile each component here is very important.

@@ -19,8 +19,8 @@ ORIG_WD="`pwd`"
 # - 5:    stable Qt5 release.
 # - 6:    stable Qt6 release.
 
-#DK_QTVERSION="5"
-DK_QTVERSION="6"
+DK_QTVERSION="5"
+#DK_QTVERSION="6"
 
 # Absolute path where are downloaded all tarballs to compile.
 
