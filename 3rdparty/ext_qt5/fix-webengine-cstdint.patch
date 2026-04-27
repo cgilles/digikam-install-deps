@@ -10,6 +10,18 @@ index 4ce66fd..99b9971 100644
  
  #include "perfetto/base/logging.h"
  
+diff --git a/qtwebengine/src/3rdparty/chromium/third_party/perfetto/include/perfetto/tracing/tracing_backend.h b/qtwebengine/src/3rdparty/chromium/third_party/perfetto/include/perfetto/tracing/tracing_backend.h
+index 67b0d2e..82711c6 100644
+--- a/qtwebengine/src/3rdparty/chromium/third_party/perfetto/include/perfetto/tracing/tracing_backend.h
++++ b/qtwebengine/src/3rdparty/chromium/third_party/perfetto/include/perfetto/tracing/tracing_backend.h
+@@ -19,6 +19,7 @@
+ 
+ #include <memory>
+ #include <string>
++#include <cstdint>
+ 
+ #include "perfetto/base/export.h"
+ 
 diff --git a/qtwebengine/src/3rdparty/chromium/third_party/perfetto/src/trace_processor/importers/gzip/gzip_utils.h b/qtwebengine/src/3rdparty/chromium/third_party/perfetto/src/trace_processor/importers/gzip/gzip_utils.h
 index 624363f..68783e8 100644
 --- a/qtwebengine/src/3rdparty/chromium/third_party/perfetto/src/trace_processor/importers/gzip/gzip_utils.h
