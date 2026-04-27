@@ -126,6 +126,11 @@ else
             echo "arm64: Ubuntu 24.04 is supported for Qt6 arm64 build."
         fi
 
+        if [[ "$LINUX_VERSION" == "26.04" ]] ; then
+            ARM64_SUPPORTED=true
+            echo "arm64: Ubuntu 26.04 is supported for Qt6 arm64 build."
+        fi
+
     elif [[ "$LINUX_NAME" == *"Debian"* ]] ; then
 
         if [[ "$LINUX_VERSION" == "11.6" || "$LINUX_VERSION" == "11" || "$LINUX_VERSION" == "12" ]] ; then
