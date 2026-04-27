@@ -1,0 +1,12 @@
+diff --git a/qtwebengine/src/3rdparty/chromium/third_party/perfetto/include/perfetto/ext/tracing/core/slice.h b/qtwebengine/src/3rdparty/chromium/third_party/perfetto/include/perfetto/ext/tracing/core/slice.h
+index 4ce66fd..99b9971 100644
+--- a/qtwebengine/src/3rdparty/chromium/third_party/perfetto/include/perfetto/ext/tracing/core/slice.h
++++ b/qtwebengine/src/3rdparty/chromium/third_party/perfetto/include/perfetto/ext/tracing/core/slice.h
+@@ -23,6 +23,7 @@
+ #include <memory>
+ #include <string>
+ #include <vector>
++#include <cstdint>
+ 
+ #include "perfetto/base/logging.h"
+ 
