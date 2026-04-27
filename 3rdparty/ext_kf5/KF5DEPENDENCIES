@@ -1,0 +1,21 @@
+Order : Modules           : DK dependency : Inter-dependencies                                                                                              :   Compilation options to use
+------+-------------------+---------------:-----------------------------------------------------------------------------------------------------------------+--------------------------------------------------
+  1   : extracmakemodules :       X       : -                                                                                                               : -
+  2   : kconfig           :       X       : -                                                                                                               : -
+  3   : kcoreaddons       :       X       : -                                                                                                               : -
+  4   : kwindowsystem     :       X       : -                                                                                                               : -
+  5   : solid             :       X       : -                                                                                                               : Use default options to off.
+  6   : sonnet            :       X       : -                                                                                                               : Use default options to off.
+  7   : threadweaver      :       X       : -                                                                                                               : -
+  8   : ki18n             :       X       : qt5script                                                                                                       : BUILD_WITH_QTSCRIPT=ON.
+  9   : kcrash            :               : kwindowsystem, kcoreaddons                                                                                      : -
+  10  : ktextwidgets      :               : kcompletion, kconfig, kconfigwidgets, ki18n, kiconthemes, kservice, kwidgetsaddons, kwindowsystem, sonnet       : -
+  11  : kxmlgui           :       X       : kcoreaddons, kitemviews, kconfig, kconfigwidgets, ki18n, kiconthemes, ktextwidgets, kwidgetsaddons,             :
+      :                   :               : kglobalaccel (not Windows), kwindowsystem                                                                                     : FORCE_DISABLE_KGLOBALACCEL=OFF
+  12  : kconfigwidgets    :               : kguiaddons, kwidgetsaddons, ki18n, kauth (not Windows), kcoreaddons, kcodecs, kconfig,                                        : -
+  13  : kiconthemes       :       X       : kconfigwidgets, ki18n, kcoreaddons, kwidgetsaddons, kitemviews                                                  : -
+  14  : kbookmarks        :               : kcodecs, kconfigwidgets, kconfig, kcoreaddons, kiconthemes, kwidgetsaddons, kxmlgui                             : -
+  15  : kservice          :       X       : kcrash, kconfig, kcoreaddons, kdbusaddons, ki18n,                                                               : -
+  16  : kio               :  webservices  : karchive, kconfig, kcoreaddons, kdbusaddons, ki18n, kservice, solid, kbookmarks, kcompletion,                   :
+      :                   :               : kconfigwidgets, kiconthemes, kitemviews, kjobwidgets, kwidgetsaddons, kwidowsystem                              : KIOCORE_ONLY=OFF
+

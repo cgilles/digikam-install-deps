@@ -1,0 +1,221 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 242026a93..8820448f4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -192,7 +192,7 @@ if(BUILD_TESTING)
+ endif()
+ 
+ add_subdirectory(kconf_update)
+-add_subdirectory(templates)
++#add_subdirectory(templates)
+ 
+ # create a Config.cmake and a ConfigVersion.cmake file and install them
+ set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5KIO")
+diff --git a/autotests/jobtest.h b/autotests/jobtest.h
+index 8379a4ab0..d3a885c51 100644
+--- a/autotests/jobtest.h
++++ b/autotests/jobtest.h
+@@ -21,6 +21,8 @@ class Job;
+ 
+ class KJob;
+ 
++#undef stat
++
+ class JobTest : public QObject
+ {
+     Q_OBJECT
+diff --git a/src/core/slaveinterface.h b/src/core/slaveinterface.h
+index 317a41c08..c6caa7969 100644
+--- a/src/core/slaveinterface.h
++++ b/src/core/slaveinterface.h
+@@ -19,6 +19,8 @@
+ 
+ class QUrl;
+ 
++#undef open
++
+ namespace KIO
+ {
+ class Connection;
+diff --git a/src/filewidgets/kfilewidget.cpp b/src/filewidgets/kfilewidget.cpp
+index 85f7a444e..b1f845c71 100644
+--- a/src/filewidgets/kfilewidget.cpp
++++ b/src/filewidgets/kfilewidget.cpp
+@@ -285,7 +285,7 @@ public:
+     bool m_confirmOverwrite = false;
+     bool m_differentHierarchyLevelItemsEntered = false;
+ 
+-    const std::array<short, 8> m_stdIconSizes = {
++    const std::array<short, 8> m_stdIconSizes = {{
+         KIconLoader::SizeSmall,
+         KIconLoader::SizeSmallMedium,
+         KIconLoader::SizeMedium,
+@@ -294,7 +294,7 @@ public:
+         KIconLoader::SizeEnormous,
+         256,
+         512,
+-    };
++    }};
+ 
+     QSlider *m_iconSizeSlider = nullptr;
+     QAction *m_zoomOutAction = nullptr;
+diff --git a/src/kcms/netpref/CMakeLists.txt b/src/kcms/netpref/CMakeLists.txt
+index b774a5807..ea5c654d8 100644
+--- a/src/kcms/netpref/CMakeLists.txt
++++ b/src/kcms/netpref/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-find_package(KF5TextWidgets ${KF_DEP_VERSION} REQUIRED)
++#find_package(KF5TextWidgets ${KF_DEP_VERSION} REQUIRED)
+ 
+ add_library(kcm_netpref MODULE)
+ 
+@@ -14,7 +14,7 @@ target_link_libraries(kcm_netpref
+     KF5::ConfigCore
+     KF5::ConfigWidgets
+     KF5::KIOCore
+-    KF5::TextWidgets # KPluralHandlingSpinBox
++#    KF5::TextWidgets # KPluralHandlingSpinBox
+   PRIVATE
+     KF5::I18n
+     KF5::CoreAddons
+diff --git a/src/kcms/netpref/netpref.cpp b/src/kcms/netpref/netpref.cpp
+index 7da34b969..236989cdc 100644
+--- a/src/kcms/netpref/netpref.cpp
++++ b/src/kcms/netpref/netpref.cpp
+@@ -12,7 +12,8 @@
+ #include <KConfigGroup>
+ #include <KLocalizedString>
+ #include <KPluginFactory>
+-#include <KPluralHandlingSpinBox>
++#include <QSpinBox>
++//#include <KPluralHandlingSpinBox>
+ #include <ioworker_defaults.h>
+ 
+ // Local
+@@ -41,26 +42,26 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
+     mainLayout->addWidget(gb_Timeout);
+ 
+     QFormLayout *timeoutLayout = new QFormLayout(gb_Timeout);
+-    sb_socketRead = new KPluralHandlingSpinBox(this);
+-    sb_socketRead->setSuffix(ki18np(" second", " seconds"));
++    sb_socketRead = new QSpinBox(this);
++    sb_socketRead->setSuffix(ki18np(" second", " seconds").toString());
+     connect(sb_socketRead, qOverload<int>(&QSpinBox::valueChanged), this, &KIOPreferences::configChanged);
+     timeoutLayout->addRow(i18n("Soc&ket read:"), sb_socketRead);
+ 
+-    sb_proxyConnect = new KPluralHandlingSpinBox(this);
++    sb_proxyConnect = new QSpinBox(this);
+     sb_proxyConnect->setValue(0);
+-    sb_proxyConnect->setSuffix(ki18np(" second", " seconds"));
++    sb_proxyConnect->setSuffix(ki18np(" second", " seconds").toString());
+     connect(sb_proxyConnect, qOverload<int>(&QSpinBox::valueChanged), this, &KIOPreferences::configChanged);
+     timeoutLayout->addRow(i18n("Pro&xy connect:"), sb_proxyConnect);
+ 
+-    sb_serverConnect = new KPluralHandlingSpinBox(this);
++    sb_serverConnect = new QSpinBox(this);
+     sb_serverConnect->setValue(0);
+-    sb_serverConnect->setSuffix(ki18np(" second", " seconds"));
++    sb_serverConnect->setSuffix(ki18np(" second", " seconds").toString());
+     connect(sb_serverConnect, qOverload<int>(&QSpinBox::valueChanged), this, &KIOPreferences::configChanged);
+     timeoutLayout->addRow(i18n("Server co&nnect:"), sb_serverConnect);
+ 
+-    sb_serverResponse = new KPluralHandlingSpinBox(this);
++    sb_serverResponse = new QSpinBox(this);
+     sb_serverResponse->setValue(0);
+-    sb_serverResponse->setSuffix(ki18np(" second", " seconds"));
++    sb_serverResponse->setSuffix(ki18np(" second", " seconds").toString());
+     connect(sb_serverResponse, qOverload<int>(&QSpinBox::valueChanged), this, &KIOPreferences::configChanged);
+     timeoutLayout->addRow(i18n("&Server response:"), sb_serverResponse);
+ 
+@@ -86,8 +87,8 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
+     auto partialLayout = new QFormLayout(partialWidget);
+     partialLayout->setContentsMargins(20, 0, 0, 0); // indent below mark partial
+ 
+-    sb_globalMinimumKeepSize = new KPluralHandlingSpinBox(this);
+-    sb_globalMinimumKeepSize->setSuffix(ki18np(" byte", " bytes"));
++    sb_globalMinimumKeepSize = new QSpinBox(this);
++    sb_globalMinimumKeepSize->setSuffix(ki18np(" byte", " bytes").toString());
+     connect(sb_globalMinimumKeepSize, qOverload<int>(&QSpinBox::valueChanged), this, &KIOPreferences::configChanged);
+     partialLayout->addRow(i18nc("@label:spinbox", "If cancelled, automatically delete partially uploaded files smaller than:"), sb_globalMinimumKeepSize);
+ 
+diff --git a/src/kcms/netpref/netpref.h b/src/kcms/netpref/netpref.h
+index f260e52db..d7c955878 100644
+--- a/src/kcms/netpref/netpref.h
++++ b/src/kcms/netpref/netpref.h
+@@ -6,7 +6,7 @@
+ class QGroupBox;
+ class QCheckBox;
+ 
+-class KPluralHandlingSpinBox;
++class QSpinBox;
+ 
+ class KIOPreferences : public KCModule
+ {
+@@ -32,14 +32,14 @@ private:
+     QGroupBox *gb_Ftp;
+     QGroupBox *gb_Timeout;
+     QCheckBox *cb_globalMarkPartial;
+-    KPluralHandlingSpinBox *sb_globalMinimumKeepSize;
++    QSpinBox *sb_globalMinimumKeepSize;
+     QCheckBox *cb_ftpEnablePasv;
+     QCheckBox *cb_ftpMarkPartial;
+ 
+-    KPluralHandlingSpinBox *sb_socketRead;
+-    KPluralHandlingSpinBox *sb_proxyConnect;
+-    KPluralHandlingSpinBox *sb_serverConnect;
+-    KPluralHandlingSpinBox *sb_serverResponse;
++    QSpinBox *sb_socketRead;
++    QSpinBox *sb_proxyConnect;
++    QSpinBox *sb_serverConnect;
++    QSpinBox *sb_serverResponse;
+ };
+ 
+ #endif // NETPREF_H
+diff --git a/src/widgets/previewjob.cpp b/src/widgets/previewjob.cpp
+index 214e3b3b3..a908d2292 100644
+--- a/src/widgets/previewjob.cpp
++++ b/src/widgets/previewjob.cpp
+@@ -223,7 +223,7 @@ void PreviewJob::setDefaultDevicePixelRatio(int defaultDevicePixelRatio)
+ 
+ void PreviewJob::setDefaultDevicePixelRatio(qreal defaultDevicePixelRatio)
+ {
+-    s_defaultDevicePixelRatio = std::ceil(defaultDevicePixelRatio);
++    s_defaultDevicePixelRatio = ceil(defaultDevicePixelRatio);
+ }
+ 
+ #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 7)
+@@ -535,7 +535,7 @@ void KIO::PreviewJob::setDevicePixelRatio(int dpr)
+ 
+ void KIO::PreviewJob::setDevicePixelRatio(qreal dpr)
+ {
+-    d_func()->devicePixelRatio = std::ceil(dpr);
++    d_func()->devicePixelRatio = ceil(dpr);
+ }
+ 
+ void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
+diff --git a/src/widgets/renamedialog.cpp b/src/widgets/renamedialog.cpp
+index 43e37ed1d..8a8b44ed7 100644
+--- a/src/widgets/renamedialog.cpp
++++ b/src/widgets/renamedialog.cpp
+@@ -427,10 +427,10 @@ RenameDialog::RenameDialog(QWidget *parent,
+ 
+         // check files contents for local files
+         if ((d->dest.isLocalFile() && !(_options & RenameDialog_DestIsDirectory)) && (d->src.isLocalFile() && !(_options & RenameDialog_SourceIsDirectory))) {
+-            const CompareFilesResult CompareFilesResult = compareFiles(d->src.toLocalFile(), d->dest.toLocalFile());
++            const CompareFilesResult res = compareFiles(d->src.toLocalFile(), d->dest.toLocalFile());
+ 
+             QString text;
+-            switch (CompareFilesResult) {
++            switch (res) {
+             case CompareFilesResult::Identical:
+                 text = i18n("The files are identical.");
+                 break;
+@@ -442,7 +442,7 @@ RenameDialog::RenameDialog(QWidget *parent,
+                 break;
+             }
+             QLabel *filesIdenticalLabel = createLabel(this, text, true);
+-            if (CompareFilesResult == CompareFilesResult::PartiallyIdentical) {
++            if (res == CompareFilesResult::PartiallyIdentical) {
+                 QLabel *pixmapLabel = new QLabel(this);
+                 pixmapLabel->setPixmap(QIcon::fromTheme(QStringLiteral("help-about")).pixmap(QSize(16, 16)));
+                 pixmapLabel->setToolTip(

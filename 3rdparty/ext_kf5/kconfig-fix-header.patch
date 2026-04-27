@@ -1,0 +1,36 @@
+diff --git a/src/kconf_update/CMakeLists.txt b/src/kconf_update/CMakeLists.txt
+index 91fb92ef..d38dc5f2 100644
+--- a/src/kconf_update/CMakeLists.txt
++++ b/src/kconf_update/CMakeLists.txt
+@@ -19,11 +19,13 @@ target_link_libraries(kconf_update Qt${QT_MAJOR_VERSION}::Core KF5::ConfigCore)
+ include(ECMMarkNonGuiExecutable)
+ ecm_mark_nongui_executable(kconf_update)
+ 
+-file(
+-  GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/kconf-exec.h
+-  CONTENT "#define KCONF_UPDATE_EXECUTABLE \"$<TARGET_FILE:kconf_update>\""
+-)
+-configure_file(config-kconf.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kconf.h )
++target_compile_definitions(kconf_update PRIVATE -DCMAKE_INSTALL_FULL_LIBDIR="${CMAKE_INSTALL_FULL_LIBDIR}")
++
++#file(
++#  GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/kconf-exec.h
++#  CONTENT "#define KCONF_UPDATE_EXECUTABLE \"$<TARGET_FILE:kconf_update>\""
++#)
++#configure_file(config-kconf.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kconf.h )
+ 
+ # Although this is mostly an internal binary (hence installing it in
+ # KF5_LIBEXEC_INSTALL_DIR), it is used by kded, and so we export its location
+diff --git a/src/kconf_update/kconf_update.cpp b/src/kconf_update/kconf_update.cpp
+index ae4d25fe..61644216 100644
+--- a/src/kconf_update/kconf_update.cpp
++++ b/src/kconf_update/kconf_update.cpp
+@@ -5,7 +5,7 @@
+     SPDX-License-Identifier: LGPL-2.0-only
+ */
+ 
+-#include <config-kconf.h> // CMAKE_INSTALL_FULL_LIBDIR
++//#include <config-kconf.h> // CMAKE_INSTALL_FULL_LIBDIR
+ 
+ #include <cstdlib>
+ 

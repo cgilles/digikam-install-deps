@@ -15,34 +15,59 @@
 
 ORIG_WD="`pwd`"
 
+# Qt version to use in bundle. Possible values:
+# - 5:    stable Qt5 release.
+# - 6:    stable Qt6 release.
+
+#DK_QTVERSION="5"
+DK_QTVERSION="6"
+
 # Absolute path where are downloaded all tarballs to compile.
 
-DOWNLOAD_DIR="$ORIG_WD/download.qt6"
-#DOWNLOAD_DIR="/mnt/data2/download.qt6"
+DOWNLOAD_DIR="$ORIG_WD/download.qt$DK_QTVERSION"
+#DOWNLOAD_DIR="/mnt/data2/download.qt$DK_QTVERSION"
 
 # Absolute path where code will be compiled.
 
-BUILDING_DIR="$ORIG_WD/build.qt6"
-#BUILDING_DIR="/mnt/data2/build.qt6"
+BUILDING_DIR="$ORIG_WD/build.qt$DK_QTVERSION"
+#BUILDING_DIR="/mnt/data2/build.qt$DK_QTVERSION"
 
 # Absolute path where Qt will be installed.
 
-#INSTALL_DIR="$ORIG_WD/qt6"
-INSTALL_DIR="/opt/qt6"
+#INSTALL_DIR="$ORIG_WD/qt$DK_QTVERSION"
+INSTALL_DIR="/opt/qt$DK_QTVERSION"
 
 ########################################################################
 
-# KDE KF6 frameworks version.
-# See official release here: https://download.kde.org/stable/frameworks/
-DK_KDE_VERSION="v6.25.0"
+if [[ $DK_QTVERSION == 5 ]] ; then
 
-# KDE Plasma version.
-# See official release here: https://download.kde.org/stable/plasma/
-DK_KP_VERSION="v6.6.4"
+    # KDE KF5 frameworks version.
+    # See official release here: https://download.kde.org/stable/frameworks/
+    DK_KDE_VERSION="5.116"
 
-# KDE Application version.
-# See official release here: https://download.kde.org/stable/release-service/
-DK_KA_VERSION="v25.12.3"
+    # KDE Plasma version.
+    # See official release here: https://download.kde.org/stable/plasma/
+    DK_KP_VERSION="5.27.12"
+
+    # KDE Application version.
+    # See official release here: https://download.kde.org/stable/release-service/
+    DK_KA_VERSION="24.05.1"
+
+else
+
+    # KDE KF6 frameworks version.
+    # See official release here: https://download.kde.org/stable/frameworks/
+    DK_KDE_VERSION="v6.25.0"
+
+    # KDE Plasma version.
+    # See official release here: https://download.kde.org/stable/plasma/
+    DK_KP_VERSION="v6.6.4"
+
+    # KDE Application version.
+    # See official release here: https://download.kde.org/stable/release-service/
+    DK_KA_VERSION="v25.12.3"
+
+fi
 
 # NOTE: The order to compile each component here is very important.
 

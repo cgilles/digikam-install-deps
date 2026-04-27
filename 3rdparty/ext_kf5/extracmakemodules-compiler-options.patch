@@ -1,0 +1,13 @@
+diff --git a/kde-modules/KDECompilerSettings.cmake b/kde-modules/KDECompilerSettings.cmake
+index cf551ca2..7b118a43 100644
+--- a/kde-modules/KDECompilerSettings.cmake
++++ b/kde-modules/KDECompilerSettings.cmake
+@@ -565,7 +565,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang"
+     # Make some warnings errors
+     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror=return-type -Werror=init-self")
+     if (KDE_INTERNAL_COMPILERSETTINGS_LEVEL VERSION_GREATER_EQUAL 5.96.0)
+-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror=undef")
++#        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror=undef")
+     endif()
+ endif()
+ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR

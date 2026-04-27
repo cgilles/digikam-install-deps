@@ -1,0 +1,13 @@
+diff --git a/qtbase/src/corelib/text/qcollator_icu.cpp b/qtbase/src/corelib/text/qcollator_icu.cpp
+index 0dca1ee9c9..e34eadecef 100644
+--- a/qtbase/src/corelib/text/qcollator_icu.cpp
++++ b/qtbase/src/corelib/text/qcollator_icu.cpp
+@@ -62,7 +62,7 @@ void QCollatorPrivate::init()
+     QByteArray name = QLocalePrivate::get(locale)->bcp47Name('_');
+     collator = ucol_open(name.constData(), &status);
+     if (U_FAILURE(status)) {
+-        qWarning("Could not create collator: %d", status);
++        qWarning() << "Could not create collator for" << name << ":: ICU return value:" << status;
+         collator = nullptr;
+         dirty = false;
+         return;

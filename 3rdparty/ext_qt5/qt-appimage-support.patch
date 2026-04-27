@@ -1,0 +1,83 @@
+diff --git a/src/platformsupport/services/genericunix/qgenericunixservices.cpp b/src/platformsupport/services/genericunix/qgenericunixservices.cpp
+index 1a3cab275d..471223fe07 100644
+--- a/qtbase/src/platformsupport/services/genericunix/qgenericunixservices.cpp
++++ b/qtbase/src/platformsupport/services/genericunix/qgenericunixservices.cpp
+@@ -170,7 +170,77 @@ static inline bool launch(const QString &launcher, const QUrl &url)
+     bool ok = false;
+     if (!args.isEmpty()) {
+         QString program = args.takeFirst();
+-        ok = QProcess::startDetached(program, args);
++
++        QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
++        qDebug() << env.toStringList();
++
++        // If we are running into AppImage bundle, switch env var to the right values.
++        if (env.contains(QLatin1String("APPIMAGE_ORIGINAL_LD_LIBRARY_PATH")) &&
++            env.contains(QLatin1String("APPIMAGE_ORIGINAL_QT_PLUGIN_PATH"))  &&
++            env.contains(QLatin1String("APPIMAGE_ORIGINAL_XDG_DATA_DIRS"))   &&
++            env.contains(QLatin1String("APPIMAGE_ORIGINAL_LD_PRELOAD"))      &&
++            env.contains(QLatin1String("APPIMAGE_ORIGINAL_PATH")))
++        {
++            qDebug() << "Adjusting environment variables for AppImage bundle";
++
++            if (!env.value(QLatin1String("APPIMAGE_ORIGINAL_LD_LIBRARY_PATH")).isEmpty())
++            {
++                env.insert(QLatin1String("LD_LIBRARY_PATH"),
++                           env.value(QLatin1String("APPIMAGE_ORIGINAL_LD_LIBRARY_PATH")));
++            }
++            else
++            {
++                env.remove(QLatin1String("LD_LIBRARY_PATH"));
++            }
++
++            if (!env.value(QLatin1String("APPIMAGE_ORIGINAL_QT_PLUGIN_PATH")).isEmpty())
++            {
++                env.insert(QLatin1String("QT_PLUGIN_PATH"),
++                           env.value(QLatin1String("APPIMAGE_ORIGINAL_QT_PLUGIN_PATH")));
++            }
++            else
++            {
++                env.remove(QLatin1String("QT_PLUGIN_PATH"));
++            }
++
++            if (!env.value(QLatin1String("APPIMAGE_ORIGINAL_XDG_DATA_DIRS")).isEmpty())
++            {
++                env.insert(QLatin1String("XDG_DATA_DIRS"),
++                           env.value(QLatin1String("APPIMAGE_ORIGINAL_XDG_DATA_DIRS")));
++            }
++            else
++            {
++                env.remove(QLatin1String("XDG_DATA_DIRS"));
++            }
++
++            if (!env.value(QLatin1String("APPIMAGE_ORIGINAL_LD_PRELOAD")).isEmpty())
++            {
++                env.insert(QLatin1String("LD_PRELOAD"),
++                           env.value(QLatin1String("APPIMAGE_ORIGINAL_LD_PRELOAD")));
++            }
++            else
++            {
++                env.remove(QLatin1String("LD_PRELOAD"));
++            }
++
++            if (!env.value(QLatin1String("APPIMAGE_ORIGINAL_PATH")).isEmpty())
++            {
++                env.insert(QLatin1String("PATH"),
++                           env.value(QLatin1String("APPIMAGE_ORIGINAL_PATH")));
++            }
++            else
++            {
++                env.remove(QLatin1String("PATH"));
++            }
++
++            qDebug() << env.toStringList();
++        }
++
++        QProcess process;
++        process.setProcessEnvironment(env);
++        process.setProgram(program);
++        process.setArguments(args);
++        ok = process.startDetached();
+     }
+ #endif
+     if (!ok)

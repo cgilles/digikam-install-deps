@@ -1,0 +1,31 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index fb2906e..db4dcce 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -48,10 +48,10 @@ set_package_properties(Canberra PROPERTIES
+     TYPE OPTIONAL)
+ if (NOT Canberra_FOUND)
+     # This is REQUIRED since you cannot tell CMake "either one of those two optional ones are required"
+-    find_package(Phonon4Qt${QT_MAJOR_VERSION} 4.6.60 NO_MODULE REQUIRED)
+-    set_package_properties(Phonon4Qt${QT_MAJOR_VERSION} PROPERTIES
+-        DESCRIPTION "Qt-based audio library"
+-        PURPOSE "Needed to preview notification sounds when Canberra isn't available")
++#    find_package(Phonon4Qt${QT_MAJOR_VERSION} 4.6.60 NO_MODULE REQUIRED)
++#    set_package_properties(Phonon4Qt${QT_MAJOR_VERSION} PROPERTIES
++#        DESCRIPTION "Qt-based audio library"
++#        PURPOSE "Needed to preview notification sounds when Canberra isn't available")
+ endif()
+ 
+ # ECM setup
+diff --git a/src/knotify-config.h.cmake b/src/knotify-config.h.cmake
+index 8b04828..e12a380 100644
+--- a/src/knotify-config.h.cmake
++++ b/src/knotify-config.h.cmake
+@@ -2,7 +2,6 @@
+ #define KNOTIFY_CONFIG_H
+ 
+ #cmakedefine01 HAVE_CANBERRA
+-#cmakedefine01 HAVE_PHONON
+ 
+ #endif /* KNOTIFY_CONFIG_H */
+ 
