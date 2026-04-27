@@ -147,6 +147,7 @@ optional_packages=("ccache"                             # For compiling
                    "python"
                    "python3-lxml"
                    "python3-spdx-tools"
+                   "python3-importlib-metadata"
                    "libnss3-dev"
                    "fuse3"
                    "automake"
