@@ -19,9 +19,9 @@ To start Qt compilation use these scripts:
 
     1) sudo ./01-linux-preparehost-ubuntu.sh
 
-    2) sudo ./02-linux-installqt.sh
+    2) sudo ./02-linux-installqt6.sh
 
-    3) sudo ./03-linux-installkf.sh
+    3) sudo ./03-linux-installkf6.sh
 
 * Install
 

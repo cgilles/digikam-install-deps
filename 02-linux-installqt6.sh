@@ -70,11 +70,9 @@ cmake $ORIG_WD/3rdparty \
       -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR \
       -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
       -DINSTALL_ROOT=$INSTALL_DIR \
-      -DEXTERNALS_BUILD_DIR=$BUILDING_DIR \
       -DKA_VERSION=$DK_KA_VERSION \
       -DKP_VERSION=$DK_KP_VERSION \
       -DKDE_VERSION=$DK_KDE_VERSION \
-      -DENABLE_QTVERSION=$DK_QTVERSION \
       -Wno-dev
 
 cmake --build . --config RelWithDebInfo --target ext_cmake    -- -j$CPU_CORES
@@ -89,11 +87,9 @@ $INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
       -DCMAKE_INSTALL_PREFIX:PATH=/$INSTALL_DIR \
       -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
       -DINSTALL_ROOT=$INSTALL_DIR \
-      -DEXTERNALS_BUILD_DIR=$BUILDING_DIR \
       -DKA_VERSION=$DK_KA_VERSION \
       -DKP_VERSION=$DK_KP_VERSION \
       -DKDE_VERSION=$DK_KDE_VERSION \
-      -DENABLE_QTVERSION=$DK_QTVERSION \
       -Wno-dev
 
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_jasper                -- -j$CPU_CORES
@@ -110,7 +106,7 @@ if [[ "$(arch)" = "x86_64" ]] ; then
 
     QT_CORES=$((PHY_MEM / 4 / 2))
     echo "Qt will be compiled with $QT_CORES CPU cores."
-    taskset -c 0-$QT_CORES $INSTALL_DIR/bin/cmake --build . --parallel $QT_CORES --config RelWithDebInfo --target ext_qt$DK_QTVERSION
+    taskset -c 0-$QT_CORES $INSTALL_DIR/bin/cmake --build . --parallel $QT_CORES --config RelWithDebInfo --target ext_qt6
 
 else
 
@@ -158,7 +154,7 @@ else
 
     fi
 
-    $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt$DK_QTVERSION -- -j1
+    $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt6 -- -j1
 
 fi
 

@@ -147,7 +147,6 @@ optional_packages=("ccache"                             # For compiling
                    "python"
                    "python3-lxml"
                    "python3-spdx-tools"
-                   "python3-importlib-metadata"
                    "libnss3-dev"
                    "fuse3"
                    "automake"
@@ -230,7 +229,6 @@ optional_packages=("ccache"                             # For compiling
                    "hunspell"                           # For check spelling
                    "libhunspell-dev"                    # For check spelling
                    "nasm"
-                   "libasound2-dev"
                    "libaom-dev"
                    "libde265-dev"
                    "libx265-dev"

@@ -97,111 +97,13 @@ SET(GLOBAL_BUILD_TYPE RelWithDebInfo)
 SET(GLOBAL_PROFILE ${GLOBAL_PROFILE} -DBUILD_TESTING=false)
 SET(PATCH_COMMAND patch)
 
-# Function to get MD5 sums from download area for a KF5 application
-# The sum is available in ${KF5_APPLICATION_MD5SUM}
-function(GetKF5ApplicationMd5Sums
-         name
-         version)
-
-    if(APPLE)
-
-        # Extract MD5 sums of KF5 application directly from server.
-        execute_process(COMMAND
-                            wget -q -O - -o /dev/null https://download.kde.org/stable/frameworks/${version}/${name}-${version}.0.tar.xz.md5
-                        COMMAND
-                            grep "tar.xz"
-                        COMMAND
-                            cut -d " " -f1
-                        RESULT_VARIABLE
-                            wgetresult
-                        OUTPUT_VARIABLE
-                            md5sm
-                        OUTPUT_STRIP_TRAILING_WHITESPACE
-        )
-
-    else() # Linux and Windows
-
-        # Extract MD5 sums of KF5 application directly from server.
-        execute_process(COMMAND
-                            wget -q -O - -o /dev/null https://download.kde.org/stable/frameworks/${version}/${name}-${version}.0.tar.xz.md5
-                        COMMAND
-                            grep "tar.xz"
-                        COMMAND
-                            cut -d " " -f1
-                        RESULT_VARIABLE
-                            wgetresult
-                        OUTPUT_VARIABLE
-                            md5sm
-                        OUTPUT_STRIP_TRAILING_WHITESPACE
-        )
-
-    endif()
-
-    message(STATUS "--------------------------------")
-    message(STATUS "KDE application    : ${name}")
-    message(STATUS "application version: ${version}")
-    message(STATUS "application MD5    : ${md5sm}")
-
-    set(${KF5_APPLICATION_MD5SUM} ${md5sm} PARENT_SCOPE)
-
-endfunction()
-
-# Function to get MD5 sums from download area for a Plasma component
-# The sum is available in ${KF5_PLASMA_MD5SUM}
-function(GetKF5PlasmaMd5Sums
-         name
-         version)
-
-    if(APPLE)
-
-        # Extract MD5 sums of KF5 Plasma component directly from server.
-        execute_process(COMMAND
-                            wget -q -O - -o /dev/null https://download.kde.org/stable/plasma/${version}/${name}-${version}.tar.xz.md5
-                        COMMAND
-                            grep "tar.xz"
-                        COMMAND
-                            cut -d " " -f1
-                        RESULT_VARIABLE
-                            wgetresult
-                        OUTPUT_VARIABLE
-                            md5sm
-                        OUTPUT_STRIP_TRAILING_WHITESPACE
-        )
-
-    else() # Linux
-
-        # Extract MD5 sums of KF5 Plasma component directly from server.
-        execute_process(COMMAND
-                            wget -q -O - -o /dev/null https://download.kde.org/stable/plasma/${version}/${name}-${version}.tar.xz.md5
-                        COMMAND
-                            grep "tar.xz"
-                        COMMAND
-                            cut -d " " -f1
-                        RESULT_VARIABLE
-                            wgetresult
-                        OUTPUT_VARIABLE
-                            md5sm
-                        OUTPUT_STRIP_TRAILING_WHITESPACE
-        )
-
-    endif()
-
-    message(STATUS "--------------------------------")
-    message(STATUS "KDE Plasma component: ${name}")
-    message(STATUS "component version   : ${version}")
-    message(STATUS "component  MD5      : ${md5sm}")
-
-    set(${KF5_PLASMA_MD5SUM} ${md5sm} PARENT_SCOPE)
-
-endfunction()
-
 # NOTE: this list must be dependency-ordered
 
 ADD_SUBDIRECTORY(ext_cmake)
 ADD_SUBDIRECTORY(ext_openssl)
 ADD_SUBDIRECTORY(ext_jasper)
-ADD_SUBDIRECTORY(ext_qt${ENABLE_QTVERSION})
-ADD_SUBDIRECTORY(ext_kf${ENABLE_QTVERSION})
+ADD_SUBDIRECTORY(ext_qt6)
+ADD_SUBDIRECTORY(ext_kf6)
 ADD_SUBDIRECTORY(ext_heif)
 ADD_SUBDIRECTORY(ext_opencv)
 ADD_SUBDIRECTORY(ext_exiv2)
@@ -211,11 +113,3 @@ ADD_SUBDIRECTORY(ext_libavif)
 ADD_SUBDIRECTORY(ext_libaom)
 ADD_SUBDIRECTORY(ext_libjxl)
 
-if (${ENABLE_QTVERSION} MATCHES "5")
-
-    # included in KF6 target.
-    add_subdirectory(ext_plasma-wayland-protocols)
-    add_subdirectory(ext_libksane)
-    add_subdirectory(ext_breeze)
-
-endif()
