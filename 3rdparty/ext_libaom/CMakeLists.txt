@@ -25,7 +25,7 @@ ExternalProject_Add(ext_libaom
 
     DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
     GIT_REPOSITORY https://aomedia.googlesource.com/aom
-    GIT_TAG v3.13.1
+    GIT_TAG v3.14.1
 
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PREFIX_libaom}
                -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}

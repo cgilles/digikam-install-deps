@@ -14,7 +14,7 @@ if(APPLE)
 
         DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
         GIT_REPOSITORY https://github.com/strukturag/libde265.git
-        GIT_TAG v1.0.16
+        GIT_TAG v1.1.1
 
         PATCH_COMMAND ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/libde265-lib-only.patch
 
@@ -38,7 +38,7 @@ else() # Linux
 
         DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
         GIT_REPOSITORY https://github.com/strukturag/libde265.git
-        GIT_TAG v1.0.16
+        GIT_TAG v1.1.1
 
         PATCH_COMMAND ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/libde265-lib-only.patch
 

@@ -52,7 +52,7 @@ if(APPLE)
         # To use official release tarball
 
         GIT_REPOSITORY https://github.com/libjxl/libjxl.git
-        GIT_TAG v0.11.2
+        GIT_TAG v0.12.0
 
         CONFIGURE_COMMAND git submodule update --init --recursive --depth 1 --recommend-shallow &&
                           cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../../bootstrap.${DK_APPLE_PACKAGE_MANAGER} <SOURCE_DIR>/. &&
@@ -74,7 +74,7 @@ else() # Linux and Windows
         DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
         GIT_REPOSITORY https://github.com/libjxl/libjxl.git
-        GIT_TAG v0.11.2
+        GIT_TAG v0.12.0
 
         CONFIGURE_COMMAND git submodule update --init --recursive --depth 1 --recommend-shallow &&
                           $(CMAKE_COMMAND) . -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_libjxl}

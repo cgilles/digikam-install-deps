@@ -15,8 +15,8 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64")
 
 else() # Intel
 
-    set(QT_URL https://download.qt.io/official_releases/qt/6.11/6.11.0/single/qt-everywhere-src-6.11.0.tar.xz)
-    set(QT_HASH a93e9f424a9d11ee8d67bf8fb1af4772)
+    set(QT_URL https://download.qt.io/official_releases/qt/6.11/6.11.1/single/qt-everywhere-src-6.11.1.tar.xz)
+    set(QT_HASH 25d4d1dd74c92b978f164e8f20805985)
 
 endif()
 
