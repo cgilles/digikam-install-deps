@@ -135,7 +135,7 @@ done
 optional_packages=("ccache"                             # For compiling
                    "bison"                              # For Qt build (>= 2.5.0)
                    "flex"                               # For compiling (>= 2.5.0)
-                   "mysql-server"                       # Run-time: mysql internal server init
+                   "mariadb-server"                     # Run-time: MariaDB internal server init
                    "wget"
                    "tar"
                    "bzip2"
@@ -225,7 +225,7 @@ optional_packages=("ccache"                             # For compiling
                    "libmagick++-dev"
                    "libgbm-dev"                         # For QtWebEngine: https://bugreports.qt.io/browse/QTBUG-129346
                    "doxygen"
-                   "default-libmysqlclient-dev"
+                   "default-libmysqlclient-dev"         # Re-routed to MariaDB
                    "liblensfun-dev"
                    "hunspell"                           # For check spelling
                    "libhunspell-dev"                    # For check spelling
