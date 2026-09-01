@@ -225,7 +225,8 @@ optional_packages=("ccache"                             # For compiling
                    "libmagick++-dev"
                    "libgbm-dev"                         # For QtWebEngine: https://bugreports.qt.io/browse/QTBUG-129346
                    "doxygen"
-                   "default-libmysqlclient-dev"         # Re-routed to MariaDB
+                   "libmariadb-dev"
+                   "libmariadb-dev-compat"
                    "liblensfun-dev"
                    "hunspell"                           # For check spelling
                    "libhunspell-dev"                    # For check spelling
@@ -262,7 +263,7 @@ for pkg in ${optional_packages[@]}; do
     echo "-------------------------------------------------------------------"
 done
 
-sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev
+sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev mysql-server default-libmysqlclient-dev libmysqlclient-dev
 
 if [ "${LINUX_VERSION%.*}" -le 24 ]; then
 
