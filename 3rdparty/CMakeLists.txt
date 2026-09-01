@@ -112,4 +112,5 @@ ADD_SUBDIRECTORY(ext_libde265)
 ADD_SUBDIRECTORY(ext_libavif)
 ADD_SUBDIRECTORY(ext_libaom)
 ADD_SUBDIRECTORY(ext_libjxl)
+ADD_SUBDIRECTORY(ext_llamacpp)
 
