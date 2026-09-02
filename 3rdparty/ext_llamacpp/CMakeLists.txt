@@ -83,10 +83,6 @@ else() # Linux
         GIT_REPOSITORY https://github.com/ggml-org/llama.cpp.git
         GIT_TAG ${LLAMA_CPP_GIT_TAG}
 
-        PATCH_COMMAND cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../scripts/create_manifest.sh <SOURCE_DIR>/. &&
-                      cd <SOURCE_DIR> &&
-                      <SOURCE_DIR>/create_manifest.sh ${EXTERNALS_DOWNLOAD_DIR} llamacpp
-
         CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_llamacpp}
                    -DCMAKE_BUILD_TYPE=Release
                    ${Llama_Conf}
