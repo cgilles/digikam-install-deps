@@ -10,7 +10,7 @@ set(PREFIX_ext_llamacpp "${EXTPREFIX}")
 # Pin to the same revision as the vendored snapshot (2026-07-07). A tagged
 # release could be used instead once confirmed to match the API the code needs.
 
-set(LLAMA_CPP_GIT_TAG v0.3.0)
+set(LLAMA_CPP_GIT_TAG v0.4.1)
 
 # Match the flags used by the vendored wrapper: library only, CPU-only, and a
 # portable CPU baseline (GGML_NATIVE OFF) so the distributed binary does not
