@@ -10,7 +10,7 @@ set(EXTPREFIX_qt ${EXTPREFIX})
 
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64")
 
-    set(QT_URL https://download.qt.io/official_releases/qt/6.10/6.11.2/single/qt-everywhere-src-6.11.2.tar.xz)
+    set(QT_URL https://download.qt.io/official_releases/qt/6.11/6.11.2/single/qt-everywhere-src-6.11.2.tar.xz)
     set(QT_HASH 669c1f3a41c37fdda389094882044d7a)
 
 else() # Intel
