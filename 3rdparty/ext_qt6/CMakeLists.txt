@@ -11,7 +11,7 @@ set(EXTPREFIX_qt ${EXTPREFIX})
 message(STATUS "Build Qt6 with OpenSSL from the system: ${ENABLE_SYSTEM_OPENSSL}")
 message(STATUS "Build Qt6 for the architecture        : ${CMAKE_SYSTEM_PROCESSOR}")
 
-if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64")
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64")
 
     set(QT_URL https://download.qt.io/official_releases/qt/6.12/6.12.0/single/qt-everywhere-src-6.12.0.tar.xz)
     set(QT_HASH ac677cc64158740f257fd37a5b4c5ffb)
