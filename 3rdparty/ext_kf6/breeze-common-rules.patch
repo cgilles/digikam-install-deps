@@ -37,12 +37,3 @@ index 7d509d10..926b1a6d 100644
  
      find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
          CoreAddons
-@@ -143,7 +143,7 @@ function(build_Qt6)
-         IconThemes
-         WindowSystem)
- 
--    find_package(Qt6 ${QT_MIN_VERSION} OPTIONAL_COMPONENTS Quick)
-+#    find_package(Qt6 ${QT_MIN_VERSION} OPTIONAL_COMPONENTS Quick)
-     if(${Qt6Quick_FOUND})
-         find_package(KF6KirigamiPlatform ${KF6_MIN_VERSION} REQUIRED)
-     endif()
