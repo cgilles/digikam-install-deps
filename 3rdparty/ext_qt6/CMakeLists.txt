@@ -18,8 +18,11 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64")
 
 else() # Intel
 
-    set(QT_URL https://download.qt.io/official_releases/qt/6.12/6.12.0/single/qt-everywhere-src-6.12.0.tar.xz)
-    set(QT_HASH ac677cc64158740f257fd37a5b4c5ffb)
+    set(QT_URL https://download.qt.io/official_releases/qt/6.11/6.11.2/single/qt-everywhere-src-6.11.2.tar.xz)
+    set(QT_HASH 669c1f3a41c37fdda389094882044d7a)
+
+#    set(QT_URL https://download.qt.io/official_releases/qt/6.12/6.12.0/single/qt-everywhere-src-6.12.0.tar.xz)
+#    set(QT_HASH ac677cc64158740f257fd37a5b4c5ffb)
 
 endif()
 
