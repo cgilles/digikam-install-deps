@@ -9,6 +9,7 @@
 set(EXTPREFIX_qt ${EXTPREFIX})
 
 message(STATUS "Build Qt6 with OpenSSL from the system: ${ENABLE_SYSTEM_OPENSSL}")
+message(STATUS "Build Qt6 for the architecture        : ${CMAKE_SYSTEM_PROCESSOR}")
 
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64")
 
@@ -21,6 +22,8 @@ else() # Intel
     set(QT_HASH 669c1f3a41c37fdda389094882044d7a)
 
 endif()
+
+message(STATUS "Downloading Qt6 archive               : ${QT_URL}")
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/qt6_cmake_path.patch.cmake.in
                ${CMAKE_CURRENT_BINARY_DIR}/qt6_cmake_path.patch)
