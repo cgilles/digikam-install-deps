@@ -87,6 +87,7 @@ ext_kwallet \
 ext_ksanecore \
 ext_libksane \
 ext_kcalendarcore \
+ext_breeze \
 "
 
 
