@@ -93,8 +93,6 @@ ext_kcalendarcore \
 
 #ext_kfilemetadata \
 #ext_kdoctools \
-#ext_phonon \
-#ext_qca \
 #ext_kpackage \
 #ext_attica \
 #ext_knewstuff \
