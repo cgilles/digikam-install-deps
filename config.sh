@@ -30,6 +30,9 @@ BUILDING_DIR="$ORIG_WD/build.qt6"
 #INSTALL_DIR="$ORIG_WD/qt6"
 INSTALL_DIR="/opt/qt6"
 
+# Turn on/off the usage of system openssl to build qt6.
+ENABLE_SYSTEM_OPENSSL=ON
+
 ########################################################################
 
 # KDE KF6 frameworks version.

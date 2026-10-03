@@ -8,10 +8,12 @@
 
 set(EXTPREFIX_qt ${EXTPREFIX})
 
+message(STATUS "Build Qt6 with OpenSSL from the system: ${ENABLE_SYSTEM_OPENSSL}")
+
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64")
 
-    set(QT_URL https://download.qt.io/official_releases/qt/6.11/6.11.2/single/qt-everywhere-src-6.11.2.tar.xz)
-    set(QT_HASH 669c1f3a41c37fdda389094882044d7a)
+    set(QT_URL https://download.qt.io/official_releases/qt/6.12/6.12.0/single/qt-everywhere-src-6.12.0.tar.xz)
+    set(QT_HASH ac677cc64158740f257fd37a5b4c5ffb)
 
 else() # Intel
 
@@ -27,27 +29,53 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/qt6_cmake_path.patch.cmake.in
 
 include("config-qt6-linux.cmake")
 
-ExternalProject_Add(ext_qt6
-    DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
+if(ENABLE_SYSTEM_OPENSSL)
 
-    URL ${QT_URL}
-    URL_MD5 ${QT_HASH}
+    ExternalProject_Add(ext_qt6
+        DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
-    PATCH_COMMAND ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/qt6-openssl-linked.patch &&
-                  ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/qt611-fix-compile.patch
+        URL ${QT_URL}
+        URL_MD5 ${QT_HASH}
 
-    CMAKE_ARGS -DOPENSSL_LIBS='-l${EXTPREFIX}/local/lib/libssl.a -l${EXTPREFIX}/local/lib/libcrypto.a -lpthread -ldl'
-               -DOPENSSL_INCDIR='${EXTPREFIX}/local/include/openssl/'
-               -DOPENSSL_LIBDIR='${EXTPREFIX}/local/lib'
+        PATCH_COMMAND ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/qt611-fix-compile.patch
 
-    CONFIGURE_COMMAND <SOURCE_DIR>/configure ${QT_CONFIG}
+        CONFIGURE_COMMAND <SOURCE_DIR>/configure ${QT_CONFIG}
 
-    # Compile with Ninja build framework.
-    BUILD_COMMAND ninja
+        # Compile with Ninja build framework.
+        BUILD_COMMAND ninja
 
-    INSTALL_COMMAND ninja install
+        INSTALL_COMMAND ninja install
 
-    UPDATE_COMMAND ""
-    BUILD_IN_SOURCE 1
-    ALWAYS 0
-)
+        UPDATE_COMMAND ""
+        BUILD_IN_SOURCE 1
+        ALWAYS 0
+    )
+
+else()
+
+    ExternalProject_Add(ext_qt6
+        DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
+
+        URL ${QT_URL}
+        URL_MD5 ${QT_HASH}
+
+        PATCH_COMMAND ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/qt6-openssl-linked.patch &&
+                      ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/qt611-fix-compile.patch
+
+        CMAKE_ARGS -DOPENSSL_LIBS='-l${EXTPREFIX}/local/lib/libssl.a -l${EXTPREFIX}/local/lib/libcrypto.a -lpthread -ldl'
+                   -DOPENSSL_INCDIR='${EXTPREFIX}/local/include/openssl/'
+                   -DOPENSSL_LIBDIR='${EXTPREFIX}/local/lib'
+
+        CONFIGURE_COMMAND <SOURCE_DIR>/configure ${QT_CONFIG}
+
+        # Compile with Ninja build framework.
+        BUILD_COMMAND ninja
+
+        INSTALL_COMMAND ninja install
+
+        UPDATE_COMMAND ""
+        BUILD_IN_SOURCE 1
+        ALWAYS 0
+    )
+
+endif()

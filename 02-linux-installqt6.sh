@@ -54,7 +54,7 @@ if [[ ! -d $INSTALL_DIR ]] ; then
 
 fi
 
-# Clean up previous openssl install
+# Clean up previous openssl install if exists.
 
 rm -fr /usr/local/lib/libssl.a    || true
 rm -fr /usr/local/lib/libcrypto.a || true
@@ -90,13 +90,18 @@ $INSTALL_DIR/bin/cmake $ORIG_WD/3rdparty \
       -DKA_VERSION=$DK_KA_VERSION \
       -DKP_VERSION=$DK_KP_VERSION \
       -DKDE_VERSION=$DK_KDE_VERSION \
+      -DENABLE_SYSTEM_OPENSSL=$ENABLE_SYSTEM_OPENSSL \
       -Wno-dev
 
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_jasper                -- -j$CPU_CORES
-$INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl               -- -j$CPU_CORES
 
-ln -s /usr/local/lib64/libssl.a    /usr/local/lib/libssl.a    || true
-ln -s /usr/local/lib64/libcrypto.a /usr/local/lib/libcrypto.a || true
+if [[ "$ENABLE_SYSTEM_OPENSSL" == "OFF" ]] ; then 
+
+    $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_openssl               -- -j$CPU_CORES
+    ln -s /usr/local/lib64/libssl.a    /usr/local/lib/libssl.a    || true
+    ln -s /usr/local/lib64/libcrypto.a /usr/local/lib/libcrypto.a || true
+
+fi
 
 # NOTE: QtWebEngine require 4Gb of RAM by CPU cores to compile in parallel.
 
@@ -154,9 +159,11 @@ else
 
     fi
 
-    $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt6 -- -j1
+    $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_qt6 -- -j2
 
 fi
+
+# Clean up openssl install if exists.
 
 rm -fr /usr/local/lib64/libssl.a    || true
 rm -fr /usr/local/lib64/libcrypto.a || true
