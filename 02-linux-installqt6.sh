@@ -176,6 +176,9 @@ $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_heif      
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_exiv2                 -- -j$CPU_CORES
 $INSTALL_DIR/bin/cmake --build . --config RelWithDebInfo --target ext_llamacpp              -- -j$CPU_CORES
 
+# ggml do not have the RPATH used by llmam (empty)
+patchelf --set-rpath $INSTALL_DIR/lib $INSTALL_DIR/lib/libllama.so.0 $INSTALL_DIR/lib/libggml-cpu.so.0 $INSTALL_DIR/lib/libggml-base.so.0 $INSTALL_DIR/lib/libggml.so.0
+
 #################################################################################################
 
 TerminateScript

@@ -256,6 +256,7 @@ optional_packages=("ccache"                             # For compiling
                    "libswscale-dev"
                    "libavif-dev"
                    "nodejs"
+                   "patchelf"
 )
 
 for pkg in ${optional_packages[@]}; do
