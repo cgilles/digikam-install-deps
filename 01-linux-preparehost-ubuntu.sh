@@ -263,7 +263,7 @@ for pkg in ${optional_packages[@]}; do
     echo "-------------------------------------------------------------------"
 done
 
-sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev mysql-server default-libmysqlclient-dev libmysqlclient-dev
+sudo apt remove libqt6*-dev libheif-dev libopencv-dev libexiv2-dev mysql-server default-libmysqlclient-dev libmysqlclient-dev libllama-dev libggml-dev
 
 if [ "${LINUX_VERSION%.*}" -le 24 ]; then
 
