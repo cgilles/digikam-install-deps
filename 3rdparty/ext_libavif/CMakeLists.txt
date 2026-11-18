@@ -64,7 +64,7 @@ else() # Linux and Windows
         GIT_REPOSITORY https://github.com/AOMediaCodec/libavif.git
         GIT_TAG v1.4.2
 
-        CONFIGURE_COMMAND $(CMAKE_COMMAND) . -DCMAKE_INSTALL_PREFIX=${PREFIX_libavif}
+        CONFIGURE_COMMAND ${CMAKE_COMMAND} . -DCMAKE_INSTALL_PREFIX=${PREFIX_libavif}
                                              -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
                                              ${AVIF_Conf}
                                              ${GLOBAL_PROFILE}

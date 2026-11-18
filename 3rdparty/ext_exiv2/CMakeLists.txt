@@ -93,7 +93,7 @@ else() # Linux
         GIT_TAG v0.28.9
 
         CONFIGURE_COMMAND cd <SOURCE_DIR> &&
-                          $(CMAKE_COMMAND) . -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_exiv2}
+                          ${CMAKE_COMMAND} . -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_exiv2}
                                              -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
                                              -DICONV_INCLUDE_DIR=${PREFIX_ext_exiv2}/include
                                              ${Exiv2_Conf}

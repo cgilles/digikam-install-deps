@@ -77,7 +77,7 @@ else() # Linux and Windows
         GIT_TAG v0.12.0
 
         CONFIGURE_COMMAND git submodule update --init --recursive --depth 1 --recommend-shallow &&
-                          $(CMAKE_COMMAND) . -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_libjxl}
+                          ${CMAKE_COMMAND} . -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_libjxl}
                                              -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
                                              -DICONV_INCLUDE_DIR=${PREFIX_ext_libjxl}/include
                                              ${JpegXL_Conf}
