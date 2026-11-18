@@ -44,9 +44,9 @@ if(APPLE)
                           cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../../bootstrap.${DK_APPLE_PACKAGE_MANAGER} <SOURCE_DIR>/. &&
                           <SOURCE_DIR>/bootstrap.${DK_APPLE_PACKAGE_MANAGER} ${PREFIX_ext_llamacpp} Release ${CMAKE_HOST_SYSTEM_PROCESSOR} ${BASH_OPTIONS}
 
-        BUILD_COMMAND cd <SOURCE_DIR>/build && $(MAKE)
+        BUILD_COMMAND cd <SOURCE_DIR>/build && ${BUNDLE_CMAKE_BUILD_COMMAND}
 
-        INSTALL_COMMAND cd <SOURCE_DIR>/build && $(MAKE) install/fast
+        INSTALL_COMMAND cd <SOURCE_DIR>/build && ${BUNDLE_CMAKE_INSTALL_COMMAND}
 
         BUILD_IN_SOURCE 1
 

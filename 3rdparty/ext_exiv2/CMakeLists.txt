@@ -52,9 +52,9 @@ if(APPLE)
                           cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../../bootstrap.${DK_APPLE_PACKAGE_MANAGER} <SOURCE_DIR>/. &&
                           <SOURCE_DIR>/bootstrap.${DK_APPLE_PACKAGE_MANAGER} ${PREFIX_ext_exiv2} RelWithDebInfo ${CMAKE_HOST_SYSTEM_PROCESSOR} ${BASH_OPTIONS}
 
-        BUILD_COMMAND cd <SOURCE_DIR>/build && $(MAKE)
+        BUILD_COMMAND cd <SOURCE_DIR>/build && ${BUNDLE_CMAKE_BUILD_COMMAND}
 
-        INSTALL_COMMAND cd <SOURCE_DIR>/build && $(MAKE) install/fast
+        INSTALL_COMMAND cd <SOURCE_DIR>/build && ${BUNDLE_CMAKE_INSTALL_COMMAND}
 
         BUILD_IN_SOURCE 1
 
@@ -99,9 +99,9 @@ else() # Linux
                                              ${Exiv2_Conf}
                                              ${GLOBAL_PROFILE}
 
-        BUILD_COMMAND cd <SOURCE_DIR> && $(MAKE)
+        BUILD_COMMAND cd <SOURCE_DIR> && ${BUNDLE_CMAKE_BUILD_COMMAND}
 
-        INSTALL_COMMAND cd <SOURCE_DIR> && $(MAKE) install/fast
+        INSTALL_COMMAND cd <SOURCE_DIR> && ${BUNDLE_CMAKE_INSTALL_COMMAND}
 
         UPDATE_COMMAND ""
         ALWAYS 0
