@@ -64,11 +64,11 @@ if(APPLE)
                           cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../../bootstrap.${DK_APPLE_PACKAGE_MANAGER} <SOURCE_DIR>/. &&
                           <SOURCE_DIR>/bootstrap.${DK_APPLE_PACKAGE_MANAGER} ${PREFIX_ext_heif} RelWithDebInfo ${ARCH_TARGET} ${Heif_conf}
 
-        BUILD_COMMAND cd <SOURCE_DIR>/build && $(MAKE)
+        BUILD_COMMAND cd <SOURCE_DIR>/build && ${BUNDLE_CMAKE_BUILD_COMMAND}
 
         BUILD_IN_SOURCE 1
 
-        INSTALL_COMMAND cd <SOURCE_DIR>/build && $(MAKE) install/fast
+        INSTALL_COMMAND cd <SOURCE_DIR>/build && ${BUNDLE_CMAKE_INSTALL_COMMAND}
 
         UPDATE_COMMAND ""
         ALWAYS 0
@@ -85,7 +85,7 @@ else() # Linux
         PATCH_COMMAND git reset --hard && ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/heif-lib-only.patch
 
         CONFIGURE_COMMAND cd <SOURCE_DIR> &&
-                          $(CMAKE_COMMAND) . -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_heif}
+                          ${CMAKE_COMMAND} . -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_heif}
                           -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
                           ${GLOBAL_PROFILE}
                           ${Heif_Conf}

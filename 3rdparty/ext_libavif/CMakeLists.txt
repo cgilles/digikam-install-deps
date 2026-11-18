@@ -45,9 +45,9 @@ if(APPLE)
         CONFIGURE_COMMAND cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../../bootstrap.${DK_APPLE_PACKAGE_MANAGER} <SOURCE_DIR>/. &&
                           <SOURCE_DIR>/bootstrap.${DK_APPLE_PACKAGE_MANAGER} ${PREFIX_libavif} RelWithDebInfo ${ARCH_TARGET} ${BASH_OPTIONS_AVIF}
 
-        BUILD_COMMAND cd <SOURCE_DIR>/build && $(MAKE)
+        BUILD_COMMAND cd <SOURCE_DIR>/build && ${BUNDLE_CMAKE_BUILD_COMMAND}
 
-        INSTALL_COMMAND cd <SOURCE_DIR>/build && $(MAKE) install/fast
+        INSTALL_COMMAND cd <SOURCE_DIR>/build && ${BUNDLE_CMAKE_INSTALL_COMMAND}
 
         BUILD_IN_SOURCE 1
 
@@ -64,14 +64,14 @@ else() # Linux and Windows
         GIT_REPOSITORY https://github.com/AOMediaCodec/libavif.git
         GIT_TAG v1.4.2
 
-        CONFIGURE_COMMAND $(CMAKE_COMMAND) . -DCMAKE_INSTALL_PREFIX=${PREFIX_libavif}
+        CONFIGURE_COMMAND ${CMAKE_COMMAND} . -DCMAKE_INSTALL_PREFIX=${PREFIX_libavif}
                                              -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
                                              ${AVIF_Conf}
                                              ${GLOBAL_PROFILE}
 
-        BUILD_COMMAND cd <SOURCE_DIR> && $(MAKE)
+        BUILD_COMMAND cd <SOURCE_DIR> && ${BUNDLE_CMAKE_BUILD_COMMAND}
 
-        INSTALL_COMMAND cd <SOURCE_DIR> && $(MAKE) install/fast
+        INSTALL_COMMAND cd <SOURCE_DIR> && ${BUNDLE_CMAKE_INSTALL_COMMAND}
 
         BUILD_IN_SOURCE 1
 

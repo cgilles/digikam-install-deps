@@ -81,6 +81,7 @@ ENDIF()
 
 # Tools must be obtained to work with
 INCLUDE(ExternalProject)
+INCLUDE(cmake/RecipeBuildCommands.cmake)
 
 # allow specification of a directory with pre-downloaded requirements
 if(NOT IS_DIRECTORY ${EXTERNALS_DOWNLOAD_DIR})

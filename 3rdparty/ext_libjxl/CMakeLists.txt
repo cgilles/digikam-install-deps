@@ -58,9 +58,9 @@ if(APPLE)
                           cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../../bootstrap.${DK_APPLE_PACKAGE_MANAGER} <SOURCE_DIR>/. &&
                           <SOURCE_DIR>/bootstrap.${DK_APPLE_PACKAGE_MANAGER} ${PREFIX_ext_libjxl} RelWithDebInfo ${ARCH_TARGET} ${BASH_OPTIONS}
 
-        BUILD_COMMAND cd <SOURCE_DIR>/build && $(MAKE)
+        BUILD_COMMAND cd <SOURCE_DIR>/build && ${BUNDLE_CMAKE_BUILD_COMMAND}
 
-        INSTALL_COMMAND cd <SOURCE_DIR>/build && $(MAKE) install/fast
+        INSTALL_COMMAND cd <SOURCE_DIR>/build && ${BUNDLE_CMAKE_INSTALL_COMMAND}
 
         BUILD_IN_SOURCE 1
 
@@ -77,15 +77,15 @@ else() # Linux and Windows
         GIT_TAG v0.12.0
 
         CONFIGURE_COMMAND git submodule update --init --recursive --depth 1 --recommend-shallow &&
-                          $(CMAKE_COMMAND) . -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_libjxl}
+                          ${CMAKE_COMMAND} . -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_libjxl}
                                              -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
                                              -DICONV_INCLUDE_DIR=${PREFIX_ext_libjxl}/include
                                              ${JpegXL_Conf}
                                              ${GLOBAL_PROFILE}
 
-        BUILD_COMMAND cd <SOURCE_DIR> && $(MAKE)
+        BUILD_COMMAND cd <SOURCE_DIR> && ${BUNDLE_CMAKE_BUILD_COMMAND}
 
-        INSTALL_COMMAND cd <SOURCE_DIR> && $(MAKE) install/fast
+        INSTALL_COMMAND cd <SOURCE_DIR> && ${BUNDLE_CMAKE_INSTALL_COMMAND}
 
         BUILD_IN_SOURCE 1
 
